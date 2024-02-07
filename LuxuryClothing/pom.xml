@@ -8,11 +8,13 @@
     <!-- jstl 라이브러리, ojdbc6, mybatis 3.5.9 버전 가지고 오기-->
   
   <dependencies>
+<!-- 
 	<dependency>
 	   <groupId>org.sonatype.aether</groupId>
 	   <artifactId>aether-api</artifactId>
 	   <version>1.7</version>
     </dependency>
+-->
 	<!-- jstl 라이브러리 -->
 	<dependency>
 	    <groupId>javax.servlet</groupId>
@@ -42,7 +44,7 @@
 	    <scope>provided</scope>
 	</dependency>
 
-<!-- 다른 프로젝트와 연결해줄때 사용하는 예시 지우진 말 것 
+<!-- 
 	<dependency>
 		<groupId>com.smhrd</groupId>
 		<artifactId>MassegeSystem</artifactId>

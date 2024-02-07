@@ -17,13 +17,13 @@ public class LoginCon implements Controller {
 			throws ServletException, IOException {
 		
 		// 2. 요청 데이터 꺼내오기
-		String email = request.getParameter("email");
-		String pw = request.getParameter("pw");
+		String id = request.getParameter("user_id");
+		String pw = request.getParameter("user_pw");
 		
 		// 3. 데이타 하나로 묶어주기(MemberDTO)
 		UserDTO dto = new UserDTO();
-		dto.setEmail(email);
-		dto.setPw(pw);
+		dto.setUser_id(id);
+		dto.setUser_pw(pw);
 		
 		// 4. DAO 불러오기
 		UserDAO dao = new UserDAO();
@@ -36,6 +36,7 @@ public class LoginCon implements Controller {
 		// 6. 로그인에 성공했다면 email, tel, adress session 담아서
 		if (result != null) {
 			System.out.println("로그인 성공");
+			// session 공간 불러오기
 			HttpSession session = request.getSession();
 			// session에 데이터 담기
 			session.setAttribute("result", result);

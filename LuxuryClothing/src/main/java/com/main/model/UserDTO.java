@@ -14,8 +14,8 @@ public class UserDTO {
 
 	// 반드시 테이블의 컬럼명과 필드 변수명이 같아야 한다.
 	
-	private String email;
-	private String pw;
+	private String user_id;
+	private String user_pw;
 	private String tel;
 	private String address;
 

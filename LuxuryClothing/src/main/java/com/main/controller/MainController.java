@@ -9,10 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import com.main.model.UserDAO;
-import com.main.model.UserDTO;
 
 @WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
 public class MainController extends HttpServlet {
@@ -33,7 +29,8 @@ public class MainController extends HttpServlet {
 		
 		// HashMap에 URLMapping을 키 값으로 하고, POJO(Controller)를 Value로 하도록 세팅
 		// .put (key, value);
-		handlerMapping.put("/goMain.do", new GoMainCon() );
+		handlerMapping.put("/Test_main.do", new GoMainCon() );
+		handlerMapping.put("/LoginService.do", new LoginCon() );
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,19 +55,7 @@ public class MainController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		Controller con = null;
-		
 		con = handlerMapping.get(mapping);
-		
-		// 2. 요청 Mapping 에 맞는 기능을 실행
-//		if(mapping.equals("/goMain.do")) {
-//			con = new GoMainCon();
-//			
-//		} else if (mapping.equals("/join.do")) {
-//			con = new JoinCon();
-//			
-//		} else if (mapping.equals("/login.do")) {
-//			con = new LoginCon();
-//		}
 		
 		if(con != null) {
 			nextPage = con.execute(request, response);

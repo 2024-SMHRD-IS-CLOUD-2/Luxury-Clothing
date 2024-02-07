@@ -22,11 +22,11 @@
 							</c:if>
 							
 							<c:if test="${result != null}">
-								<c:if test="${result.email == 'admin'}">
+								<c:if test="${result.user_id == 'admin'}">
 									<a href="SelectAllService">회원관리</a>
 								</c:if>
 								
-								<c:if test="${result.email != 'admin'}">
+								<c:if test="${result.user_id != 'admin'}">
 									<a href="update.jsp">개인정보 수정</a>
 								</c:if>
 								
@@ -40,9 +40,9 @@
 					<nav id="menu">	
 						<ul class="links">
 							<li><h5>로그인</h5></li>
-								<form action="LoginService" method="post">
-									<li><input type="text" name="email" placeholder="Email을 입력하세요"></li>
-									<li><input type="password" name="pw" placeholder="PW를 입력하세요"></li>
+								<form action="LoginService.do" method="post">
+									<li><input type="text" name="user_id" placeholder="Email을 입력하세요"></li>
+									<li><input type="password" name="user_pw" placeholder="PW를 입력하세요"></li>
 									<li><input type="submit" value="LogIn" class="button fit"></li>
 								</form>
 						</ul>
@@ -67,7 +67,7 @@
 								</c:if>
 								
 								<c:if test="${result != null }">
-										<h1>${result.email}님 환영합니다.</h1>
+										<h1>${result.user_id}님 환영합니다.</h1>
 								</c:if>
 								<!-- 로그인 후 로그인 한 사용자의 세션아이디로 바꾸시오.
 									 ex)smart님 환영합니다 -->
@@ -188,7 +188,7 @@
 										<span class="icon alt fa-envelope"></span>
 										<h3>Email</h3>
 										<c:if test="${result != null }">
-											<a href="#">${result.email }</a>
+											<a href="#">${result.user_id }</a>
 										</c:if>
 										<c:if test="${result == null }">
 											<a href="#">로그인 한 사람의 이메일을 출력</a>
@@ -214,7 +214,7 @@
 										<span class="icon alt fa-home"></span>
 										<h3>Address</h3>
 										<c:if test="${result != null }">
-											<span>${result.address }</span>
+											<span>${result }</span>
 										</c:if>
 										<c:if test="${result == null }">
 											<span>로그인 한 사람의 집주소를 출력</span>
