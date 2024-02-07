@@ -29,7 +29,7 @@ public class MainController extends HttpServlet {
 		
 		// HashMap에 URLMapping을 키 값으로 하고, POJO(Controller)를 Value로 하도록 세팅
 		// .put (key, value);
-		handlerMapping.put("/Test_main.do", new GoMainCon() );
+		handlerMapping.put("/test_main.do", new GoMainCon() );
 		handlerMapping.put("/LoginService.do", new LoginCon() );
 	}
 
@@ -47,7 +47,7 @@ public class MainController extends HttpServlet {
 		// login.do
 		// 문자열 슬라이싱
 		String mapping = uri.substring( cpath.length() );
-		System.out.println(mapping);
+		System.out.println("luxuryClothing : " + mapping);
 		
 		// =========================================================================
 		String nextPage = null;
@@ -72,7 +72,7 @@ public class MainController extends HttpServlet {
 				response.sendRedirect(nextPage.split(":/")[1]);
 			} else {
 				// jsp 이동시 redirect 불가, 무조건 forward만 사용가능
-				String prefix = "WEB-INF/views/"; // 접두사(앞에 붙는 경로)
+				String prefix = "WEB-INF/main/"; // 접두사(앞에 붙는 경로)
 				String suffix = ".jsp"; // 접미사(뒤에 붙는 경로)
 				
 				RequestDispatcher rd = request.getRequestDispatcher(prefix + nextPage + suffix);
