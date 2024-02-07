@@ -49,11 +49,6 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</dependency>
 -->
-  	<dependency>
-  		<groupId>com.smhrd</groupId>
-  		<artifactId>MassegeSystem</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
   </dependencies>
   
   <build>

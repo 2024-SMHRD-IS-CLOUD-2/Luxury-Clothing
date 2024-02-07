@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.smhrd.database.SqlSessionManager;
+import com.database.setting.SqlSessionManager;
 
 public class UserDAO {
 

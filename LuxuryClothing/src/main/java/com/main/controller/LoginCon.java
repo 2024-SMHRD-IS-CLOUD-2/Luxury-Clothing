@@ -44,7 +44,7 @@ public class LoginCon implements Controller {
 			System.out.println("로그인 실패");
 		}
 		// 7. main.jsp
-		return "redirect:/goMain.do";
+		return "redirect:/Test_main.do";
 		
 		
 	}
