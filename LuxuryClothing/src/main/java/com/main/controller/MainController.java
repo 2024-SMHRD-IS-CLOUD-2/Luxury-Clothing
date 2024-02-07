@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.smhrd.model.DAO;
-import com.smhrd.model.MemberDTO;
+import com.main.model.UserDAO;
+import com.main.model.UserDTO;
 
 @WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
 public class MainController extends HttpServlet {
