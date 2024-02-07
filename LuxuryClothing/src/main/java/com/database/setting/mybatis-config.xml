@@ -39,13 +39,13 @@
     </environment>
   </environments>
   
-  
-  
-  
-  
+
   <mappers>
   	<!-- mapper 파일 만들고 꼭 수정하기! -->
-    <mapper resource="com/smhrd/database/MemberMapper.xml"/>
+    <mapper resource="com/smhrd/database/UserMapper.xml"/>
+    
+    <!-- 작성 팁 맵퍼 추가할때마다 위와 같이 경로/파일명 적어줘야함! -->
+    
   </mappers>
   
   
