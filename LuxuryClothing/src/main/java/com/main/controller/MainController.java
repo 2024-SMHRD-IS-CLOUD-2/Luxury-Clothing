@@ -31,6 +31,8 @@ public class MainController extends HttpServlet {
 		// .put (key, value);
 		handlerMapping.put("/test_main.do", new GoMainCon() );
 		handlerMapping.put("/LoginService.do", new LoginCon() );
+		handlerMapping.put("/JoinService.do", new JoinCon() );
+		handlerMapping.put("/JoinOutService.do", new JoinOutCon() );
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

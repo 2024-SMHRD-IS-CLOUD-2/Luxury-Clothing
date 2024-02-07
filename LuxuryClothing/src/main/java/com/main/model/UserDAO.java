@@ -70,4 +70,13 @@ public class UserDAO {
 	 	
 		return row;
 	}
+	
+	public int joinOut(int userID) {
+		SqlSession sqlsession = factory.openSession(true);
+		
+		int res = sqlsession.delete("joinOut", userID);
+		sqlsession.close();
+		return res;
+		
+	}
 }
