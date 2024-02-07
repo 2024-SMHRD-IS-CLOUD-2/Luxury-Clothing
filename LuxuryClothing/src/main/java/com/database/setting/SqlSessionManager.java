@@ -1,4 +1,4 @@
-package com.main.database;
+package com.database.setting;
 
 import java.io.IOException;
 import java.io.InputStream;
