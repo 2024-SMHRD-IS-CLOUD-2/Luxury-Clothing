@@ -15,8 +15,8 @@ public class GoMainCon implements Controller {
 		
 		// http://localhost:8082/MassageSystem -> webapp 폴더
 		// jsp로 이동시에는 jsp 파일의 이름만 지정
-		System.out.println("luxuryClothing : Test_main");
-		return "Test_main";
+		System.out.println("luxury MainCon : test_main.jsp");
+		return "test_main";
 		
 	}
 	

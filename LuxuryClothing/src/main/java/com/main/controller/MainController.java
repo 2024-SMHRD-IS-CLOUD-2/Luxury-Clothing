@@ -47,7 +47,7 @@ public class MainController extends HttpServlet {
 		// login.do
 		// 문자열 슬라이싱
 		String mapping = uri.substring( cpath.length() );
-		System.out.println("luxuryClothing : " + mapping);
+		System.out.println("luxury MainController : " + mapping);
 		
 		// =========================================================================
 		String nextPage = null;
@@ -72,10 +72,11 @@ public class MainController extends HttpServlet {
 				response.sendRedirect(nextPage.split(":/")[1]);
 			} else {
 				// jsp 이동시 redirect 불가, 무조건 forward만 사용가능
-				String prefix = "WEB-INF/main/"; // 접두사(앞에 붙는 경로)
+				String prefix = "WEB-INF/views/"; // 접두사(앞에 붙는 경로)
 				String suffix = ".jsp"; // 접미사(뒤에 붙는 경로)
 				
 				RequestDispatcher rd = request.getRequestDispatcher(prefix + nextPage + suffix);
+				System.out.println(prefix + nextPage + suffix);
 				
 				rd.forward(request, response);
 			}
