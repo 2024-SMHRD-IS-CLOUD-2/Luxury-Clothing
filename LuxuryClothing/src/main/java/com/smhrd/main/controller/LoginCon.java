@@ -1,4 +1,4 @@
-package com.main.controller;
+package com.smhrd.main.controller;
 
 import java.io.IOException;
 
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.main.model.UserDAO;
-import com.main.model.UserDTO;
+import com.smhrd.main.model.UserDAO;
+import com.smhrd.main.model.UserDTO;
 
 public class LoginCon implements Controller {
 

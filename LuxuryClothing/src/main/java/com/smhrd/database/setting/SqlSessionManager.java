@@ -1,4 +1,4 @@
-package com.database.setting;
+package com.smhrd.database.setting;
 
 import java.io.IOException;
 import java.io.InputStream;
