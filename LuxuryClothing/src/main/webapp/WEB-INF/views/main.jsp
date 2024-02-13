@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <html lang="en">
 
   <head>
@@ -13,15 +15,15 @@
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${path}/assets/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="${path}/assets/css/font-awesome.css">
 
-    <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
+    <link rel="stylesheet" href="${path}/assets/css/templatemo-hexashop.css">
 
-    <link rel="stylesheet" href="assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="${path}/assets/css/owl-carousel.css">
 
-    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="${path}/assets/css/lightbox.css">
 <!--
 
 TemplateMo 571 Hexashop

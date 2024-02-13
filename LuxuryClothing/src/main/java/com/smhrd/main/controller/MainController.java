@@ -74,7 +74,7 @@ public class MainController extends HttpServlet {
 			} else {
 				// jsp 이동시 redirect 불가, 무조건 forward만 사용가능
 				String prefix = "WEB-INF/views/"; // 접두사(앞에 붙는 경로)
-				String suffix = ".jsp"; // 접미사(뒤에 붙는 경로)
+				String suffix = "jsp"; // 접미사(뒤에 붙는 경로)
 				
 				RequestDispatcher rd = request.getRequestDispatcher(prefix + nextPage + suffix);
 				System.out.println(prefix + nextPage + suffix);
