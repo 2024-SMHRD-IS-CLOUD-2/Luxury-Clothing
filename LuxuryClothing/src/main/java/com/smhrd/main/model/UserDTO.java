@@ -1,4 +1,4 @@
-package com.main.model;
+package com.smhrd.main.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,8 +16,13 @@ public class UserDTO {
 	
 	private String user_id;
 	private String user_pw;
-	private String tel;
-	private String address;
+	private String user_phone;
+	private String user_addr;
+	private String user_name;
+	private String user_email;
+	
+	
+	
 
 	
 

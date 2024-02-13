@@ -1,4 +1,4 @@
-package com.main.model;
+package com.smhrd.main.model;
 
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
@@ -19,7 +19,9 @@ public class UserDAO {
 		//		sql : MemberMapper.xml 파일 안에 있음
 	 	int row = sqlSession.insert("join", dto);
 		// 3. 연결객체 반납
+//	 	sqlSession.commit();
 		sqlSession.close();
+		
 	 	
 		return row;
 	}

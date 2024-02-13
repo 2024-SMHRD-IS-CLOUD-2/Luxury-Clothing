@@ -46,10 +46,12 @@
 		<ul class="actions vertical">
 			<li><h5>회원가입</h5></li>
 			<form action="JoinService.do" method="post">
-				<li><input type="text" name="email" placeholder="Email을 입력하세요"></li>
+				<li><input type="text" name="id" placeholder="Email을 입력하세요"></li>
 				<li><input type="password" name="pw" placeholder="PW를 입력하세요"></li>
-				<li><input type="text" name="tel" placeholder="전화번호를 입력하세요"></li>
+				<li><input type="text" name="phone" placeholder="전화번호를 입력하세요"></li>
 				<li><input type="text" name="address" placeholder="집주소를 입력하세요"></li>
+				<li><input type="text" name="name" placeholder="이름를 입력하세요"></li>
+				<li><input type="text" name="email" placeholder="이메일을 입력하세요"></li>
 				<li><input type="submit" value="JoinUs" class="button fit"></li>
 			</form>
 			<li><h5>회원탈퇴</h5></li>
@@ -185,7 +187,7 @@
 				<span class="icon alt fa-phone"></span>
 				<h3>Phone</h3>
 				<c:if test="${result != null }">
-					<span>${result.tel }</span>
+					<span>${result.user_phone }</span>
 				</c:if>
 				<c:if test="${result == null }">
 					<span>로그인 한 사람의 전화번호를 출력</span>
