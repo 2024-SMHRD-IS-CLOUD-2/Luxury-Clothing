@@ -1,4 +1,4 @@
-package com.main.model;
+package com.smhrd.main.model;
 
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;

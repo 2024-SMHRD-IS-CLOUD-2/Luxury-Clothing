@@ -1,4 +1,4 @@
-package com.main.controller;
+package com.smhrd.main.controller;
 
 import java.io.IOException;
 import java.util.HashMap;

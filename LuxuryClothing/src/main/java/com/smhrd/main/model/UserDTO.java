@@ -1,4 +1,4 @@
-package com.main.model;
+package com.smhrd.main.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
