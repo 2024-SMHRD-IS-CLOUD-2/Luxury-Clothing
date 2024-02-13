@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body>
-
+		<%@ include file="header.jsp" %>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -254,5 +254,6 @@
 			<script src="assets/js/main.js"></script>
 
 	</body>
+	<%@ include file="footer.jsp" %>
 </html>
 

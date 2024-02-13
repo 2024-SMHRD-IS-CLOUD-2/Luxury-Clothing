@@ -5,8 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- 	<style type="text/css">
+		.cgi-062-555-5555 {
+	  color: #000000;
+	  text-align: center;
+	  font-family: "Inter-SemiBold", sans-serif;
+	  font-size: 15px;
+	  line-height: 120%;
+	  font-weight: 600;
+	  position: absolute;
+	  left: -4802px;
+	  top: -668px;
+	}
+	</style> -->
 </head>
 <body>
-	<h1>푸터 입니다. 잘가요</h1>
+	<div class="cgi-062-555-5555">
+	  대충 회사 이름 그럴싸하게 적고
+	  <br />
+	  주소 광주 광역시 남구 CGI건물?? 어쩌구 저쩌구.. 062-555-5555
+	</div>
 </body>
 </html>
