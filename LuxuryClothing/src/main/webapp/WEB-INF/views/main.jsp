@@ -68,10 +68,10 @@ https://templatemo.com/tm-571-hexashop
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="products.html">Products</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Products</a></li>
+                                    <li><a href="#">Single Product</a></li>
+                                    <li><a href="#">Contact Us</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">
@@ -117,7 +117,7 @@ https://templatemo.com/tm-571-hexashop
             <div class="row">
                 <div class="col-lg-6">
                     <div class="left-image">
-                        <img src="assets/images/about-left-image.jpg" alt="">
+                        <img src="${path}/resources/assets/images/about-left-image.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -164,7 +164,7 @@ https://templatemo.com/tm-571-hexashop
                                     </ul>
                                 </div>
                             </div>
-                            <img src="assets/images/team-member-01.jpg">
+                            <img src="${path}/resources/assets/images/team-member-01.jpg">
                         </div>
                         <div class="down-content">
                             <h4>Ragnar Lodbrok</h4>
@@ -185,7 +185,7 @@ https://templatemo.com/tm-571-hexashop
                                     </ul>
                                 </div>
                             </div>
-                            <img src="assets/images/team-member-02.jpg">
+                            <img src="${path}/resources/assets/images/team-member-02.jpg">
                         </div>
                         <div class="down-content">
                             <h4>Ragnar Lodbrok</h4>
@@ -206,7 +206,7 @@ https://templatemo.com/tm-571-hexashop
                                     </ul>
                                 </div>
                             </div>
-                            <img src="assets/images/team-member-03.jpg">
+                            <img src="${path}/resources/assets/images/team-member-03.jpg">
                         </div>
                         <div class="down-content">
                             <h4>Ragnar Lodbrok</h4>
@@ -233,21 +233,21 @@ https://templatemo.com/tm-571-hexashop
                     <div class="service-item">
                         <h4>Synther Vaporware</h4>
                         <p>Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>
-                        <img src="assets/images/service-01.jpg" alt="">
+                        <img src="${path}/resources/assets/images/service-01.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="service-item">
                         <h4>Locavore Squidward</h4>
                         <p>Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>
-                        <img src="assets/images/service-02.jpg" alt="">
+                        <img src="${path}/resources/assets/images/service-02.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="service-item">
                         <h4>Health Gothfam</h4>
                         <p>Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>
-                        <img src="assets/images/service-03.jpg" alt="">
+                        <img src="${path}/resources/assets/images/service-03.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -314,7 +314,7 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
+                            <img src="${path}/resources/assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
                         </div>
                         <ul>
                             <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
@@ -370,26 +370,26 @@ https://templatemo.com/tm-571-hexashop
     
 
     <!-- jQuery -->
-    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="${path}/resources/assets/js/jquery-2.1.0.min.js"></script>
 
     <!-- Bootstrap -->
-    <script src="assets/js/popper.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="${path}/resources/assets/js/popper.js"></script>
+    <script src="${path}/resources/assets/js/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/accordions.js"></script>
-    <script src="assets/js/datepicker.js"></script>
-    <script src="assets/js/scrollreveal.min.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/imgfix.min.js"></script> 
-    <script src="assets/js/slick.js"></script> 
-    <script src="assets/js/lightbox.js"></script> 
-    <script src="assets/js/isotope.js"></script> 
+    <script src="${path}/resources/assets/js/owl-carousel.js"></script>
+    <script src="${path}/resources/assets/js/accordions.js"></script>
+    <script src="${path}/resources/assets/js/datepicker.js"></script>
+    <script src="${path}/resources/assets/js/scrollreveal.min.js"></script>
+    <script src="${path}/resources/assets/js/waypoints.min.js"></script>
+    <script src="${path}/resources/assets/js/jquery.counterup.min.js"></script>
+    <script src="${path}/resources/assets/js/imgfix.min.js"></script> 
+    <script src="${path}/resources/assets/js/slick.js"></script> 
+    <script src="${path}/resources/assets/js/lightbox.js"></script> 
+    <script src="${path}/resources/assets/js/isotope.js"></script> 
     
     <!-- Global Init -->
-    <script src="assets/js/custom.js"></script>
+    <script src="${path}/resources/assets/js/custom.js"></script>
 
     <script>
 
