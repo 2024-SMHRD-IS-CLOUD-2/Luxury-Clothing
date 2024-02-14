@@ -30,7 +30,7 @@ public class MainController extends HttpServlet {
 		// HashMap에 URLMapping을 키 값으로 하고, POJO(Controller)를 Value로 하도록 세팅
 		// .put (key, value);
 		handlerMapping.put("/test_main.do", new GoMainCon() );
-		handlerMapping.put("/main.do", new mainCon() );
+		handlerMapping.put("/main.do", new MainCon() );
 		handlerMapping.put("/LoginService.do", new LoginCon() );
 	}
 
@@ -74,7 +74,7 @@ public class MainController extends HttpServlet {
 			} else {
 				// jsp 이동시 redirect 불가, 무조건 forward만 사용가능
 				String prefix = "WEB-INF/views/"; // 접두사(앞에 붙는 경로)
-				String suffix = "jsp"; // 접미사(뒤에 붙는 경로)
+				String suffix = ".jsp"; // 접미사(뒤에 붙는 경로)
 				
 				RequestDispatcher rd = request.getRequestDispatcher(prefix + nextPage + suffix);
 				System.out.println(prefix + nextPage + suffix);
