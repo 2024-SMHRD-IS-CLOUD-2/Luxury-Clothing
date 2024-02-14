@@ -34,10 +34,10 @@
                             <li class="submenu">
                                 <a href="javascript:;">상품목록</a>
                                 <ul>
-                                    <li><a href="about.html">목록1</a></li>
-                                    <li><a href="products.html">목록2</a></li>
-                                    <li><a href="single-product.html">목록3</a></li>
-                                    <li><a href="contact.html">목록4</a></li>
+                                    <li><a href="about.html">상의</a></li>
+                                    <li><a href="products.html">아우터</a></li>
+                                    <li><a href="single-product.html">하의</a></li>
+                                    <li><a href="contact.html">신발</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">
