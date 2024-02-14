@@ -3,7 +3,8 @@ package com.smhrd.admin.model;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import com.database.setting.SqlSessionManager;
+
+import com.smhrd.database.setting.SqlSessionManager;
 
 
 public class AdminDAO {
