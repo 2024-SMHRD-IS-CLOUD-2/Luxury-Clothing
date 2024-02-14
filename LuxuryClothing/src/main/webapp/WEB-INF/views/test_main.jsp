@@ -19,17 +19,14 @@
 			class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a> <nav>
 		<c:if test="${result == null}">
 			<a href="#menu">로그인</a>
+		</c:if> <c:if test="${result != null && result.user_id == 'admin'}">
+			<c:url var="userListUrl" value="/user_list.do" />
+			<a href="${userListUrl}">회원관리</a>
+		</c:if> <c:if test="${result != null && result.user_id != 'admin'}">
+			<a href="update.jsp">개인정보 수정</a>
 		</c:if> <c:if test="${result != null}">
-			<c:if test="${result.user_id == 'admin'}">
-				<a href="SelectAllService">회원관리</a>
-			</c:if>
-
-			<c:if test="${result.user_id != 'admin'}">
-				<a href="update.jsp">개인정보 수정</a>
-			</c:if>
-
 			<a href="LogoutService">로그아웃</a>
-		</c:if> <!-- 로그인 후 Logout.jsp로 이동할 수 있는'로그아웃'링크와 '개인정보수정'링크를 출력하시오. --> </nav> </header>
+		</c:if> </nav> </header>
 
 		<!-- Menu -->
 		<nav id="menu">

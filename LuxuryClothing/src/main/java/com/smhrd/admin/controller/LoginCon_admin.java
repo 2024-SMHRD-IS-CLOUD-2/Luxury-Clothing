@@ -11,18 +11,18 @@ import com.smhrd.admin.model.AdminDAO;
 import com.smhrd.admin.model.AdminDTO;
 import com.smhrd.main.controller.Controller;
 
-public class LoginCon_admin implements Controller_admin {
+public class LoginCon_admin implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String id = request.getParameter("admin_id");
-		String pw = request.getParameter("admin_pw");
+		String id = request.getParameter("user_id");
+		String pw = request.getParameter("user_pw");
 		
 		AdminDTO dto = new AdminDTO();
-		dto.setAdmin_id(id);
-		dto.setAdmin_pw(pw);
+		dto.setUser_id(id);
+		dto.setUser_pw(pw);
 		
 		AdminDAO dao = new AdminDAO();
 		AdminDTO result = dao.ad_login(dto);

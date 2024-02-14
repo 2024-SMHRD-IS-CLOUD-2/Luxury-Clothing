@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.smhrd.admin.controller.SearchUserCon;
+import com.smhrd.admin.controller.selectAllCon;
+
 @WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -33,6 +36,10 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/LoginService.do", new LoginCon() );
 		handlerMapping.put("/JoinService.do", new JoinCon() );
 		handlerMapping.put("/JoinOutService.do", new JoinOutCon() );
+		handlerMapping.put("/user_list.do", new selectAllCon());
+		handlerMapping.put("/searchUser.do", new SearchUserCon());
+		
+		
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

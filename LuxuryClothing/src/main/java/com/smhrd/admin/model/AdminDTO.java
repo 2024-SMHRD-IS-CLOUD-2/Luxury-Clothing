@@ -9,11 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor	// 기본생성자 : 기본생성자는 반드시 있어야 한다.
 
 public class AdminDTO {
-	private String admin_id;
-	private String admin_pw;
-	private String admin_phone;
-	private String admin_addr;
-	private String admin_name;
-	private String admin_email;
-	
+	private String user_id;
+	private String user_pw;
+	private String user_phone;
+	private String user_name;
+	private String user_email;
+	private String user_addr;
+	private String user_grade;
+	private String joined_at;
 }
