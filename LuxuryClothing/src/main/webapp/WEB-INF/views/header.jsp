@@ -19,17 +19,18 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
+                    
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">
                             <img src="${path}/resources/assets/images/logo.png">
                         </a>
                         <!-- ***** Logo End ***** -->
+                        
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">메인</a></li>
-                            <li class="scroll-to-section"><a href="#men">남성의류</a></li>
-                            <li class="scroll-to-section"><a href="#women">여성의류</a></li>
-                            <li class="scroll-to-section"><a href="#kids">위탁상품</a></li>
+                            <li class="scroll-to-section">🔍<input type="text" placeholder="상품을 검색해보세요!">
+                            <li class="scroll-to-section"><a href="#">위탁서비스</a></li>
+                            
                             <li class="submenu">
                                 <a href="javascript:;">상품목록</a>
                                 <ul>
@@ -48,7 +49,8 @@
                                     <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">입금 조회 및 환불</a></li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="#explore">장바구니</a></li>
+                            <li class="scroll-to-section"><a href="#">장바구니</a></li>
+                            <li class="scroll-to-section"><a href="#">고객센터</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
