@@ -44,6 +44,7 @@ public class MainController extends HttpServlet {
 		
 		// MessageSystem
 		String cpath = request.getContextPath();
+		System.out.println("luxury MainController cpath : " + cpath);
 		
 		// login.do
 		// 문자열 슬라이싱
@@ -66,6 +67,7 @@ public class MainController extends HttpServlet {
 		
 		// 3. 페이지 이동
 		if(nextPage != null) {
+			System.out.println("luxury MainController nextPage : " + nextPage);
 			
 			// 페이지 이동하는 redirect / forward는 반드시 한번만 실행되어야함.
 			// 만약 redirect를 하고 싶다면, UrlMapping 앞에 "redirect:/" 문자열 붙이자 !
