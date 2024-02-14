@@ -48,7 +48,7 @@ https://templatemo.com/tm-571-hexashop
     <!-- ***** Preloader End ***** -->
     
     <!-- ***** header 불러오기 ! ***** -->
-    <%@include file ="WEB-INF/views/header.jsp" %>
+    <%@include file ="header.jsp" %>
 
 
     <!-- ***** Main Banner Area Start ***** -->
@@ -567,7 +567,7 @@ https://templatemo.com/tm-571-hexashop
     
 
     <!-- ***** footer 불러오기 ! ***** -->
-    <%@include file ="WEB-INF/views/footer.jsp" %>
+    <%@include file ="footer.jsp" %>
 
     <!-- jQuery -->
     <script src="${path}/resources/assets/js/jquery-2.1.0.min.js"></script>
