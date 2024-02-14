@@ -20,23 +20,23 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <a href="main.do" class="logo">
                             <img src="${path}/resources/assets/images/logo.png">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">메인</a></li>
-                            <li class="scroll-to-section"><a href="#men">남성의류</a></li>
-                            <li class="scroll-to-section"><a href="#women">여성의류</a></li>
-                            <li class="scroll-to-section"><a href="#kids">위탁상품</a></li>
+                            <li class="scroll-to-section"><a href="#" class="active">메인</a></li>
+                            <li class="scroll-to-section"><a href="#">위탁서비스</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">상품목록</a>
                                 <ul>
-                                    <li><a href="about.html">목록1</a></li>
-                                    <li><a href="products.html">목록2</a></li>
-                                    <li><a href="single-product.html">목록3</a></li>
-                                    <li><a href="contact.html">목록4</a></li>
+                                    <li><a href="product_list.do">전체</a></li>
+                                    <li><a href="#">모자</a></li>
+                                    <li><a href="#">상의</a></li>
+                                    <li><a href="#">하의</a></li>
+                                    <li><a href="#">신발</a></li>
+                                    <li><a href="#">악세서리</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">
@@ -49,6 +49,7 @@
                                 </ul>
                             </li>
                             <li class="scroll-to-section"><a href="#explore">장바구니</a></li>
+                            <li class="scroll-to-section"><a href="#">고객센터</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

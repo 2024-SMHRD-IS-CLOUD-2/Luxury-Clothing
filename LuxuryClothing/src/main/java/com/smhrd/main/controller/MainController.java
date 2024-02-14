@@ -32,6 +32,10 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/test_main.do", new GoMainCon() );
 		handlerMapping.put("/main.do", new MainCon() );
 		handlerMapping.put("/LoginService.do", new LoginCon() );
+		
+		
+		// 상품
+		handlerMapping.put("/product_list.do", new ProductListCon() );
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
