@@ -20,7 +20,9 @@ public class UserDAO {
 		//		sql : MemberMapper.xml 파일 안에 있음
 	 	int row = sqlSession.insert("join", dto);
 		// 3. 연결객체 반납
+//	 	sqlSession.commit();
 		sqlSession.close();
+		
 	 	
 		return row;
 	}
@@ -39,25 +41,25 @@ public class UserDAO {
 	}
 	
 	
-	// 전체회원 조회 메소드
-	public List<UserDTO> selectAll() {
-		// 1. sql 세션 빌려오기
-		SqlSession sqlSession =  factory.openSession();
-		// 2. sqlSssion 사용해서 sql 쿼리문 실행
-		// 	뭐리문 --> mapper.xml
-		List<UserDTO> resultList = sqlSession.selectList("selectAll");
-		// MemberDTO -> 한명에 대한 정보를 표현할 수 있는 type
-		// 여러명의 정보를 하나로 묶어서 표현함.
-		// 1) 객체 배열 2)ArrayList
-		// : 크기가 가변적인 ArrayList 사용했었음
-		// ArrayList의 부모 클래스 격인 List 형태로 리턴을 받아옴 !
-		
-		// 3. 연결객체 반납
-		sqlSession.close();
-		// 4. 조회한 결과 반환
-		
-		return resultList;
-	}
+//	// 전체회원 조회 메소드
+//	public List<UserDTO> selectAll() {
+//		// 1. sql 세션 빌려오기
+//		SqlSession sqlSession =  factory.openSession();
+//		// 2. sqlSssion 사용해서 sql 쿼리문 실행
+//		// 	뭐리문 --> mapper.xml
+//		List<UserDTO> resultList = sqlSession.selectList("selectAll");
+//		// MemberDTO -> 한명에 대한 정보를 표현할 수 있는 type
+//		// 여러명의 정보를 하나로 묶어서 표현함.
+//		// 1) 객체 배열 2)ArrayList
+//		// : 크기가 가변적인 ArrayList 사용했었음
+//		// ArrayList의 부모 클래스 격인 List 형태로 리턴을 받아옴 !
+//		
+//		// 3. 연결객체 반납
+//		sqlSession.close();
+//		// 4. 조회한 결과 반환
+//		
+//		return resultList;
+//	}
 
 	public int update(UserDTO dto) {
 		// 1. 연결객체(sqlsession, connection) 빌려오기
@@ -70,5 +72,14 @@ public class UserDAO {
 		sqlSession.close();
 	 	
 		return row;
+	}
+	
+	public int joinOut(int userID) {
+		SqlSession sqlsession = factory.openSession(true);
+		
+		int res = sqlsession.delete("joinOut", userID);
+		sqlsession.close();
+		return res;
+		
 	}
 }

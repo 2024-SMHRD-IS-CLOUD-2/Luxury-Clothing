@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.smhrd.admin.controller.SearchUserCon;
+import com.smhrd.admin.controller.selectAllCon;
+
 @WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,8 +33,13 @@ public class MainController extends HttpServlet {
 		// HashMap에 URLMapping을 키 값으로 하고, POJO(Controller)를 Value로 하도록 세팅
 		// .put (key, value);
 		handlerMapping.put("/test_main.do", new GoMainCon() );
-		handlerMapping.put("/main.do", new MainCon() );
 		handlerMapping.put("/LoginService.do", new LoginCon() );
+		handlerMapping.put("/JoinService.do", new JoinCon() );
+		handlerMapping.put("/JoinOutService.do", new JoinOutCon() );
+		handlerMapping.put("/user_list.do", new selectAllCon());
+		handlerMapping.put("/searchUser.do", new SearchUserCon());
+		
+		
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -44,7 +52,6 @@ public class MainController extends HttpServlet {
 		
 		// MessageSystem
 		String cpath = request.getContextPath();
-		System.out.println("luxury MainController cpath : " + cpath);
 		
 		// login.do
 		// 문자열 슬라이싱
@@ -67,7 +74,6 @@ public class MainController extends HttpServlet {
 		
 		// 3. 페이지 이동
 		if(nextPage != null) {
-			System.out.println("luxury MainController nextPage : " + nextPage);
 			
 			// 페이지 이동하는 redirect / forward는 반드시 한번만 실행되어야함.
 			// 만약 redirect를 하고 싶다면, UrlMapping 앞에 "redirect:/" 문자열 붙이자 !
