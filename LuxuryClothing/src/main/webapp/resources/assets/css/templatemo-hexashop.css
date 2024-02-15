@@ -2380,17 +2380,17 @@ responsive
 
 li.submenu{
     position: relative;
-    left: 200px;
+    left: 5%;
 }
 
 li.submenu2{
   position: relative;
-  left: 200px;
+  left: 5%;
 }
 
 li.submenu3{
 	position: relative;
-	left: 300px;
+	left: 5%;
 }
 
 a.logo{

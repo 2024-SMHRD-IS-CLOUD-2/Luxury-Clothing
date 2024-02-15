@@ -107,7 +107,7 @@ https://templatemo.com/tm-571-hexashop
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="${path}/resources//resources/assets/images/baner-right-image-02.jpg">
+                                        <img src="${path}/resources/assets/images/baner-right-image-02.jpg">
                                     </div>
                                 </div>
                             </div>
