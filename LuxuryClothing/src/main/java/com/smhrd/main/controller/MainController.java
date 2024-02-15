@@ -34,11 +34,12 @@ public class MainController extends HttpServlet {
 		// .put (key, value);
 		handlerMapping.put("/test_main.do", new GoMainCon() );
 		handlerMapping.put("/main.do", new MainCon() );
-		handlerMapping.put("/LoginService.do", new LoginCon() );
-		handlerMapping.put("/JoinService.do", new JoinCon() );
+		handlerMapping.put("/login.do", new LoginCon() );
+		handlerMapping.put("/join.do", new JoinCon() );
 		handlerMapping.put("/JoinOutService.do", new JoinOutCon() );
 		handlerMapping.put("/user_list.do", new selectAllCon());
 		handlerMapping.put("/searchUser.do", new SearchUserCon());
+		handlerMapping.put("/joinpage.do", new JoinPageCon());
 		
 		
 	}
@@ -46,11 +47,11 @@ public class MainController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 1. 요청구분
-		// http : //localhost:8081/MassageSystem/login.do
+		//http://localhost:8081/LuxuryClothing/joinpage.do
 		
 		// MessageSystem/login.do
 		String uri = request.getRequestURI();
-		
+		System.out.println(uri);
 		// MessageSystem
 		String cpath = request.getContextPath();
 		

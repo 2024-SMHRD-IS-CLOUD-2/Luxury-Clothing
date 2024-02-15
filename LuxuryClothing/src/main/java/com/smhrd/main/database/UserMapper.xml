@@ -16,11 +16,8 @@
 		구조 * setter 메소드가 없거나, 기본생성자가 없어져버린경우 문제가 발생하기도 한다 ! 알아두면 좋은 팁! : resultType 
 		에는 java 기본으로 존재하는 자료형은 굳이 명시하지 않아도 된다 ! -->
 	<insert id="join" parameterType="com.smhrd.main.model.UserDTO">
-		INSERT INTO
-		USERS(user_id,
-		user_pw, user_phone, user_addr, user_name, user_email)
-		VALUES(#{user_id}, #{user_pw}, #{user_phone}, #{user_addr},
-		#{user_name}, #{user_email})
+		INSERT INTO USERS(user_id, user_pw, user_phone, user_name, user_email, user_addr)
+		VALUES(#{user_id}, #{user_pw}, #{user_phone}, #{user_name}, #{user_email}, #{user_addr})
 	</insert>
 
 	<select id="login" parameterType="com.smhrd.main.model.UserDTO"

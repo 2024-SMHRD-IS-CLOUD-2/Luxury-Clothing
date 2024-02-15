@@ -15,22 +15,25 @@ public class JoinCon implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		// 2. 요청 데이터 꺼내오기(4개)
+		// 2. 요청 데이터 꺼내오기(6개)
 				String id = request.getParameter("id");
 				String pw = request.getParameter("pw");
 				String phone = request.getParameter("phone");
-				String address = request.getParameter("address");
 				String name = request.getParameter("name");
 				String email = request.getParameter("email");
+				String address = request.getParameter("address");
+				// String joinedAt = request.getParameter("현재시간 추출하는 파라미터 추출");
+				
 				
 				UserDTO dto = new UserDTO();
 				dto.setUser_id(id);
 				dto.setUser_pw(pw);
 				dto.setUser_phone(phone);
-				dto.setUser_addr(address);
 				dto.setUser_name(name);
 				dto.setUser_email(email);
+				dto.setUser_addr(address);
 				
+				System.out.println("luxury JoinCon : join.jsp");
 				UserDAO dao = new UserDAO();
 				int res = dao.join(dto);
 				
@@ -41,6 +44,6 @@ public class JoinCon implements Controller {
 		        	System.out.println("회원 가입 실패");
 		        }
 				
-		return "redirect:/test_main.do";
+		return "redirect:/main.do";
 	}
 }

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,38 +20,62 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                    
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        
+                        <a href="index.html" class="logo" >
                             <img src="${path}/resources/assets/images/logo.png">
                         </a>
-                        <!-- ***** Logo End ***** -->
                         
+                        <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section">🔍<input type="text" placeholder="상품을 검색해보세요!">
-                            <li class="scroll-to-section"><a href="#">위탁서비스</a></li>
+                            <!-- <li class="scroll-to-section"><a href="#top" class="active">메인</a></li> -->
+                            <!-- <li class="scroll-to-section"><a href="#men">남성의류</a></li>
+                            <li class="scroll-to-section"><a href="#women">여성의류</a></li> -->
+                            <li class="submenu">
+                                <a class="list" href="javascript:;">위탁서비스</a>
+                                <ul>
+                                    <li><a href="consignment.html">위탁안내 사항</a></li>
+                                    <li><a href="consignment_apply.html">위탁 신청</a></li>
+                                </ul>
                             
+                            </li>
                             <li class="submenu">
                                 <a href="javascript:;">상품목록</a>
                                 <ul>
-                                    <li><a href="about.html">상의</a></li>
-                                    <li><a href="products.html">아우터</a></li>
-                                    <li><a href="single-product.html">하의</a></li>
-                                    <li><a href="contact.html">신발</a></li>
+                                    <li><a href="product_list.do">전체</a></li>
+                                    <li><a href="#">모자</a></li>
+                                    <li><a href="#">상의</a></li>
+                                    <li><a href="#">하의</a></li>
+                                    <li><a href="#">신발</a></li>
+                                    <li><a href="#">악세서리</a></li>
                                 </ul>
                             </li>
-                            <li class="submenu">
-                                <a href="javascript:;">마이페이지</a>
-                                <ul>
-                                    <li><a href="#">회원정보수정</a></li>
-                                    <li><a href="#">위탁상품관리</a></li>
-                                    <li><a href="#">주문내역조회</a></li>
-                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">입금 조회 및 환불</a></li>
-                                </ul>
-                            </li>
-                            <li class="scroll-to-section"><a href="#">장바구니</a></li>
-                            <li class="scroll-to-section"><a href="#">고객센터</a></li>
+                            	<c:if test="${user_result != null}">
+		                            <li class="submenu">
+		                                <a href="javascript:;">마이페이지</a>
+		                                <ul>
+		                                    <li><a href="#">회원정보수정</a></li>
+		                                    <li><a href="#">위탁상품관리</a></li>
+		                                    <li><a href="#">주문내역조회</a></li>
+		                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">입금 조회 및 환불</a></li>
+		                                </ul>
+		                            </li>
+		                            <li class="submenu2">
+		                            	<a href="#explore">장바구니</a>
+		                            </li>
+		                        </c:if>
+		                    <c:if test="${user_result == null}">
+	                            <li class="submenu3">
+	                            	<a href="login.jsp">로그인</a>
+	                            </li>
+	                            <li class="submenu3">
+	                            	<a href="#">/</a>
+	                            </li>
+	                            <li class="submenu3">
+	                            	<a href="joinpage.do">회원가입</a>
+	                            </li>
+	                        </c:if>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
