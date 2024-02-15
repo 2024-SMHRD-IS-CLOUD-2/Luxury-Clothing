@@ -6,35 +6,15 @@
 <html lang="en">
 
 <head>
+<meta charset="UTF-8">
+<title>윈도우이름1김하늘</title>
 
-
-
-    <title>윈도우이름1김하늘</title>
-
-<!--
-
-TemplateMo 571 Hexashop
-
-https://templatemo.com/tm-571-hexashop
-
--->
 </head>
     
 <body>
     
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-    
     <!-- ***** header 불러오기 ! ***** -->
     <%@include file ="header.jsp" %>
-
 
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">

@@ -11,7 +11,7 @@
   	일치 시켜주는 것을 원칙으로 함
    -->
 
-<mapper namespace="com.smhrd.main.model.UserDAO">
+<mapper namespace="com.smhrd.products.model.ProductsDAO">
 <!-- mapper 태그 안쪽에 SQL 구문을 기술 -->
 
 	<!-- id : DAO에서 sqlSession을 사용해 Mapper파일 안쪽에 있는 SQL구분을 맞아줄때 사용 값 
@@ -28,11 +28,27 @@
 		: resultType 에는 java 기본으로 존재하는 자료형은 굳이 명시하지 않아도 된다 !
 	-->
 
-	<select id="login" parameterType="com.smhrd.main.model.UserDTO" resultType="com.smhrd.main.model.UserDTO">
-		SELECT USER_ID
-		FROM USERS 
-		WHERE USER_ID = #{user_id} 
-		AND USER_PW = #{user_pw}
+	<select id="selectProducts" resultType="com.smhrd.products.model.ProductsDTO">
+		SELECT *
+		FROM PRODUCTS
+	</select>
+	
+	<select id="selectProductsAll" parameterType="com.smhrd.products.model.ProductsDTO" resultType="com.smhrd.products.model.ProductsDTO">
+		SELECT *
+		FROM PRODUCTS
+		WHERE PROD_YN = 'Y'
+		<if test='prod_name != "" and prod_name != null'>
+			AND PROD_NAME LIKE '%'||#{prod_name}||'%'
+		</if>
+		<if test='prod_category != "상품 종류"'>
+			AND PROD_CATEGORY LIKE '%'||#{prod_category}||'%'
+		</if>
+		<if test='prod_grade != "전체 등급"'>
+			AND PROD_GRADE = #{prod_grade}
+		</if>
+		<if test='prod_priceMin != null or prod_priceMax != null'>
+			AND PROD_PRICE BETWEEN #{prod_priceMin} AND #{prod_priceMax}
+		</if>
 	</select>
 	
 </mapper>
