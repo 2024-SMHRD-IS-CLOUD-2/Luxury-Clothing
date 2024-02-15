@@ -22,13 +22,7 @@
     border-collapse: collapse;
 }
 
-/* 1열의 배경색을 회색으로 */
-td.label {
-    background-color: #cccccc;
-    text-align: right; /* 1열을 오른쪽 정렬 */
-    padding: 10px;
-    font-weight: bold;
-}
+
 
 /* 가입취소와 회원가입 버튼 위치 */
 .button-container {
@@ -47,9 +41,10 @@ td input[type="text"], td input[type="password"], td input[type="tel"], td input
 }
 /* 1열의 너비를 1.5배로 늘리고 */
 td.label {
-    width: 30%; /* 1열의 너비를 1.5배로 늘림 */
+    width: 35%; /* 1열의 너비를 1.5배로 늘림 */
     background-color: gainsboro;
     text-align: right;
+    font-weight: bold;
     padding: 10px;
 }
 
@@ -66,7 +61,7 @@ td button {
 
 .form-table {
     margin: 0 auto;
-    width: 50%;
+    width: 30%;
     border-collapse: collapse;
     border-radius: 10px; /* 테두리를 둥글게 설정 */
     overflow: hidden; /* 테두리를 둥글게 설정할 때는 overflow 속성도 함께 사용해야 합니다. */

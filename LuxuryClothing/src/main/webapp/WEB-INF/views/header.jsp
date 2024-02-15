@@ -22,7 +22,7 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         
-                        <a href="index.html" class="logo" >
+                        <a href="logo.do" class="logo" >
                             <img src="${path}/resources/assets/images/logo.png">
                         </a>
                         
