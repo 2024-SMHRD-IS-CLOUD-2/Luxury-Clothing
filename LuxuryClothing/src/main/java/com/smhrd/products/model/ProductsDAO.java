@@ -34,7 +34,8 @@ public class ProductsDAO {
 		return resultList;
 	}
 	
-	// 전체회원 조회 메소드
+	
+	// 검색조건으로 상품 리스트 메소드
 	public List<ProductsDTO> selectProductsAll(ProductsDTO dto) {
 		
 		System.out.println("ProductsDAO 방문 selectProductsAll");
@@ -44,5 +45,25 @@ public class ProductsDAO {
 		
 		return resultList;
 	}
+	
+	
+	public List<ProductImageDTO> insertProductImageUpload(ProductImageDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 ProductImageSave");
+		// factory.openSession(true) 에서 true 가 커밋여부 !
+		SqlSession sqlSession =  factory.openSession(true);
+		int result = sqlSession.insert("ProductImageSave", dto);
+		sqlSession.close();
+		
+		if (result > 0) {
+			System.out.println("ProductImageSave 상품 이미지 등록 성공!");
+		} else {
+			System.out.println("ProductImageSave 상품 이미지 등록 실패!");
+			
+		}
+
+		return null;
+	}
+	
 
 }

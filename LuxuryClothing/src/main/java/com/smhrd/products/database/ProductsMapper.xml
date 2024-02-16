@@ -27,12 +27,16 @@
 		알아두면 좋은 팁!
 		: resultType 에는 java 기본으로 존재하는 자료형은 굳이 명시하지 않아도 된다 !
 	-->
+	
+	<!-- 상품 SQL =========================================================================================================== -->
 
+	<!-- 전체 상품 조회 -->
 	<select id="selectProducts" resultType="com.smhrd.products.model.ProductsDTO">
 		SELECT *
 		FROM PRODUCTS
 	</select>
 	
+	<!-- 검색 조건으로 상품 조회 -->
 	<select id="selectProductsAll" parameterType="com.smhrd.products.model.ProductsDTO" resultType="com.smhrd.products.model.ProductsDTO">
 		SELECT *
 		FROM PRODUCTS
@@ -50,5 +54,21 @@
 			AND PROD_PRICE BETWEEN #{prod_priceMin} AND #{prod_priceMax}
 		</if>
 	</select>
+	
+	
+	
+	<!-- 이미지 SQL ============================================================================================================ -->
+	
+	<insert id="ProductImageUpload">
+        INSERT INTO image(UPLOADED_SEQ, PROD_ID, FILE_NAME, FILE_REALNAME, FILE_SIZE, FILE_EXT, FILE_PATH)
+		VALUES( #{prodUploaded_seq}
+				, #{prod_id}
+				, #{prodFile_name}
+				, TO_CHAR(SYSDATE,'YYMMDD_HH24MISS')||#{prodFile_name}
+				, #{prodFile_size}
+				, #{prodFile_ext}
+				, #{prodFile_path}
+			)
+    </insert>
 	
 </mapper>

@@ -57,7 +57,7 @@
                                     <li><a href="#">악세서리</a></li>
                                 </ul>
                             </li>
-                            <c:if test="${user_result != null}">
+                            <c:if test="${result.user_id != null}">
 		                            <li class="submenu">
 		                                <a href="javascript:;">마이페이지</a>
 		                                <ul>

@@ -67,7 +67,7 @@
 				<!-- 구매 희망가격 슬라이더 END -->
 				<input class="search_box" type="text" id="searchInput"
 					name="searchInput" placeholder="검색어를 입력하세요">
-				<button onclick="searchProducts()">검색</button>
+				<button>검색</button>
 				<button id="reset">초기화</button>
 				<div id="searchResults"></div>
 			</div>
