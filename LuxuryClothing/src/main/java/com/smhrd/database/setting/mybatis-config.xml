@@ -42,8 +42,8 @@
 
   <mappers>
   	<!-- mapper 파일 만들고 꼭 수정하기! -->
-    <mapper resource="com/main/database/UserMapper.xml"/>
-    
+    <mapper resource="com/smhrd/main/database/UserMapper.xml"/>
+    <mapper resource="com/smhrd/admin/database/AdminMapper.xml"/>
     <!-- 작성 팁 맵퍼 추가할때마다 위와 같이 경로/파일명 적어줘야함! -->
     
   </mappers>

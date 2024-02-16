@@ -30,7 +30,7 @@
 
 	<delete id="joinOut" parameterType="int">
 		DELETE FROM USERS 
-		WHERE USER_ID = #{userID}
+		WHERE USER_ID = #{user_id}
 	</delete>
 
 

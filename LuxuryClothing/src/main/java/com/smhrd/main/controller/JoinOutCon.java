@@ -33,6 +33,6 @@ public class JoinOutCon implements Controller {
         }
         
 		// 7. main.jsp
-				return "redirect:/test_main.do";
+				return "redirect:/main.do";
 	}
 }
