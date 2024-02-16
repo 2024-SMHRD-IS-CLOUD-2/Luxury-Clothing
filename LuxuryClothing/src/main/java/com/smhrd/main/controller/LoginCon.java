@@ -36,19 +36,14 @@ public class LoginCon implements Controller {
 		
 		// 6. 로그인에 성공했다면 email, tel, adress session 담아서
 		if (result != null) {
-			System.out.println("로그인 성공");
-			// session 공간 불러오기
-			HttpSession session = request.getSession();
-			// session에 데이터 담기
-			session.setAttribute("result", result);
-		// 6-2. 로그인 실패해도 main.jsp
-		} else {
-			System.out.println("로그인 실패");
-		}
-		// 7. main.jsp
-		return "redirect:/test_main.do";
-		
-		
+	        System.out.println("로그인 성공");
+	        HttpSession session = request.getSession();
+	        session.setAttribute("result", result);
+	        return "redirect:/main.do";
+	    } else {
+	        System.out.println("로그인 실패");
+	        // 실패 시 loginpage.do로 리다이렉트
+	        return "redirect:/loginpage.do";
+	    }
 	}
-
 }

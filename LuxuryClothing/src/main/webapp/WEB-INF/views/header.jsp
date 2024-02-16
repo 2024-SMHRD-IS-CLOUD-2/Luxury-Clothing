@@ -67,7 +67,7 @@
 		                        </c:if>
 		                    <c:if test="${user_result == null}">
 	                            <li class="submenu3">
-	                            	<a href="login.jsp">로그인</a>
+	                            	<a href="loginpage.do">로그인</a>
 	                            </li>
 	                            <li class="submenu3">
 	                            	<a href="#">/</a>

@@ -40,7 +40,7 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/searchUser.do", new SearchUserCon());
 		handlerMapping.put("/joinpage.do", new JoinPageCon());
 		handlerMapping.put("/logo.do", new MainCon());
-		
+		handlerMapping.put("/loginpage.do", new LoginPageCon());		
 		
 	}
 
