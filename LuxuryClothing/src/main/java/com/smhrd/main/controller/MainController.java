@@ -34,7 +34,6 @@ public class MainController extends HttpServlet {
 		
 		// HashMap에 URLMapping을 키 값으로 하고, POJO(Controller)를 Value로 하도록 세팅
 		// .put (key, value);
-		handlerMapping.put("/test_main.do", new GoMainCon() );
 		handlerMapping.put("/main.do", new MainCon() );
 		handlerMapping.put("/login.do", new LoginCon() );
 		handlerMapping.put("/join.do", new JoinCon() );
@@ -42,6 +41,7 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/user_list.do", new selectAllCon());
 		handlerMapping.put("/searchUser.do", new SearchUserCon());
 		handlerMapping.put("/joinpage.do", new JoinPageCon());
+		handlerMapping.put("/logo.do", new MainCon());
 		
 		// 상품
 		handlerMapping.put("/product_list.do", new ProductListCon() );
