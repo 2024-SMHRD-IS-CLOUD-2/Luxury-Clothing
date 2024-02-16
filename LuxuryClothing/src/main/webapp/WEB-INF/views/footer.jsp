@@ -5,17 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/font-awesome.css">
-    <link rel="stylesheet" href="${path}/resources/assets/css/templatemo-hexashop.css">
-    <link rel="stylesheet" href="${path}/resources/assets/css/owl-carousel.css">
-    <link rel="stylesheet" href="${path}/resources/assets/css/lightbox.css">
+
 </head>
 <body>
  
-
-
     <!-- ***** Footer Start ***** -->
     <footer>
                 <div class="col-lg-12">
@@ -32,5 +25,27 @@
         </div>
     </footer>
     <!-- ***** Footer End ***** -->
+    
+        <!-- jQuery -->
+    <script src="${path}/resources/assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="${path}/resources/assets/js/popper.js"></script>
+    <script src="${path}/resources/assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="${path}/resources/assets/js/owl-carousel.js"></script>
+    <script src="${path}/resources/assets/js/accordions.js"></script>
+    <script src="${path}/resources/assets/js/datepicker.js"></script>
+    <script src="${path}/resources/assets/js/scrollreveal.min.js"></script>
+    <script src="${path}/resources/assets/js/waypoints.min.js"></script>
+    <script src="${path}/resources/assets/js/jquery.counterup.min.js"></script>
+    <script src="${path}/resources/assets/js/imgfix.min.js"></script> 
+    <script src="${path}/resources/assets/js/slick.js"></script> 
+    <script src="${path}/resources/assets/js/lightbox.js"></script> 
+    <script src="${path}/resources/assets/js/isotope.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="${path}/resources/assets/js/custom.js"></script>
     </body>
 </html>

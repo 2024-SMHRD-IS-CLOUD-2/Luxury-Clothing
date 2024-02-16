@@ -22,7 +22,8 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         
-                        <a href="logo.do" class="logo" >
+                        <a href="main.do" class="logo" >
+                        
                             <img src="${path}/resources/assets/images/logo.png">
                         </a>
                         
@@ -59,6 +60,7 @@
 		                                    <li><a href="#">위탁상품관리</a></li>
 		                                    <li><a href="#">주문내역조회</a></li>
 		                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">입금 조회 및 환불</a></li>
+		                                	<li class="scroll-to-section"><a href="#explore">장바구니</a></li>
 		                                </ul>
 		                            </li>
 		                            <li class="submenu2">
@@ -76,6 +78,7 @@
 	                            	<a href="joinpage.do">회원가입</a>
 	                            </li>
 	                        </c:if>
+	                        <li class="scroll-to-section"><a href="#">고객센터</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
