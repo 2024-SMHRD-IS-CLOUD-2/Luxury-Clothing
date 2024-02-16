@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.admin.controller.SearchUserCon;
 import com.smhrd.admin.controller.selectAllCon;
+import com.smhrd.products.controller.ProductListCon;
+import com.smhrd.products.controller.ProductsSearchCon;
 
 @WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
 public class MainController extends HttpServlet {
@@ -40,7 +42,11 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/searchUser.do", new SearchUserCon());
 		handlerMapping.put("/joinpage.do", new JoinPageCon());
 		handlerMapping.put("/logo.do", new MainCon());
+		handlerMapping.put("/loginpage.do", new LoginPageCon());
 		
+		// 상품
+		handlerMapping.put("/product_list.do", new ProductListCon() );
+		handlerMapping.put("/product_search.do", new ProductsSearchCon() );
 		
 	}
 

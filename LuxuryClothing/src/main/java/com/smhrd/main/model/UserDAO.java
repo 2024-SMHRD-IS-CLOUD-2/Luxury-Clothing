@@ -1,3 +1,4 @@
+
 package com.smhrd.main.model;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class UserDAO {
 	// 로그인 메소드
 	public UserDTO login(UserDTO dto) {
 		// 1. 연결객체 빌려오기
-		SqlSession sqlSession = factory.openSession(true);
+		SqlSession sqlSession = factory.openSession();
 		// 2. 연결객체 사용해서 sql구문 실행
 		// sql 구문 --> mapper.xml
 		UserDTO result = sqlSession.selectOne("login", dto);
@@ -74,10 +75,10 @@ public class UserDAO {
 		return row;
 	}
 	
-	public int joinOut(int user_id) {
+	public int joinOut(int userID) {
 		SqlSession sqlsession = factory.openSession(true);
 		
-		int res = sqlsession.delete("joinOut", user_id);
+		int res = sqlsession.delete("joinOut", userID);
 		sqlsession.close();
 		return res;
 		
