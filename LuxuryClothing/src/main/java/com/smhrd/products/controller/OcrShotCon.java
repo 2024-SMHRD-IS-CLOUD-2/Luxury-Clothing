@@ -9,6 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.smhrd.main.controller.Controller;
+
 public class OcrShotCon implements Controller {
 
 	// execute 메소드를 통해서
