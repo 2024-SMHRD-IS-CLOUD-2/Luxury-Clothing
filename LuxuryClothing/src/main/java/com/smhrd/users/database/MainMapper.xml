@@ -1,1 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.main.model.UsersDAO">
+
+	<!-- 장바구니에 담긴 상품 정보 가져오기 -->
+	<select id="getCartItems" parameterType="String"
+		resultType="com.smhrd.users.model.UsersDTO">
+		SELECT * FROM CARTS WHERE USER_ID = #{userId}
+	</select>
+
+	<!-- 현재 장바구니에 담겨있는 전체 상품의 가격의 합 가져오기 -->
+	<select id="getTotalPrice" parameterType="String"
+		resultType="int">
+		SELECT SUM(PROD_PRICE) FROM CARTS C JOIN PRODUCTS P ON C.PROD_ID = P.PROD_ID
+		WHERE USER_ID = #{userId}
+	</select>
+</mapper>

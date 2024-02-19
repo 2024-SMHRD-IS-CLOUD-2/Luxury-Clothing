@@ -43,7 +43,9 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/joinpage.do", new JoinPageCon());
 		handlerMapping.put("/logo.do", new MainCon());
 		handlerMapping.put("/loginpage.do", new LoginPageCon());
-		
+		handlerMapping.put("/logOutCon.do", new LogOutCon());
+		handlerMapping.put("/JoinOutCon.do", new JoinOutPage());
+
 		// 상품
 		handlerMapping.put("/product_list.do", new ProductListCon() );
 		handlerMapping.put("/product_search.do", new ProductsSearchCon() );

@@ -16,22 +16,27 @@
 		구조 * setter 메소드가 없거나, 기본생성자가 없어져버린경우 문제가 발생하기도 한다 ! 알아두면 좋은 팁! : resultType 
 		에는 java 기본으로 존재하는 자료형은 굳이 명시하지 않아도 된다 ! -->
 	<insert id="join" parameterType="com.smhrd.main.model.UserDTO">
-		INSERT INTO USERS(user_id, user_pw, user_phone, user_name, user_email, user_addr)
-		VALUES(#{user_id}, #{user_pw}, #{user_phone}, #{user_name}, #{user_email}, #{user_addr})
+		INSERT INTO USERS(user_id,
+		user_pw, user_phone, user_name, user_email, user_addr)
+		VALUES(#{user_id}, #{user_pw}, #{user_phone}, #{user_name},
+		#{user_email}, #{user_addr})
 	</insert>
 
 	<!-- 로그인 기능! -->
-	<select id="login" parameterType="com.smhrd.main.model.UserDTO" resultType="com.smhrd.main.model.UserDTO">
-        SELECT USER_ID, USER_PHONE, USER_NAME, USER_EMAIL, USER_ADDR, USER_GRADE, JOINED_AT
-        FROM USERS
-        WHERE USER_ID = #{user_id} 
-        AND USER_PW = #{user_pw}
-    </select>
-     
-    
-	<delete id="joinOut" parameterType="int">
-		DELETE FROM USERS 
+	<select id="login" parameterType="com.smhrd.main.model.UserDTO"
+		resultType="com.smhrd.main.model.UserDTO">
+		SELECT USER_ID, USER_PHONE, USER_NAME, USER_EMAIL, USER_ADDR, USER_GRADE,
+		JOINED_AT
+		FROM USERS
 		WHERE USER_ID = #{user_id}
+		AND USER_PW = #{user_pw}
+	</select>
+
+
+	<!-- 회원 탈퇴를 위한 쿼리 -->
+	<delete id="JoinOut" parameterType="java.util.Map">
+		DELETE FROM USERS
+		WHERE user_id = #{userId} AND user_pw = #{password}
 	</delete>
 
 

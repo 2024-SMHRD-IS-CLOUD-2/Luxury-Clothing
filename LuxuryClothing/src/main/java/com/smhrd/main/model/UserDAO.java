@@ -2,6 +2,7 @@
 package com.smhrd.main.model;
 
 import java.util.List;
+import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -75,12 +76,20 @@ public class UserDAO {
 		return row;
 	}
 	
-	public int joinOut(int user_id) {
-		SqlSession sqlsession = factory.openSession(true);
-		
-		int res = sqlsession.delete("joinOut", user_id);
-		sqlsession.close();
-		return res;
-		
-	}
+	// 회원 탈퇴
+    public int JoinOut(String userId, String password) {
+        SqlSession sqlSession = SqlSessionManager.getFactory().openSession();
+        int result = 0;
+        try {
+            // Mapper를 사용하여 회원 탈퇴 쿼리 실행
+            result = sqlSession.delete("JoinOut", Map.of("userId", userId, "password", password));
+            sqlSession.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+        } finally {
+            sqlSession.close();
+        }
+        return result;
+    }
 }

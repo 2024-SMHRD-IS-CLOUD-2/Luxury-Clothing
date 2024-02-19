@@ -78,15 +78,12 @@
 	                            	<a href="joinpage.do">회원가입</a>
 	                            </li>
 	                        </c:if>
-	                        <c:if test="${result != null}">
-	                            <li class="submenu3">
-	                            	<a href="logOut.do">로그아웃</a>
-	                            </li>
-	                            <li class="submenu3">
-	                            	<a href="#">/</a>
-	                            </li>
-	                        </c:if>
-	                        
+	                       <c:if test="${result != null}">
+								<li class="submenu3"><a href="logOutCon.do">로그아웃</a></li>
+								<li class="submenu3"><a href="#">/</a></li>
+							</c:if>
+							<!-- 빈 <li> 요소 추가 -->
+							<li class="submenu3"></li>
 	                        <li class="scroll-to-section">
 	                        <a href="#">고객센터</a>
 	                        </li>
