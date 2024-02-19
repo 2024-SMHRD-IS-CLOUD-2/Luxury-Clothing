@@ -14,6 +14,8 @@ import com.smhrd.admin.controller.SearchUserCon;
 import com.smhrd.admin.controller.selectAllCon;
 import com.smhrd.products.controller.ProductListCon;
 import com.smhrd.products.controller.ProductsSearchCon;
+import com.smhrd.products.controller.CsgnApplyCon;
+import com.smhrd.products.controller.CsgnApplyPageCon;
 
 @WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
 public class MainController extends HttpServlet {
@@ -47,7 +49,8 @@ public class MainController extends HttpServlet {
 		// 상품
 		handlerMapping.put("/product_list.do", new ProductListCon() );
 		handlerMapping.put("/product_search.do", new ProductsSearchCon() );
-		
+		handlerMapping.put("/csgnApplyPage.do", new CsgnApplyPageCon());
+		handlerMapping.put("/csgnApply.do", new CsgnApplyCon());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

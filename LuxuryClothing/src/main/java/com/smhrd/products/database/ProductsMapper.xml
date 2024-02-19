@@ -51,4 +51,9 @@
 		</if>
 	</select>
 	
+	<insert id="csgnApply" parameterType="com.smhrd.products.model.ProductsDTO">
+		INSERT INTO PRODUCTS(PROD_NAME, PROD_PRICE, PROD_DESC, PROD_CATEGORY, PROD_OPTION, USER_ID)
+		VALUES(#{prod_name}, #{prod_price}, #{prod_desc}, #{prod_category}, #{prod_option}, #{user_id})
+	</insert>
+	
 </mapper>

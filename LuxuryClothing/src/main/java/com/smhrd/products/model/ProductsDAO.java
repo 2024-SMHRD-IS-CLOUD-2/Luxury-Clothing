@@ -44,5 +44,17 @@ public class ProductsDAO {
 		
 		return resultList;
 	}
+	
+	// 위탁판매 신청 메소드
+	public int csgnApply(ProductsDTO dto) {
+		System.out.println("ProductsDAO 방문 csgnApply");
+		SqlSession sqlSession = factory.openSession(true);
+		
+		int row = sqlSession.insert("csgnApply", dto);
+		
+		sqlSession.close();
+		
+		return row;
+	}
 
 }
