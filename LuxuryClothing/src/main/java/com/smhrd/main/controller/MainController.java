@@ -16,6 +16,8 @@ import com.smhrd.products.controller.ProductListCon;
 import com.smhrd.products.controller.ProductsImageSelectCon;
 import com.smhrd.products.controller.ProductsImageUploadCon;
 import com.smhrd.products.controller.ProductsSearchCon;
+import com.smhrd.products.controller.CsgnApplyCon;
+import com.smhrd.products.controller.CsgnApplyPageCon;
 import com.smhrd.products.controller.TestCon;
 
 @WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
@@ -53,6 +55,9 @@ public class MainController extends HttpServlet {
 		// 상품
 		handlerMapping.put("/product_list.do", new ProductListCon() );
 		handlerMapping.put("/product_search.do", new ProductsSearchCon() );
+		handlerMapping.put("/csgnApplyPage.do", new CsgnApplyPageCon());
+		handlerMapping.put("/csgnApply.do", new CsgnApplyCon());
+		
 		// 상품 이미지
 		handlerMapping.put("/test_ImageUpload.do", new TEST_ImageUpload() );
 		handlerMapping.put("/ProductImageUpload.do", new ProductsImageUploadCon() );
