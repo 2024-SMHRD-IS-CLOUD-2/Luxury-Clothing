@@ -51,6 +51,7 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/product_list.do", new ProductListCon() );
 		handlerMapping.put("/product_search.do", new ProductsSearchCon() );
 		// 상품 이미지
+		handlerMapping.put("/test_ImageUpload.do", new TEST_ImageUpload() );
 		handlerMapping.put("/ProductImageUpload.do", new ProductsImageUploadCon() );
 		handlerMapping.put("/ProductSelect.do", new ProductsImageSelectCon() );
 

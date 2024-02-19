@@ -29,7 +29,7 @@ html 화면
 <br>
 
 <form action="ProductImageUpload.do" method="post" enctype="multipart/form-data">
-	<input type="file" name="file" multiple id="image" onchange="setThumbnail(event);" />
+	<input type="file" name="file" id="image" onchange="setThumbnail(event);" />
 	<input type="hidden" name="arrImages" id="arrImages">
 	<br>
 	<div>업로드 파일명 : </div>
