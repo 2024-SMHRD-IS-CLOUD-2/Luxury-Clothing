@@ -67,7 +67,7 @@
 				<!-- 구매 희망가격 슬라이더 END -->
 				<input class="search_box" type="text" id="searchInput"
 					name="searchInput" placeholder="검색어를 입력하세요">
-				<button onclick="searchProducts()">검색</button>
+				<button>검색</button>
 				<button id="reset">초기화</button>
 				<div id="searchResults"></div>
 			</div>
@@ -134,6 +134,8 @@
 	<!-- 검색기록 남겨두기 STR -->
 	 $(document).ready(function() {
 		 
+		// 이전 검색 기록 세팅하기
+		// 1) 세션의 데이터 가져오기
         let prod_grade = "${serch.prod_grade}";
         let prod_category = "${serch.prod_category}";
         let prod_priceMin = "${serch.prod_priceMin}";
@@ -145,10 +147,21 @@
 		console.log(prod_priceMax);
 		console.log(prod_name);
 		
-		$('#rating').val(prod_grade).prop("selected",true);
-		$('#kind').val(prod_category).prop("selected",true);
-		$('#amount').val(prod_priceMin + ' ~ ' + prod_priceMax);
-		$('#searchInput').val(prod_name);
+		// 2) 태그에 이전 검색 기록 대입하기(값 넣어주기)
+		if (prod_grade == null && prod_category == null && prod_priceMin == null && prod_priceMax == null && prod_name == null) {
+			// 첫 페이지 시작시 검색 값 세팅
+			$('#rating').val("전체 등급").prop("selected",true);
+			$('#kind').val("상품 종류").prop("selected",true);
+			$('#amount').val('0 ~ 5000000');
+			$('#searchInput').val("");
+			console.log("검색 데이터 초기화");
+		} else {
+			$('#rating').val(prod_grade).prop("selected",true);
+			$('#kind').val(prod_category).prop("selected",true);
+			$('#amount').val(prod_priceMin + ' ~ ' + prod_priceMax);
+			$('#searchInput').val(prod_name);
+			console.log("검색 이전 데이터 세팅");
+		}
 
 		// 리셋버튼 누르면 초기화 시킴
 		$("#reset").on("click", function () {
@@ -160,7 +173,6 @@
 		
 	 });   
 	 
-
 	 
  	</script>
 
