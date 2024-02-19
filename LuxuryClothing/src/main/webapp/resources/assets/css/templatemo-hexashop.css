@@ -309,12 +309,12 @@ header
 }
 
 .header-area .main-nav .nav li {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .header-area .main-nav .nav li:last-child {
-  padding-right: 0px;
+  padding-right: 20px;
 }
 
 .header-area .main-nav .nav li a {

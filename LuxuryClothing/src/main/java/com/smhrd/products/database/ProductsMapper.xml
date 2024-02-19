@@ -27,12 +27,16 @@
 		알아두면 좋은 팁!
 		: resultType 에는 java 기본으로 존재하는 자료형은 굳이 명시하지 않아도 된다 !
 	-->
+	
+	<!-- 상품 SQL =========================================================================================================== -->
 
+	<!-- 전체 상품 조회 -->
 	<select id="selectProducts" resultType="com.smhrd.products.model.ProductsDTO">
 		SELECT *
 		FROM PRODUCTS
 	</select>
 	
+	<!-- 검색 조건으로 상품 조회 -->
 	<select id="selectProductsAll" parameterType="com.smhrd.products.model.ProductsDTO" resultType="com.smhrd.products.model.ProductsDTO">
 		SELECT *
 		FROM PRODUCTS
