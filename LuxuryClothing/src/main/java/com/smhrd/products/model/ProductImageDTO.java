@@ -14,7 +14,7 @@ public class ProductImageDTO {
 
 	private String prodUploaded_seq;	// 업로드 순번 (DB에서 시퀀스로 자동 번호 지정해줌)
 	private String prod_id;
-	private String prodFile_name;		// 파일 이름
+	private String file_name;		// 파일 이름
 	private String prodFile_realname;	// 파일 실제이름
 	private String prodFile_size;		// 파일 사이즈
 	private String prodFile_ext;		// 파일 확장자

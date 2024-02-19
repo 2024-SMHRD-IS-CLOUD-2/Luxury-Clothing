@@ -47,12 +47,12 @@ public class ProductsDAO {
 	}
 	
 	
-	public List<ProductImageDTO> insertProductImageUpload(ProductImageDTO dto) {
+	public void insertProductImageUpload(List<ProductImageDTO> dto) {
 		
-		System.out.println("ProductsDAO 방문 ProductImageSave");
+		System.out.println("ProductsDAO 방문 insertProductImageUpload");
 		// factory.openSession(true) 에서 true 가 커밋여부 !
 		SqlSession sqlSession =  factory.openSession(true);
-		int result = sqlSession.insert("ProductImageSave", dto);
+		int result = sqlSession.insert("ProductImageUpload", dto);
 		sqlSession.close();
 		
 		if (result > 0) {
@@ -61,8 +61,24 @@ public class ProductsDAO {
 			System.out.println("ProductImageSave 상품 이미지 등록 실패!");
 			
 		}
-
-		return null;
+	}
+	
+	public List<ProductImageDTO> selectProductImages(ProductImageDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 selectProductImages");
+		// factory.openSession(true) 에서 true 가 커밋여부 !
+		SqlSession sqlSession =  factory.openSession();
+		List<ProductImageDTO> result = sqlSession.selectList("selectImages", dto);
+		sqlSession.close();
+		
+		if (result.equals(null)) {
+			System.out.println("ProductImageSave 상품 이미지 조회 실패!");
+		} else {
+			System.out.println("ProductImageSave 상품 이미지 조회 성공!");
+			
+		}
+		
+		return result;
 	}
 	
 

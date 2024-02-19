@@ -56,19 +56,4 @@
 	</select>
 	
 	
-	
-	<!-- 이미지 SQL ============================================================================================================ -->
-	
-	<insert id="ProductImageUpload">
-        INSERT INTO image(UPLOADED_SEQ, PROD_ID, FILE_NAME, FILE_REALNAME, FILE_SIZE, FILE_EXT, FILE_PATH)
-		VALUES( #{prodUploaded_seq}
-				, #{prod_id}
-				, #{prodFile_name}
-				, TO_CHAR(SYSDATE,'YYMMDD_HH24MISS')||#{prodFile_name}
-				, #{prodFile_size}
-				, #{prodFile_ext}
-				, #{prodFile_path}
-			)
-    </insert>
-	
 </mapper>

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.smhrd.admin.controller.SearchUserCon;
 import com.smhrd.admin.controller.selectAllCon;
 import com.smhrd.products.controller.ProductListCon;
+import com.smhrd.products.controller.ProductsImageSelectCon;
 import com.smhrd.products.controller.ProductsImageUploadCon;
 import com.smhrd.products.controller.ProductsSearchCon;
 import com.smhrd.products.controller.TestCon;
@@ -49,8 +50,9 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/product_list.do", new ProductListCon() );
 		handlerMapping.put("/product_search.do", new ProductsSearchCon() );
 		// 상품 이미지
-		handlerMapping.put("/test.do", new TestCon() );
 		handlerMapping.put("/ProductImageUpload.do", new ProductsImageUploadCon() );
+		handlerMapping.put("/ProductSelect.do", new ProductsImageSelectCon() );
+
 	}
 	
 
