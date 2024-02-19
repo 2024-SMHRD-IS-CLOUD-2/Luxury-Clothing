@@ -52,7 +52,7 @@
                                     <li><a href="#">악세서리</a></li>
                                 </ul>
                             </li>
-                            	<c:if test="${user_result != null}">
+                            	<c:if test="${result != null}">
 		                            <li class="submenu">
 		                                <a href="javascript:;">마이페이지</a>
 		                                <ul>
@@ -67,7 +67,7 @@
 		                            	<a href="#explore">장바구니</a>
 		                            </li>
 		                        </c:if>
-		                    <c:if test="${user_result == null}">
+		                    <c:if test="${result == null}">
 	                            <li class="submenu3">
 	                            	<a href="loginpage.do">로그인</a>
 	                            </li>
@@ -78,7 +78,18 @@
 	                            	<a href="joinpage.do">회원가입</a>
 	                            </li>
 	                        </c:if>
-	                        <li class="scroll-to-section"><a href="#">고객센터</a></li>
+	                        <c:if test="${result != null}">
+	                            <li class="submenu3">
+	                            	<a href="logOut.do">로그아웃</a>
+	                            </li>
+	                            <li class="submenu3">
+	                            	<a href="#">/</a>
+	                            </li>
+	                        </c:if>
+	                        
+	                        <li class="scroll-to-section">
+	                        <a href="#">고객센터</a>
+	                        </li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

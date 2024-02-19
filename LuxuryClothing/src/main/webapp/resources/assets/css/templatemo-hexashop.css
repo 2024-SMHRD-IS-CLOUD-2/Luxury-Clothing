@@ -88,7 +88,7 @@ html[xmlns] .clearfix {
 
 ul, li {
   padding: 0;
-  margin: 0;
+  margin-left: 0px;
   list-style: none;
 }
 
