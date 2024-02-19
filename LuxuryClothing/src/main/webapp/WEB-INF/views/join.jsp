@@ -73,14 +73,14 @@ https://templatemo.com/tm-571-hexashop
         <!-- 이름 -->
         <tr>
             <td class="label">이름</td>
-            <td>  <input type="text" name="name" style="border-radius: 5px;"></td>
+            <td>  <input type="text" name="name" id="name" style="border-radius: 5px;"></td>
             
         </tr>
         <!-- 아이디 -->
         <tr>
             <td class="label">아이디</td>
             <td>
-            	<input type="text" name="id"  style="border-radius: 5px;">
+            	<input type="text" name="id" id="id" style="border-radius: 5px;">
             	<button type="button" onclick="checkDuplicate()">중복확인</button>
             	<span id="idMessage"></span>
             </td>
@@ -97,7 +97,7 @@ https://templatemo.com/tm-571-hexashop
 		    <td><input type="password" name="pw_confirm" id="pwd2" style="border-radius: 5px;"></td>
 		</tr>
 			<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
-			<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+			<div class="alert alert-danger" id="alert-danger">비밀번호를 확인해주세요.</div>
 		<!-- 
 		성별
 		<tr>
@@ -114,7 +114,7 @@ https://templatemo.com/tm-571-hexashop
 		<!-- 연락처 -->
 		<tr>
 		    <td class="label" rowspan="2">휴대폰번호</td>
-		    <td><input type="tel" name="phone" style="border-radius: 5px;"></td>
+		    <td><input type="tel" name="phone" id="phone" style="border-radius: 5px;"></td>
 		</tr>
 		<tr>
 <!-- 		    <td><input type="tel" name="phone2" style="border-radius: 5px;"></td>
@@ -124,14 +124,14 @@ https://templatemo.com/tm-571-hexashop
 		<tr>
 		    <td class="label">이메일</td>
 		    <td>
-		        <input type="text" name="email" style="border-radius: 5px;">
+		        <input type="text" name="email" id="email" style="border-radius: 5px;">
 		    </td>
 		</tr>
 		
 		<!-- 주소 -->
 		<tr>
 		    <td class="label" rowspan="2">주소</td>
-		    <td><input type="text" name="address" style="border-radius: 5px;"></td>
+		    <td><input type="text" name="address" id="address" style="border-radius: 5px;"></td>
 		</tr>
 		<tr>
 <!-- 		    <td><input type="text" name="address2" style="border-radius: 5px;"></td>
@@ -144,12 +144,16 @@ https://templatemo.com/tm-571-hexashop
     
     <!-- 가입취소와 회원가입 버튼 -->
     <div class="button-container">
-        <button type="submit" id="submit">회원가입</button>
+        <button disabled="disabled" type="submit" id="submit">회원가입</button>
+
+    </div>
+	
+</form>
+
+<form action="main.do">
+	<div class="button-container">
         <button type="submit">가입취소</button>
     </div>
-	<br>
-	<br>
-	<br>
 </form>
 </div>
     <%@include file ="footer.jsp" %>
@@ -192,28 +196,39 @@ https://templatemo.com/tm-571-hexashop
             });
         });
 
-    </script>
-    
-    <script type="text/javascript">
     $(function(){
         $("#alert-success").hide();
         $("#alert-danger").hide();
         $("input").keyup(function(){
             var pwd1=$("#pwd1").val();
             var pwd2=$("#pwd2").val();
-            if(pwd1 != "" || pwd2 != ""){
+            var name=$("#name").val();
+            var id=$("#id").val();
+            var phone=$("#phone").val();
+            var email=$("#email").val();
+            var address=$("#address").val();
+            
+            
+            if(name != "" && id != "" && phone != "" && email != "" && address != "" && pwd1 != "" && pwd2 != ""){
+                // 비밀번호가 일치하는지 확인
                 if(pwd1 == pwd2){
-                    $("#alert-success").show();
-                    $("#alert-danger").hide();
-                    $("#submit").removeAttr("disabled");
-                }else{
-                    $("#alert-success").hide();
-                    $("#alert-danger").show();
-                    $("#submit").attr("disabled", "disabled");
+                    $("#alert-success").show(); // 비밀번호 일치 알림 보이기
+                    $("#alert-danger").hide(); // 비밀번호 불일치 알림 숨기기
+                    $("#submit").removeAttr("disabled"); // 회원가입 버튼 활성화
+                } else {
+                    $("#alert-success").hide(); // 비밀번호 일치 알림 숨기기
+                    $("#alert-danger").show(); // 비밀번호 불일치 알림 보이기
+                    $("#submit").attr("disabled", "disabled"); // 회원가입 버튼 비활성화
                 }    
+            } else {
+                $("#submit").attr("disabled", "disabled"); // 모든 필수 입력 칸이 채워지지 않은 경우 회원가입 버튼 비활성화
             }
+            
         });
     });
+    
+ // 가입취소 버튼 클릭 시 페이지 이동	
+ 
 	</script>​
 
   </body>
