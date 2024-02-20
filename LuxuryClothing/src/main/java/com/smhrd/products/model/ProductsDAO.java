@@ -93,12 +93,12 @@ public class ProductsDAO {
 		return result;
 	}
 	
-	public List<ProductImageDTO> selectImageMain(ProductImageDTO dto) {
+	public List<ProductImageDTO> selectImageMain() {
 		
 		System.out.println("ProductsDAO 방문 selectImageMain");
 		// factory.openSession(true) 에서 true 가 커밋여부 !
 		SqlSession sqlSession =  factory.openSession();
-		List<ProductImageDTO> result = sqlSession.selectList("selectImageMain", dto);
+		List<ProductImageDTO> result = sqlSession.selectList("selectImageMain");
 		sqlSession.close();
 		
 		if (result.equals(null)) {

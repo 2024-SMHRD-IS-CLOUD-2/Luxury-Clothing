@@ -43,11 +43,12 @@
 		WHERE PROD_ID = #{prod_id}
 	</select>
 	
-	<!-- 상품 이미지 조회 -->
-	<select id="selectImageMain" parameterType="com.smhrd.products.model.ProductImageDTO" resultType="com.smhrd.products.model.ProductImageDTO">
-SELECT PROD_ID,  FILE_NAME
-FROM    PROD_UPLOAD_IMAGES 
-WHERE  FILE_MAIN= 'Y';
+	<!-- 메인 상품 이미지 조회 -->
+	<select id="selectImageMain" resultType="com.smhrd.products.model.ProductImageDTO">
+		SELECT A.PROD_ID, A.PROD_PRICE, A.PROD_NAME, A.PROD_GRADE, A.PROD_NAME,  B.FILE_NAME
+		FROM    PRODUCTS A, PROD_UPLOAD_IMAGES B 
+		WHERE  FILE_MAIN= 'Y'
+		AND A.PROD_ID = B.PROD_ID
 	</select>
 
 </mapper>

@@ -9,16 +9,62 @@
 <head>
 <meta charset="UTF-8">
 <title>윈도우이름1김하늘</title>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+	
+	   <style>
+        /* slider__wrap */
+        .slider__wrap {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider__img {
+            position: relative;
+            width: 800px;
+            height: 450px;
+            overflow: hidden;
+        }
+        .slider {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: all 0.4s;
+        }
+        .slider::before {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            padding: 5px 10px;
+        }
+        
+		/*         
+		.slider:nth-child(1)::before {content: '이미지1';}
+        .slider:nth-child(2)::before {content: '이미지2';}
+        .slider:nth-child(3)::before {content: '이미지3';}
+        .slider:nth-child(4)::before {content: '이미지4';}
+        .slider:nth-child(5)::before {content: '이미지5';}
+        .slider:nth-child(1) {z-index: 5;}
+        .slider:nth-child(2) {z-index: 4;}
+        .slider:nth-child(3) {z-index: 3;}
+        .slider:nth-child(4) {z-index: 2;}
+        .slider:nth-child(5) {z-index: 1;} 
+        */
+    </style>
 </head>
 
 <body>
+
 
 	<!-- ***** header 불러오기 ! ***** -->
 	<%@include file="header.jsp"%>
 
 	<!-- ***** Main Banner Area Start ***** -->
-	<div class="main-banner" id="top">
+<%-- 	<div class="main-banner" id="top">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-6">
@@ -128,8 +174,31 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --%>
+	
+	<main id="main">
+	    <div class="slider__wrap">
+	        <div class="slider__img">
+	            <div class="slider"><img src="${path}/resources/assets/images/instagram-01.jpg" ></div>
+	            <div class="slider"><img src="${path}/resources/assets/images/instagram-02.jpg" ></div>
+	            <div class="slider"><img src="${path}/resources/assets/images/instagram-03.jpg" ></div>
+	            <div class="slider"><img src="${path}/resources/assets/images/instagram-04.jpg" ></div>
+	            <div class="slider"><img src="${path}/resources/assets/images/instagram-05.jpg" ></div>
+	        </div>
+	    </div>
+	</main>
 	<!-- ***** Main Banner Area End ***** -->
+	
+	<script>
+        // 선택자
+        const sliderWrap = document.querySelector(".slider__wrap");
+        const sliderImg = sliderWrap.querySelector(".slider__img");
+        const slider = sliderWrap.querySelectorAll(".slider");
+
+        let currentIndex = 0;               // 현재 보이는 이미지
+        let sliderCount = slider.length;    // 이미지 갯수
+        let sliderInterval = 3000;          // 이미지 변경 간격 시간
+    </script>
 
 	<!-- ***** Men Area Starts ***** -->
 	<section class="section" id="men">
@@ -159,12 +228,14 @@
 											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
 										</ul>
 									</div>
-									<img src="${path}/resources/assets/images/men-01.jpg" alt="이미지 준비 중">
+									<a href="#?prod_id=${arr.prod_id}">
+										<img src="${path}/resources/assets/images/products/${arr.file_name}" alt="이미지 준비 중">
+									</a>
 								</div>
 
 								<div class="down-content">
 									<h4>${arr.prod_name}</h4>
-									<span>${arr.prod_price}</span>
+									<span>${arr.prod_grade} ${arr.prod_price}</span>
 									<ul class="stars">
 										<li><i class="fa fa-star"></i></li>
 										<li><i class="fa fa-star"></i></li>
@@ -529,6 +600,16 @@
 
 			});
 		});
+		
+		
+        setInterval(() => {
+            let nextIndex = (currentIndex + 1) % sliderCount;
+          
+            $(slider[currentIndex]).animate({ opacity: 0 }, 500); // 현재 슬라이더 숨기기
+            $(slider[nextIndex]).animate({ opacity: 1 }, 500); // 다음 슬라이더 보여주기
+          
+            currentIndex = nextIndex;
+        }, sliderInterval);
 	</script>
 
 </body>
