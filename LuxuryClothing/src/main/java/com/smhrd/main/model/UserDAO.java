@@ -41,7 +41,7 @@ public class UserDAO {
 		
 		return result;
 	}
-	
+
 	
 //	// 전체회원 조회 메소드
 //	public List<UserDTO> selectAll() {

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
@@ -37,8 +36,16 @@
                             <li class="submenu">
                                 <a class="list" href="javascript:;">위탁서비스</a>
                                 <ul>
-                                    <li><a href="consignment.html">위탁안내 사항</a></li>
-                                    <li><a href="consignment_apply.html">위탁 신청</a></li>
+                                    <li><a href="consignment.do">위탁안내 사항</a></li>
+                                    <c:if test="${user_result !=null}">
+                                    	<li><a href="csgnApplyPage.do">위탁판매 신청</a></li>
+                                    </c:if>
+                                    <c:if test="${user_result ==null}">
+                                    	<li>
+	                                    	<a href="loginpage.do">위탁판매 신청</a>
+                                    	</li>
+                                    </c:if>
+                                    
                                 </ul>
                             
                             </li>
@@ -53,7 +60,7 @@
                                     <li><a href="#">악세서리</a></li>
                                 </ul>
                             </li>
-                            	<c:if test="${result != null}">
+                            	<c:if test="${user_result != null}">
 		                            <li class="submenu">
 		                                <a href="javascript:;">마이페이지</a>
 		                                <ul>
@@ -68,7 +75,7 @@
 		                            	<a href="#explore">장바구니</a>
 		                            </li>
 		                        </c:if>
-		                    <c:if test="${result == null}">
+		                    <c:if test="${user_result == null}">
 	                            <li class="submenu3">
 	                            	<a href="loginpage.do">로그인</a>
 	                            </li>
@@ -79,7 +86,7 @@
 	                            	<a href="joinpage.do">회원가입</a>
 	                            </li>
 	                        </c:if>
-	                       <c:if test="${result != null}">
+	                        <c:if test="${user_result != null}">
 								<li class="submenu3"><a href="logOutCon.do">로그아웃</a></li>
 								<li class="submenu3"><a href="#">/</a></li>
 							</c:if>
