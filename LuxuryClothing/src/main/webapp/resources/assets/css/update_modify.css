@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/* 모든 요소의 기본 스타일 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body 태그 스타일링 */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* container 클래스 스타일링 */
+.container {
+  width: 70%; /* 수정: container 너비 조정 */
+  max-width: 800px;
+  margin: 0 auto; /* 가운데 정렬 */
+  text-align: center; /* 버튼 가운데 정렬을 위한 텍스트 정렬 */
+}
+
+/* a 태그 스타일링 */
+a {
+  color: black; /* 글자색을 검정색으로 설정 */
+  text-decoration: none; /* 밑줄 제거 */
+  margin: 0 30px; /* 좌우 간격을 30px로 설정 */
+}
+
+/* 1번째와 5번째 a 태그 사이 간격 설정 */
+.container a:first-child,
+.container a:last-child {
+  margin: 0 30px 0 0; /* 우측 간격만 30px로 설정 */
+}
+
+/* hr 태그 스타일링 */
+hr {
+  margin: 20px 0; /* 위아래 간격을 20px로 설정 */
+}
+
+/* h2 태그 스타일링 */
+h2 {
+  text-align: center; /* 가운데 정렬 */
+}
+
+/* 테이블 스타일링 */
+form table {
+  margin: 20px auto; /* 가운데 정렬 및 상하 여백 추가 */
+  width: 90%; /* 테이블 폭을 container의 70%로 설정 */
+  padding: 0 15%; /* 좌우 패딩을 container의 15%로 설정 */
+  border-spacing: 0 10px; /* 행 간격을 10px로 설정 */
+}
+
+/* 테이블 1열 스타일링 */
+form table th:first-child {
+  background-color: rgb(216, 227, 231); /* 회색 배경색 */
+  text-align: right; /* 오른쪽 정렬 */
+  padding-right: 10px; /* 오른쪽 여백 추가 */
+  width: 35%; /* 1열 너비를 25%로 설정 */
+}
+
+/* 테이블 2열 스타일링 */
+form table td input {
+  border-radius: 10px; /* 약간 둥글게 수정 */
+  margin-left: 3px; /* 왼쪽 여백 추가 */
+  width: calc(90% - 20px); /* input 너비 조정 */
+  padding: 5px; /* input 패딩 추가 */
+}
+
+/* 테이블 1열과 2열 경계선 스타일링 */
+form table td {
+  border-right: 10px solid transparent; /* 투명한 경계선 추가 */
+}
+
+/* 중복확인 버튼 스타일링 */
+button[type="button1"] {
+  color: white; /* 글자색을 흰색으로 설정 */
+  background-color: black; /* 배경색을 검정색으로 설정 */
+  border-radius: 5px; /* 약간 둥글게 */
+  padding: 7px 15px; /* 버튼 내부 여백 추가 */
+  margin-left: 10px; /* 왼쪽 여백 추가 */
+  position: relative; /* 상대 위치 설정 */
+  left: 10px; /* 오른쪽 여백 설정 */
+  margin-top: 10px;
+}
+
+/* 돌아가기 버튼 위치 설정 */
+button[type="button"],
+input[type="submit"] {
+  display: inline-block; /* 인라인 블록 요소로 변경 */
+  margin: 10px auto; /* 가운데 정렬 및 상하 여백 추가 */
+  clear: both; /* float 해제 */
+  color: white; /* 글자색을 흰색으로 설정 */
+  background-color: black; /* 배경색을 검정색으로 설정 */
+  border-radius: 5px; /* 약간 둥글게 */
+  padding: 7px 15px; /* 버튼 내부 여백 추가 */
+}
+
+/* 수정된 중복확인 버튼 위치 설정 */
+button[type="button1"] {
+  float: none; /* 부동 해제 */
+}
