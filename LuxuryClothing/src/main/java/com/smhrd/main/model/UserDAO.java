@@ -77,12 +77,12 @@ public class UserDAO {
 	}
 	
 	// 회원 탈퇴
-    public int JoinOut(String userId, String password) {
+    public int JoinOut(UserDTO dto) {
         SqlSession sqlSession = SqlSessionManager.getFactory().openSession();
         int result = 0;
         try {
             // Mapper를 사용하여 회원 탈퇴 쿼리 실행
-            result = sqlSession.delete("JoinOut", Map.of("userId", userId, "password", password));
+            result = sqlSession.delete("JoinOut", dto);
             sqlSession.commit();
         } catch (Exception e) {
             e.printStackTrace();
