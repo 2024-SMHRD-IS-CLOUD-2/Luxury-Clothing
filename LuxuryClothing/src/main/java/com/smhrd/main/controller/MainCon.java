@@ -24,21 +24,17 @@ public class MainCon implements Controller {
 		ProductsDAO dao = new ProductsDAO();
 		
 		// 메인 이미지 불러오기
-		List<ProductsDTO> result = dao.selectProducts();
-		/*
-		 * for (int i = 0; i < result.size(); i++) { List<ProductImageDTO> images =
-		 * dao.selectImageMain(result.get(i).getProd_id()); }
-		 */
-		
-		
-		
-		if (result != null) {
-			System.out.println("메인 상품 전체조회 성공");
-			HttpSession session = request.getSession();
-			session.setAttribute("product_result", result);
-		} else {
-			System.out.println("메인 상품 전체조회 실패");
-		}
+//		List<ProductImageDTO> images = dao.selectImageMain();
+//		
+//		
+//		
+//		if (result != null) {
+//			System.out.println("메인 상품 전체조회 성공");
+//			HttpSession session = request.getSession();
+//			session.setAttribute("product_result", result);
+//		} else {
+//			System.out.println("메인 상품 전체조회 실패");
+//		}
 		
 		return "main";
 		

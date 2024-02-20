@@ -45,13 +45,9 @@
 	
 	<!-- 상품 이미지 조회 -->
 	<select id="selectImageMain" parameterType="com.smhrd.products.model.ProductImageDTO" resultType="com.smhrd.products.model.ProductImageDTO">
-	  SELECT *
-	  FROM (
-	    SELECT *
-	    FROM PROD_UPLOAD_IMAGES
-	    WHERE PROD_ID = #{productId}
-	    AND ROWNUM &lt;= 1
-	  )
+SELECT PROD_ID,  FILE_NAME
+FROM    PROD_UPLOAD_IMAGES 
+WHERE  FILE_MAIN= 'Y';
 	</select>
 
 </mapper>
