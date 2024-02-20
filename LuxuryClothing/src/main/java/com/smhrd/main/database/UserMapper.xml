@@ -46,8 +46,9 @@
 		WHERE USER_ID = #{user_id} AND USER_PW = #{user_pw}
 	</select>
 	
-	<update id="update" parameterType="com.smhrd.model.MemberDTO" >
-	UPDATE USERS SET USER_ID=#{user_id}, USER_PHONE=#{user_phone}, USER_NAME=#{user_name}, USER_EMAIL=#{user_email}, USER_ADDR=#{user_addr} WHERE USER_PW =#{user_pw} 
+	<update id="update" parameterType="com.smhrd.main.model.UserDTO" >
+	UPDATE USERS SET USER_PHONE=#{user_phone}, USER_NAME=#{user_name}, USER_EMAIL=#{user_email}, USER_ADDR=#{user_addr} 
+	WHERE USER_ID=#{user_id} 
 	<!-- 중괄호 안에는 필드명 그대로 바로 적자. -->
 	</update>
 </mapper>
