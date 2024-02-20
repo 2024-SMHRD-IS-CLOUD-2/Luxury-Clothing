@@ -77,12 +77,13 @@
 
 
 	<!-- ***** Men Area Starts ***** -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="section-heading">
-					<h2>탑텐?</h2>
-					<span>개쩌는 인기상품 10가지를 만나보세요</span>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="section-heading">
+						<h2>탑텐?</h2>
+						<span>개쩌는 인기상품 10가지를 만나보세요</span>
+					</div>
 				</div>
 			</div>
 		</div>
