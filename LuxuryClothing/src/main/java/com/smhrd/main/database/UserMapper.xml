@@ -34,9 +34,9 @@
 
 
 	<!-- 회원 탈퇴를 위한 쿼리 -->
-	<delete id="JoinOut" parameterType="java.util.Map">
+	<delete id="JoinOut" parameterType="com.smhrd.main.model.UserDTO">
 		DELETE FROM USERS
-		WHERE user_id = #{userId} AND user_pw = #{password}
+		WHERE user_id = #{user_id} AND user_pw = #{user_pw}
 	</delete>
 
 	<!-- 회원정보변경창 들어가기 위한 비밀번호 일치 확인 -->

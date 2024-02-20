@@ -68,7 +68,7 @@
 		                                    <li><a href="#">위탁상품관리</a></li>
 		                                    <li><a href="#">주문내역조회</a></li>
 		                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">입금 조회 및 환불</a></li>
-		                                	<li class="scroll-to-section"><a href="#explore">장바구니</a></li>
+		                                	<li class="scroll-to-section"><a href="JoinOutCon.do">회원탈퇴</a></li>
 		                                </ul>
 		                            </li>
 		                            <li class="submenu2">
