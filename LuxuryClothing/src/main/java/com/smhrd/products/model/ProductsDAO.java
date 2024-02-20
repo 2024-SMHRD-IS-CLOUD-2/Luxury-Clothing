@@ -92,5 +92,21 @@ public class ProductsDAO {
 		
 		return result;
 	}
+	
+	public List<ProductImageDTO> selectImageMain(ProductImageDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 selectImageMain");
+		// factory.openSession(true) 에서 true 가 커밋여부 !
+		SqlSession sqlSession =  factory.openSession();
+		List<ProductImageDTO> result = sqlSession.selectList("selectImageMain", dto);
+		sqlSession.close();
+		
+		if (result.equals(null)) {
+			System.out.println("selectImageMain 상품 이미지 하나조회 실패!");
+		} else {
+			System.out.println("selectImageMain 상품 이미지 하나조회 성공!");
+		}
+		return result;
+	}
 
 }

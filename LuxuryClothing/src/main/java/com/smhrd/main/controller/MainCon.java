@@ -1,10 +1,16 @@
 package com.smhrd.main.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.smhrd.products.model.ProductImageDTO;
+import com.smhrd.products.model.ProductsDAO;
+import com.smhrd.products.model.ProductsDTO;
 
 public class MainCon implements Controller {
 
@@ -13,9 +19,27 @@ public class MainCon implements Controller {
 	// 다음 페이지가 어디인지를 리턴
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
-		// http://localhost:8082/MassageSystem -> webapp 폴더
-		// jsp로 이동시에는 jsp 파일의 이름만 지정
 		System.out.println("luxury MainCon : main.jsp");
+		
+		ProductsDAO dao = new ProductsDAO();
+		
+		// 메인 이미지 불러오기
+		List<ProductsDTO> result = dao.selectProducts();
+		/*
+		 * for (int i = 0; i < result.size(); i++) { List<ProductImageDTO> images =
+		 * dao.selectImageMain(result.get(i).getProd_id()); }
+		 */
+		
+		
+		
+		if (result != null) {
+			System.out.println("메인 상품 전체조회 성공");
+			HttpSession session = request.getSession();
+			session.setAttribute("product_result", result);
+		} else {
+			System.out.println("메인 상품 전체조회 실패");
+		}
+		
 		return "main";
 		
 	}
