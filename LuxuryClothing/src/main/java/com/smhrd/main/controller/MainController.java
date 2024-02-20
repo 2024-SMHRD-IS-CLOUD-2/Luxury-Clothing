@@ -18,6 +18,7 @@ import com.smhrd.products.controller.ProductsImageUploadCon;
 import com.smhrd.products.controller.ProductsSearchCon;
 import com.smhrd.products.controller.CsgnApplyCon;
 import com.smhrd.products.controller.CsgnApplyPageCon;
+import com.smhrd.products.controller.CsgnGuideCon;
 import com.smhrd.products.controller.TestCon;
 
 @WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
@@ -39,6 +40,8 @@ public class MainController extends HttpServlet {
 		
 		// HashMap에 URLMapping을 키 값으로 하고, POJO(Controller)를 Value로 하도록 세팅
 		// .put (key, value);
+		
+		// 메인 및 회원 관련
 		handlerMapping.put("/main.do", new MainCon() );
 		handlerMapping.put("/login.do", new LoginCon() );
 		handlerMapping.put("/join.do", new JoinCon() );
@@ -50,13 +53,21 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/loginpage.do", new LoginPageCon());
 		handlerMapping.put("/logOutCon.do", new LogOutCon());
 		handlerMapping.put("/JoinOutCon.do", new JoinOutPage());
+		handlerMapping.put("/userModifyPage.do", new UserModifyPageCon());
+		handlerMapping.put("/userModifyEnter.do", new UserModifyEnterCon());
+		handlerMapping.put("/userModify.do", new UserModifyCon());
 		handlerMapping.put("/carts.do", new CartsPage());
+		
+		
 		
 		// 상품
 		handlerMapping.put("/product_list.do", new ProductListCon() );
 		handlerMapping.put("/product_search.do", new ProductsSearchCon() );
 		handlerMapping.put("/csgnApplyPage.do", new CsgnApplyPageCon());
 		handlerMapping.put("/csgnApply.do", new CsgnApplyCon());
+		handlerMapping.put("/consignmentGuide.do", new CsgnGuideCon());
+		
+		
 		
 		// 상품 이미지
 		handlerMapping.put("/test_ImageUpload.do", new TEST_ImageUpload() );

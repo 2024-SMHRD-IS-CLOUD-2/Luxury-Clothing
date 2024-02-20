@@ -1,0 +1,31 @@
+@charset "UTF-8";
+.container {
+    text-align: center;
+    margin: auto; /* 페이지 가운데 정렬을 위한 설정 */
+    max-width: 950px; /* 페이지 최대 너비 지정 */
+    padding: 20px; /* 내용과의 여백 설정 */
+}
+
+h1 {
+    color: black;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a {
+    display: inline-block; /* 인라인 요소를 블록 요소로 변환하여 한 줄에 표시 */
+    margin-right: 75px; /* 각 링크 사이의 간격 설정 */
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
