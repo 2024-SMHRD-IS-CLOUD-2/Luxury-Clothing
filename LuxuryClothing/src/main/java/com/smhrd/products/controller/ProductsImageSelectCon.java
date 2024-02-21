@@ -26,7 +26,7 @@ public class ProductsImageSelectCon implements Controller {
 		//  -> ProductImageUpload 는 이미지 DB에 업로드
 		//  -> selectImage 는 이미지 조회
 
-		System.out.println("luxury ProductsImageSelect : 이미지 업로드 요청");
+		System.out.println("luxury ProductsImageSelect : 이미지 불러오기 요청");
 
 		ProductImageDTO dto = new ProductImageDTO();
 		ProductsDAO dao = new ProductsDAO();

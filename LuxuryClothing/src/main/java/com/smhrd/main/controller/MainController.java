@@ -22,7 +22,8 @@ import com.smhrd.products.controller.CsgnGuideCon;
 import com.smhrd.products.controller.ProductDetailCon;
 import com.smhrd.products.controller.TestCon;
 
-@WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
+//@WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 받음
+@WebServlet(urlPatterns = {"*.do", ""}) // *.do 와 서버구동 초기 요청을 받음
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -38,6 +39,9 @@ public class MainController extends HttpServlet {
 	// 첫 번째 요청이 들어와서 Servlet이 메모리에 생성될때 단 한번만 실행
 	@Override
 	public void init() throws ServletException {
+		
+		// 처음 서버 구동하면 메인 페이지로 이동
+		handlerMapping.put("/", new MainCon() );
 		
 		// HashMap에 URLMapping을 키 값으로 하고, POJO(Controller)를 Value로 하도록 세팅
 		// .put (key, value);
@@ -58,6 +62,8 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/userModifyEnter.do", new UserModifyEnterCon());
 		handlerMapping.put("/userModify.do", new UserModifyCon());
 		handlerMapping.put("/carts.do", new CartsPage());
+		
+		// 메인 화면 구성
 		
 		// 상품
 		handlerMapping.put("/product_list.do", new ProductListCon() );
