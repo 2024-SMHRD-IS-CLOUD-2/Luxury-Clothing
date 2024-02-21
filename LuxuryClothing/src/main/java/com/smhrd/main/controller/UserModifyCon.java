@@ -36,7 +36,7 @@ public class UserModifyCon implements Controller {
 		dto.setUser_id(id);
 		
 		UserDAO dao = new UserDAO();
-		int res = dao.update(user_dto);
+		int res = dao.update(dto);
 		System.out.println(url);
 		
 		if (res > 0) {
