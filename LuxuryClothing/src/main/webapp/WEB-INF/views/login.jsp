@@ -89,7 +89,6 @@ https://templatemo.com/tm-571-hexashop
 						</div>
 						<div class="col-lg-12 text-center">
 							<div class="form-group">
-								<a href="main.do" class="btn btn-secondary">돌아가기</a> 
 								<input type="submit" value="로그인">
 							</div>
 						</div>
@@ -100,8 +99,10 @@ https://templatemo.com/tm-571-hexashop
 
 						<div class="col-lg-12 text-center mt-3">
 							<div class="form-group">
-								<a href="joinpage.do" class="btn btn-secondary">회원가입</a> 
-								<a href="Rsidpw.do" class="btn btn-danger">ID & PW 찾기</a>
+								<a href="joinpage.do" class="btn btn-secondary" style="background-color: black;
+    color: white;">회원가입</a> 
+								<a href="Rsidpw.do" class="btn btn-danger" style="background-color: black;
+    color: white;  border: none;">ID & PW 찾기</a>
 							</div>
 						</div>
 					</form>
