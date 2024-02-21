@@ -13,33 +13,14 @@
 
 <!-- 필요한 CSS 파일들을 여기에 추가 -->
 
-<link rel="stylesheet" type="text/css"
-   href="${path}/resources/assets/css/bootstrap.min.css">
-
-<link rel="stylesheet" type="text/css"
-   href="${path}/resources/assets/css/font-awesome.css">
-
-<link rel="stylesheet"
-   href="${path}/resources/assets/css/templatemo-hexashop.css">
-
-<link rel="stylesheet"
-   href="${path}/resources/assets/css/owl-carousel.css">
-
-
-	<link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/payment.css">
-
-<link rel="stylesheet" href="${path}/resources/assets/css/lightbox.css">
-
-<link rel="stylesheet"
-   href="${path}/resources/assets/css/product_detail.css">
-
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
 </head>
 
 <body>
+
+	<div style="margin-top: 100px"></div>
 
 	<%@include file="header.jsp"%>
 	

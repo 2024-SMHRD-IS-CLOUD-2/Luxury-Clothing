@@ -8,7 +8,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>윈도우이름1김하늘</title>
+<title>Luxury Clothing</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 	
