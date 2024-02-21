@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -14,16 +14,16 @@
 <!-- 필요한 CSS 파일들을 여기에 추가 -->
 
 <link rel="stylesheet" type="text/css"
-	href="${path}/resources/assets/css/bootstrap.min.css">
+   href="${path}/resources/assets/css/bootstrap.min.css">
 
 <link rel="stylesheet" type="text/css"
-	href="${path}/resources/assets/css/font-awesome.css">
+   href="${path}/resources/assets/css/font-awesome.css">
 
 <link rel="stylesheet"
-	href="${path}/resources/assets/css/templatemo-hexashop.css">
+   href="${path}/resources/assets/css/templatemo-hexashop.css">
 
 <link rel="stylesheet"
-	href="${path}/resources/assets/css/owl-carousel.css">
+   href="${path}/resources/assets/css/owl-carousel.css">
 
 
 	<link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/payment.css">
@@ -31,17 +31,17 @@
 <link rel="stylesheet" href="${path}/resources/assets/css/lightbox.css">
 
 <link rel="stylesheet"
-	href="${path}/resources/assets/css/product_detail.css">
+   href="${path}/resources/assets/css/product_detail.css">
 
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
 </head>
 
 <body>
 
-	<%@include file="footer.jsp"%>
+	<%@include file="header.jsp"%>
 	
 	<div class="container">
 
@@ -134,9 +134,9 @@
     <%@include file="footer.jsp"%>
     
     <script type="text/javascript">
-    	var user = "${user_result}";
-		
-	    <!-- 세션에 저장된 user_result 가져오기 -->
+       var user = "${user_result}";
+      
+       <!-- 세션에 저장된 user_result 가져오기 -->
   
 		$("#buyNow").on("click", function(){
 			console.log("event")
