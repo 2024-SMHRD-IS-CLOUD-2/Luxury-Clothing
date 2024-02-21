@@ -49,20 +49,22 @@ public class ProductsSearchCon implements Controller {
 		ProductsDAO dao = new ProductsDAO();
 		// 5. DAO에 있는 로그인 기능 사용
 		ProductsDTO serch = dto;
-		List<ProductsDTO> result = dao.selectProductsAll(dto);
 		
+		List<ProductsDTO> result = dao.selectProductsAll(dto);
+		int count = dao.selectProductsAllCount(dto);
 		
 		if (result != null) {
 			System.out.println("상품조회 성공");
-			int count = 0;
+			int num = 0;
 			for (int i = 0; i < result.size(); i++) {
-				count++;
-				System.out.println(count+"번 ProductsSearchCon 값 받음 "+ result.get(i));
+				num++;
+				System.out.println(num+"번 ProductsSearchCon 값 받음 "+ result.get(i));
 			}
 			// session 공간 불러오기
 			HttpSession session = request.getSession();
 			// session에 데이터 담기
 			session.setAttribute("result", result);
+			session.setAttribute("count", count);
 			session.setAttribute("serch", serch);
 		// 6-2. 로그인 실패해도 main.jsp
 		} else {

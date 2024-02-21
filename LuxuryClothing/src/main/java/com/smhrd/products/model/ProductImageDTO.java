@@ -12,12 +12,23 @@ import lombok.NoArgsConstructor;
 
 public class ProductImageDTO {
 
-	private String prodUploaded_seq;	// 업로드 순번 (DB에서 시퀀스로 자동 번호 지정해줌)
 	private String prod_id;
 	private String prod_name;
 	private String prod_price;
+	private String prod_priceMin;
+	private String prod_priceMax;
+	private String prod_desc;
+	private String prod_category;
+	private String prod_option;
 	private String prod_grade;
-	private String file_name;		// 파일 이름
+	private String prod_yn;
+	private String created_at;
+	private String prod_status;
+	private String user_id;
+	private String prod_crtfd;
+	
+	private String file_name;
+	private String prodUploaded_seq;	// 업로드 순번 (DB에서 시퀀스로 자동 번호 지정해줌)
 	private String prodFile_realname;	// 파일 실제이름
 	private String prodFile_size;		// 파일 사이즈
 	private String prodFile_ext;		// 파일 확장자

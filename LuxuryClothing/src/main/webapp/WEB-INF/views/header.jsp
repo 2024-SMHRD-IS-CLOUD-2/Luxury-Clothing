@@ -22,10 +22,10 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         
-                        <a href="main.do" class="logo" >
+                  <%--       <a href="main.do" class="logo" >
                         
                             <img src="${path}/resources/assets/images/logo.png">
-                        </a>
+                        </a> --%>
                         
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -33,6 +33,13 @@
                             <!-- <li class="scroll-to-section"><a href="#top" class="active">메인</a></li> -->
                             <!-- <li class="scroll-to-section"><a href="#men">남성의류</a></li>
                             <li class="scroll-to-section"><a href="#women">여성의류</a></li> -->
+                            <c:if test="${user_result !=null}">
+                            	<li class="submenu3">
+                            		<a href="main.do">
+	                            		${user_result.user_id}님 환영합니다!
+	                            	</a>
+	                            </li>
+                            </c:if>
                             <li class="submenu">
                                 <a class="list" href="javascript:;">위탁서비스</a>
                                 <ul>
