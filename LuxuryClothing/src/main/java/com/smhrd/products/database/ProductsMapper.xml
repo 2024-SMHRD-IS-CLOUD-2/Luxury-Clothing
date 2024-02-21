@@ -59,5 +59,12 @@
 		INSERT INTO PRODUCTS(PROD_NAME, PROD_PRICE, PROD_DESC, PROD_CATEGORY, PROD_OPTION, USER_ID)
 		VALUES(#{prod_name}, #{prod_price}, #{prod_desc}, #{prod_category}, #{prod_option}, #{user_id})
 	</insert>
+
+	<!-- product_id를 조건으로 상품 상세 조회 -->
+	<select id="selectProduct" parameterType="String" resultType="com.smhrd.products.model.ProductsDTO">
+		SELECT *
+		FROM PRODUCTS
+		WHERE PROD_ID=#{productId} AND PROD_YN='Y'
+	</select>
 	
 </mapper>

@@ -16,7 +16,7 @@ public class UserModifyEnterCon implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String url = "user_modifyEnter";
+		String url = null;
 		
 		System.out.println(url);
 		// 세션에서 id값 가져와 id 세팅, request에서 pw가져와 pw 세팅
@@ -35,15 +35,14 @@ public class UserModifyEnterCon implements Controller {
 		
 		try {
 			if(result.getUser_id().equals(id)) {
-				
-				url = "user_modify";
 				System.out.println("성공 시 id값 : "+ result.getUser_id());
-			}else {
-				System.out.println("실패");
+				url = "user_modify";
+			} else {
+				System.out.println("try else 실패1");
 			}
-			
 		} catch (Exception e) {
-			
+			url = "main";
+			System.out.println("catch 실패");
 		}
 		return url;
 

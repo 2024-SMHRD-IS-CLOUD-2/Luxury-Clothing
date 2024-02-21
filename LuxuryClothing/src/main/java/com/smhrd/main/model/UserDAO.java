@@ -1,8 +1,6 @@
 
 package com.smhrd.main.model;
 
-import java.util.List;
-import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -29,6 +27,21 @@ public class UserDAO {
 		return row;
 	}
 	
+	// 회원정보 변경 메소드
+	public int update(UserDTO dto) {
+		// 1. 연결객체(sqlsession, connection) 빌려오기
+		// true 커밋을 해줌
+		SqlSession sqlSession = factory.openSession(true);
+		// 2. 연결객체를 사용해서 sql구문을 실행
+		// sql : MemberMapper.xml 파일 안에 있음
+		int row = sqlSession.update("userUpdate", dto);
+		System.out.println("update DAO : " + row);
+		// 3. 연결객체 반납
+		sqlSession.close();
+
+		return row;
+	}
+	
 	// 로그인 메소드
 	public UserDTO login(UserDTO dto) {
 		// 1. 연결객체 빌려오기
@@ -41,35 +54,17 @@ public class UserDAO {
 		
 		return result;
 	}
-		
-		// 회원정보 변경 메소드
-	public int update(UserDTO dto) {
-		// 1. 연결객체(sqlsession, connection) 빌려오기
-		// true 커밋을 해줌
-	 	SqlSession sqlSession = factory.openSession(true);
-		// 2. 연결객체를 사용해서 sql구문을 실행
-		//		sql : MemberMapper.xml 파일 안에 있음
-	 	int row = sqlSession.update("update", dto);
-		// 3. 연결객체 반납
-		sqlSession.close();
-	 	
-		return row;
-	}
-	
+
 	// 회원 탈퇴
     public int JoinOut(UserDTO dto) {
-        SqlSession sqlSession = SqlSessionManager.getFactory().openSession();
+	 	SqlSession sqlSession = factory.openSession(true);
         int result = 0;
-        try {
-            // Mapper를 사용하여 회원 탈퇴 쿼리 실행
-            result = sqlSession.delete("JoinOut", dto);
-            sqlSession.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            sqlSession.rollback();
-        } finally {
-            sqlSession.close();
-        }
+
+        // Mapper를 사용하여 회원 탈퇴 쿼리 실행
+        result = sqlSession.delete("JoinOut", dto);
+
+        sqlSession.close();
+        
         return result;
     }
     

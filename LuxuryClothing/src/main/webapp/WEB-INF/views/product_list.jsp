@@ -77,13 +77,12 @@
 
 
 	<!-- ***** Men Area Starts ***** -->
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="section-heading">
-						<h2>탑텐?</h2>
-						<span>개쩌는 인기상품 10가지를 만나보세요</span>
-					</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="section-heading">
+					<h2>탑텐?</h2>
+					<span>개쩌는 인기상품 10가지를 만나보세요</span>
 				</div>
 			</div>
 		</div>
@@ -98,7 +97,7 @@
 			<th>
 			<td>
 				<!-- 각 상품 이미지 클릭 시 상세 정보 페이지로 이동 --> <a
-				href="product_detail.jsp?product_id=${result.prod_id}"> <img
+				href="product_detail.do?product_id=${result.prod_id}"> <img
 					class="img" src="${path}/resources/assets/images/men-01.jpg"><br>
 					${result.prod_grade} ${result.prod_name}<br>
 					${result.prod_price}<br>
