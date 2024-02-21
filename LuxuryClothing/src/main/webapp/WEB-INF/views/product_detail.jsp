@@ -27,7 +27,7 @@
 
     <link rel="stylesheet" href="${path}/resources/assets/css/lightbox.css">
 
-	<link rel="stylesheet" href="${path}/resources/product_detail.css">
+	<link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/payment.css">
 </head>
 <body>
 
@@ -65,7 +65,9 @@
         	%> --%>
     		<!-- 형변환 필요 object type이기 때문에 -->
 			<c:set var="prod" value="${sessionScope.prod_detail}" />
-        	
+			<%-- <c:set var="user" value="${sessionScope.user_result}"/> --%>
+		
+       	<form action="payment.do" method="get" id="payment">
             <h1>${prod.prod_name}</h1>
             <%-- <h1><%= prod_name %></h1>
             <h3><%= prod_price %></h1> --%>
@@ -119,17 +121,38 @@
                 </div>
             </div>
             <hr>
+         </form>
+         
             <div class="buttons">
-                <button class="buy-now">바로 구매</button>
+                <button id="buyNow">바로 구매</button>
                 <button class="add-to-cart">장바구니</button>
                 <button class="add-to-wishlist">찜하기</button>
             </div>
         </div>
     </div>
 		
+		
     
 
     <%@include file="footer.jsp"%>
-
+    
+    <script type="text/javascript">
+    	var user = "${user_result}";
+		
+	    <!-- 세션에 저장된 user_result 가져오기 -->
+  
+		$("#buyNow").on("click", function(){
+			console.log("event")
+			
+			if(user == null || user == ""){
+				window.location.href="loginpage.do"
+			}else{
+				$("#payment").submit();
+			}
+			
+			
+		});
+		
+    	</script>
 </body>
 </html>

@@ -12,7 +12,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-	<title>Luxury Clothing</title>
+    <title>결제시스템</title>
 	
 	<!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/bootstrap.min.css">
@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" href="${path}/resources/assets/css/lightbox.css">
 
-    <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/csgnApply.css">
+    <link rel="stylesheet" href="${path}/resources/assets/css/payment.css">
 	
 	<!--
 
@@ -50,166 +50,67 @@
 	    
 	    
 	   <%@include file ="header.jsp" %>
-	<div class="content_box">
-        <div class="service_tit">
-            <h2>위탁 서비스</h2>
-        </div>
-        <div class="service_cont">
-            <!-- <div class="mplTab">
-                <ul>
-                    <li><a href="/service/trust_sell_guide.php">위탁안내사항</a></li>
-                    <li class="select"><a href="/service/trust_sell_request.php">위탁신청</a></li>
-                </ul>
-            </div> -->
-            <div class="bannercocoService bannercocoService2">
-                <span>
-                    Luxury Clothing에서는 고객님과의 상호 신뢰를 바탕으로 위탁판매 서비스를 실시하고 있습니다.
-                </span>
-                <p>전문가의 정확한 감정과 합리적인 가격 책정으로 위탁 고객님과 구매고객님께 </span> 
-                <p>모두 만족을 드리는 차별화된 코코럭스만의 서비스를 체험해보세요.</p>
-            </div>
-            <form action="csgnApply.do" method="post" onsubmit="return checkPrice()">
-            	<input type="hidden" name="user_id" id="user_id" value="${user_result.user_id}">
-                <div class="cocoService">
-                    <h1 class="title"><span>01</span> 주문자 정보</h1>
-                    <div class="checkSame">
-                        <span class="form_element">
-                            <input type="checkbox" id="sameCustomer" name="sameCustomer" onclick="checkSame();">
-                            <label for="sameCustomer" class="on">회원정보와 동일</label>
-                        </span>
-                    </div>
-                    <section >
-                    <table class="consignment_table" border="0" cellpadding="0" cellspacing="0" >
-                        <colgroup>
-                            <col width="25%">
-                            <col width="75%">
-                        </colgroup>
-                        <tbody>
-                        <tr>
-                            <th>이름</th>
-                            <td>
-                                <input type="text" name="name" id="name" maxlength="30" >
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>이메일</th>
-                            <td>
-                                <input type="text" name="email" id="email">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>주소</th>
-                            <td class="address">
-                                <div class="address_input">
-                                        <input type="text" name="address" id="address" >
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>휴대폰번호</th>
-                            <td>
-                                <input type="text" name="phone" id="phone">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                </section>
-                	<h1 class="title"><span>02 </span>제품 정보</h1>
-                <table border="0" cellpadding="0" cellspacing="0">
-                        <colgroup>
-                            <col width="25%">
-                            <col width="75%">
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th>상품 인증</th>
-                                <td>
-                                    <span class="certification">
-                                        <!-- <input type="checkbox" id="tmp_certify_goods1_1" name="tmp_certify_goods[]" value="1">
-                                        <label for="tmp_certify_goods1_2">보증서</label> -->
-                                        <!-- 다른거 추가 시 배열형태로 변경 필요 -->
-                                        <input type="checkbox" id="tmp_certify_goods" name="tmp_certify_goods" value="2">
-                                        <label for="tmp_certify_goods">영수증</label>
-                                        <!-- <input type="checkbox" id="tmp_certify_goods1_5" name="tmp_certify_goods[]" value="5">
-                                        <label for="tmp_certify_goods1_6">택</label> -->
-                                        <!-- OCR 기능 사용 방법에 따라 변경 -->
-                                    </span>
 
-                                </td>
-                            </tr>
-								<!-- img 배열로 바꿀 예정 -->                            
-                            <tr>
-                            	<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-                                <th>상품이미지1</th>
-                                <td>
-                                    <div class="btn_upload_box">
-                                            <input type="file" name="img" id="img" class="file">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                            	<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-                                <th>상품이미지2</th>
-                                <td>
-                                    <div class="btn_upload_box">
-                                            <input type="file" name="img" id="img" class="file">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                            	<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-                                <th>상품이미지3</th>
-                                <td>
-                                    <div class="btn_upload_box">
-                                            <input type="file" name="img" id="img" class="file">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>제품명</th>
-                            	<td>
-                                	<input required="required" type="text" name="goods_name" id="goods_name">
-                            	</td>
-	                        </tr>
-	                        <tr>
-	                            <th>구매가격</th>
-	                            <td>
-	                                <input required="required" type="number" name="goods_price" id="goods_price">
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <th>희망가격</th>
-	                            <td>
-	                                <input required="required" type="number" name="wish_price">
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <th>상품 종류</th>
-	                            <td>
-		                            <select class="category" name="goods_kind" id="goods_kind">
-										<option value="모자">모자</option>
-										<option value="상의">상의</option>
-										<option value="하의">하의</option>
-										<option value="악세서리">악세서리</option>
-									</select>
-								</td>	
-	                        </tr>
-                            <tr>
-                                <th>상품 정보 기입</th>
-                                <td>
-                                     <textarea required="required" name="goods_option" id="goods_option" placeholder="상품 사이즈, 색상 등 관련 정보를 적어주세요(500자 이내)"></textarea>
-                                </td>
-                            </tr>
-	                        <tr>
-	                            <th>제품상태 
-									<br>상세설명</th>
-	                            <td>
-	                                <textarea required="required" name="goods_detail" id="goods_detail" placeholder="2000자 이내"></textarea>
-	                            </td>
-	                        </tr>
-	                        </tbody>
-                    </table>
-		                    <button type="submit" id="submit">신청서 작성완료</button>
+    <div class="center-container">
+        <div class="input-box">
+            <form action="/주문처리경로" method="post">
+            	<c:set var="prod" value="${sessionScope.prod_detail}" />id="sameCustomer"
+                <p>결제 정보 입력</p>
+                <hr>
+                <br>
+                <p>주문자 정보</p>
+				<span class="form_element">
+	                <input type="checkbox" id="sameCustomer" name="sameCustomer" onclick="checkSame();" required="required">
+	                <label for="sameCustomer" class="on">회원정보와 동일</label>
+                </span><br>
+                <label for="주문자이름">주문하시는 분</label>
+                <input type="text" id="name" name="name" required="required">
+                <br>
+                <label for="주소">주소</label>
+                <input type="text" id="address" name="address" required="required">
+                <br>
+                <label for="연락처">연락처</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+                    placeholder="010-1234-5678" required>
+                <br>
+                <label for="이메일">이메일 주소</label>
+                <input type="email" id="email" name=""email"" required="required">
+                <br>
+                <br>
+
+                <p>배송 정보</p>
+                <label for="주문자이름">배송지 입력</label>
+                <input type="text" id="DELI_ADDR" name="DELI_ADDR" required>
+                <br>
+                <label for="주소">받으실 분</label>
+                <input type="text" id="RECIPIENT_NAME" name="RECIPIENT_NAME" required>
+                <br>
+                <label for="연락처">받으실 분 연락처</label>
+                <input type="tel" id="RECIPIENT_PHONE" name="RECIPIENT_PHONE" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+                    placeholder="010-1234-5678" required>
+                <br>
+                <label for="주소">배송 메세지</label>
+                <input type="text" id="DELI_MESSAGE" name="DELI_MESSAGE" required>
+                <br>
+                <br>
+
+                <p>결제 정보</p>
+
+                <label for="PAY_METHOD"><input type="radio" id="PAY_METHOD" name="결제수단" required> 무통장 입금</label>
+                <label for="PAY_METHOD"><input type="radio" id="PAY_METHOD" name="결제수단" required> 신용카드</label>
+                <label for="PAY_METHOD"><input type="radio" id="PAY_METHOD" name="결제수단" required> 계좌이체</label>
+                <label for="PAY_METHOD"><input type="radio" id="PAY_METHOD" name="결제수단" required> 가상계좌</label>
+                <hr>
+                <br>
+                
+                <div class="total-amount">
+                    <p class="total-amount-text">총 결제 금액: ${prod.prod_price}</p>
+                </div>
+                <br>
+
+                <div class="button-container">
+                    <button type="submit">결제취소</button>
+                    <button type="submit">결제하기</button>
                 </div>
             </form>
         </div>
