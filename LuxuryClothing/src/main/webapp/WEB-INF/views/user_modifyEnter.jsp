@@ -52,10 +52,12 @@
 	    
 	<%@include file ="header.jsp" %>
 			<div class="container">
-		        <br>
+				<br>
+				<br>
+				<br>
+				<br>
 		        <br>
 		        <h1>마이페이지</h1>
-		        <br>
 		        <br>
 		        <br>
 		        <hr>
@@ -71,11 +73,13 @@
 		        <h2>회원정보변경</h2>
 		        <br>
 		        <br>
+		        <br>
 		        <h4>회원님의 정보를 안전하게 보호하기 위해 비밀번호를</h4>
 		        <h4>다시 한 번 입력해 주세요.</h4>
 		        <br>
 		        <br>  
 		        비밀번호   :  <input type="password" name="pw" id="pw">
+		        <br>
 		        <br>
 		        <br>
 		        <hr>
