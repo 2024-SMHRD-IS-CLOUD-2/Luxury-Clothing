@@ -15,8 +15,8 @@ import com.smhrd.main.model.UserDTO;
 
 public class UserModifyCon implements Controller {
 
-	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+   public String execute(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
 
 		String url = "user_modify";
 		
@@ -50,4 +50,3 @@ public class UserModifyCon implements Controller {
 	}
 
 }
-

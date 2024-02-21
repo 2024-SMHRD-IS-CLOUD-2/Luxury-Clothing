@@ -36,7 +36,7 @@
                             <li class="submenu">
                                 <a class="list" href="javascript:;">위탁서비스</a>
                                 <ul>
-                                    <li><a href="consignment.do">위탁안내 사항</a></li>
+                                    <li><a href="consignmentGuide.do">위탁안내 사항</a></li>
                                     <c:if test="${user_result !=null}">
                                     	<li><a href="csgnApplyPage.do">위탁판매 신청</a></li>
                                     </c:if>
