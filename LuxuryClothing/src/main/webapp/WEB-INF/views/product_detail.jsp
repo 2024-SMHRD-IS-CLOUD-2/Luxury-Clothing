@@ -46,14 +46,6 @@
 	    
 	<%@include file ="header.jsp" %>
 	<div class="container">
-        <!-- 상품 상세 정보 표시 -->
-        <h1>${product.prod_name}</h1>
-        <p>가격: ${product.prod_price}</p>
-        <p>등급: ${product.prod_grade}</p>
-        <p>설명: ${product.prod_description}</p>
-        <!-- 다른 상세 정보 표시 -->
-    </div>
-	<div class="container">
         <div class="product-image">
             <!-- 상품 이미지 -->
             <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA3MDhfODYg%2FMDAxNTYyNTc0NDcxOTM1.OjDgmUrFi8rByy6OSqCd2GPI0aUk8kxXqH4n5GDryxwg.jB_Kfi8ti-un99vALglDU2TFWU_5709C4o721FeGe8Ug.JPEG.msinvestment%2Fshutterstock_1320931688.jpg&type=ff332_332" alt="Product Image">

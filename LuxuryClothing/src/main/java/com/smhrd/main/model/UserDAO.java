@@ -34,7 +34,7 @@ public class UserDAO {
 		SqlSession sqlSession = factory.openSession(true);
 		// 2. 연결객체를 사용해서 sql구문을 실행
 		// sql : MemberMapper.xml 파일 안에 있음
-		int row = sqlSession.update("userUpdate", dto);
+		int row = sqlSession.update("update", dto);
 		System.out.println("update DAO : " + row);
 		// 3. 연결객체 반납
 		sqlSession.close();
