@@ -6,6 +6,7 @@
   font-family: 'Montserrat',"Noto Sans KR",Malgun Gothic,"맑은 고딕",AppleGothic,Dotum,"돋움",sans-serif;
   color: var(--f-color);
   text-align: center; /* 모든 내용을 가운데 정렬 */
+  font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
 }
 /* li.scroll-to-section{
   margin-left: 70px;

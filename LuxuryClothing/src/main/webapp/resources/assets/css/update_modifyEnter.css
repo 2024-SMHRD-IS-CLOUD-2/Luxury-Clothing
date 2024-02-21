@@ -1,4 +1,10 @@
 @charset "UTF-8";
+
+body {
+    
+    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+  }
+  
 .container {
     text-align: center;
     margin: auto; /* 페이지 가운데 정렬을 위한 설정 */
