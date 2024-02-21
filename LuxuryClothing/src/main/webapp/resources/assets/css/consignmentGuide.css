@@ -9,6 +9,7 @@ body {
 	padding: 0;
 	/* body 요소의 기본 margin과 padding 제거 */
 	text-align: center;
+	font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
 }
 
 .input-box {
@@ -23,8 +24,7 @@ body {
 
 /* 버튼 스타일링 */
 button {
-	
-	background-color: rgb(0, 0, 0);
+		background-color: rgb(0, 0, 0);
 	color: white;
 	padding: 10px;
 	border: none;

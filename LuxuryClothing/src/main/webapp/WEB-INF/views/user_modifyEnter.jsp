@@ -28,18 +28,11 @@
     <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/csgnApply.css">
 	
 	<link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/update_modifyEnter.css">
-	<!--
-
-	TemplateMo 571 Hexashop
-
-	https://templatemo.com/tm-571-hexashop
-
-	-->
+	
 	
 </head>
 <body>
 
-	<!-- ***** Preloader Start ***** -->
 	    <div id="preloader">
 	        <div class="jumper">
 	            <div></div>
@@ -47,9 +40,8 @@
 	            <div></div>
 	        </div>
 	    </div>  
-	    <!-- ***** Preloader End ***** -->
-	    
-	    
+	  
+	    	    
 	<%@include file ="header.jsp" %>
 			<div class="container">
 		        <br>
@@ -71,8 +63,8 @@
 		        <h2>회원정보변경</h2>
 		        <br>
 		        <br>
-		        <h4>회원님의 정보를 안전하게 보호하기 위해 비밀번호를</h4>
-		        <h4>다시 한 번 입력해 주세요.</h4>
+		        <p>회원님의 정보를 안전하게 보호하기 위해 비밀번호를</p>
+		        <p>다시 한 번 입력해 주세요.</p>
 		        <br>
 		        <br>  
 		        비밀번호   :  <input type="password" name="pw" id="pw">
@@ -83,6 +75,7 @@
 		        <br>
 		        <button type="submit" id="submit">인증하기</button>
 		    </div>
+		    
 		</form>
     
     <%@include file ="footer.jsp" %>

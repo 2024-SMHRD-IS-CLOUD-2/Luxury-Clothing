@@ -1,6 +1,7 @@
 @charset "UTF-8";
 body {
-    font-family: Arial, sans-serif;
+    
+    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
   }
   .withdrawal-container {
     text-align: center;

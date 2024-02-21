@@ -6,6 +6,12 @@
 /*
  *  Owl Carousel - Core
  */
+ 
+ body {
+    
+    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+  }
+  
 .owl-carousel {
   display: none;
   width: 100%;

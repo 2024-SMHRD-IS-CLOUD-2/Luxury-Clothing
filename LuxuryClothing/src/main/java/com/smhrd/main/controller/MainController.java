@@ -19,6 +19,7 @@ import com.smhrd.products.controller.ProductsSearchCon;
 import com.smhrd.products.controller.CsgnApplyCon;
 import com.smhrd.products.controller.CsgnApplyPageCon;
 import com.smhrd.products.controller.CsgnGuideCon;
+import com.smhrd.products.controller.PayPageCon;
 import com.smhrd.products.controller.ProductDetailCon;
 import com.smhrd.products.controller.TestCon;
 
@@ -72,6 +73,7 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/csgnApply.do", new CsgnApplyCon());
 		handlerMapping.put("/consignmentGuide.do", new CsgnGuideCon());
 		handlerMapping.put("/product_detail.do", new ProductDetailCon());
+		handlerMapping.put("/payment.do", new PayPageCon());
 		
 		// 상품 이미지
 		handlerMapping.put("/test_ImageUpload.do", new TEST_ImageUpload() );
