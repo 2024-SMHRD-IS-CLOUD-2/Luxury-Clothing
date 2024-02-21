@@ -28,18 +28,11 @@
     <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/csgnApply.css">
 	
 	<link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/update_modifyEnter.css">
-	<!--
-
-	TemplateMo 571 Hexashop
-
-	https://templatemo.com/tm-571-hexashop
-
-	-->
+	
 	
 </head>
 <body>
 
-	<!-- ***** Preloader Start ***** -->
 	    <div id="preloader">
 	        <div class="jumper">
 	            <div></div>
@@ -47,9 +40,8 @@
 	            <div></div>
 	        </div>
 	    </div>  
-	    <!-- ***** Preloader End ***** -->
-	    
-	    
+	  
+	    	    
 	<%@include file ="header.jsp" %>
 			<div class="container">
 				<br>
@@ -61,11 +53,11 @@
 		        <br>
 		        <br>
 		        <hr>
-		        <a href="#" onclick="return false;">회원정보변경</a> 
-		        <a href="#" onclick="return false;">위탁 상품관리</a> 
-		        <a href="#" onclick="return false;">주문목록 내역</a> 
-		        <a href="#" onclick="return false;">환불/입금 내역</a> 
-		        <a href="#" onclick="return false;">회원탈퇴</a>
+		        <a class="top_manu" href="#" onclick="return false;">회원정보변경</a> 
+		        <a class="top_manu" href="#" onclick="return false;">위탁 상품관리</a> 
+		        <a class="top_manu" href="#" onclick="return false;">주문목록 내역</a> 
+		        <a class="top_manu" href="#" onclick="return false;">환불/입금 내역</a> 
+		        <a class="top_manu" href="#" onclick="return false;">회원탈퇴</a>
 		        <hr>
 		        <br>
 		        <br>
@@ -87,6 +79,7 @@
 		        <br>
 		        <button type="submit" id="submit">인증하기</button>
 		    </div>
+		    
 		</form>
     
     <%@include file ="footer.jsp" %>

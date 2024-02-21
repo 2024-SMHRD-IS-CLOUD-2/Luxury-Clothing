@@ -46,6 +46,17 @@ public class ProductsDAO {
 		return resultList;
 	}
 	
+	// 검색조건으로 상품 리스트 카운트 메소드
+	public int selectProductsAllCount(ProductsDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 selectProductsAllCount");
+		SqlSession sqlSession =  factory.openSession();
+		int result = sqlSession.selectOne("selectProductsAllCount", dto);
+		sqlSession.close();
+		
+		return result;
+	}
+	
 	// 위탁판매 신청 메소드
 	public int csgnApply(ProductsDTO dto) {
 		System.out.println("ProductsDAO 방문 csgnApply");
@@ -121,9 +132,38 @@ public class ProductsDAO {
 		sqlSession.close();
 		
 		if (result.equals(null)) {
-			System.out.println("selectImageMain 상품 이미지 하나조회 실패!");
+			System.out.println("selectImageMain 상품 이미지 조회 실패!");
 		} else {
-			System.out.println("selectImageMain 상품 이미지 하나조회 성공!");
+			System.out.println("selectImageMain 상품 이미지 조회 성공!");
+		}
+		return result;
+	}
+	
+	// 상품 총 개수를 카운트 해줌
+	public int selectImageMainCount() {
+		
+		System.out.println("ProductsDAO 방문 selectImageMainCount");
+		// factory.openSession(true) 에서 true 가 커밋여부 !
+		SqlSession sqlSession =  factory.openSession();
+		int result = sqlSession.selectOne("selectImageMainCount");
+		sqlSession.close();
+		
+		return result;
+	}
+	
+	// 메인 추천 상품에서 이미지와 상품 정보를 가져오는 로직
+	public List<ProductImageDTO> selectImageMainPick(ProductsDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 selectImageMainPick");
+		// factory.openSession(true) 에서 true 가 커밋여부 !
+		SqlSession sqlSession =  factory.openSession();
+		List<ProductImageDTO> result = sqlSession.selectList("selectImageMainPick", dto);
+		sqlSession.close();
+		
+		if (result.equals(null)) {
+			System.out.println("selectImageMainPick 상품 이미지 조회 실패!");
+		} else {
+			System.out.println("selectImageMainPick 상품 이미지 조회 성공!");
 		}
 		return result;
 	}
