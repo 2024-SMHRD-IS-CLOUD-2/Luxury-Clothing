@@ -11,11 +11,11 @@ import com.smhrd.main.controller.Controller;
 
 public class CsgnGuideCon implements Controller {
 
-	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+   public String execute(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
 
-		return "consignmentGuide";
+      return "consignmentGuide";
 
-	}
+   }
 
 }

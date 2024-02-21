@@ -140,7 +140,6 @@ button[type="button1"] {
   float: none; /* 부동 해제 */
 }
 	</style>
-	
 
 </head>
 <body>

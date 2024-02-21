@@ -97,7 +97,7 @@
 			<th>
 			<td>
 				<!-- 각 상품 이미지 클릭 시 상세 정보 페이지로 이동 --> <a
-				href="product_detail.jsp?product_id=${result.prod_id}"> <img
+				href="product_detail.do?product_id=${result.prod_id}"> <img
 					class="img" src="${path}/resources/assets/images/men-01.jpg"><br>
 					${result.prod_grade} ${result.prod_name}<br>
 					${result.prod_price}<br>
