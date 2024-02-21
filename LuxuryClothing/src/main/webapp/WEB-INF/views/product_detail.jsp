@@ -1,112 +1,126 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+<%@ page import="com.smhrd.products.model.ProductsDTO"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상품 상세 조회 페이지</title>
-    <link rel="stylesheet" href="${path}/resources/assets/css/product_detail.css">
-    <style type="text/css">
-    @charset "UTF-8";
-.container {
-    display: flex;
-    width: 1000px;
-    margin: 0 auto;
-}
-
-.product-image {
-    width: 500px;
-    text-align: center;
-}
-
-.product-image img {
-    width: 100%;
-    height: auto;
-}
-
-.product-details {
-    width: 500px;
-    padding: 20px;
-}
-
-.product-details h1 {
-    color: black;
-}
-
-.product-details hr {
-    border: 1px solid black;
-    margin: 20px 0;
-}
-
-.product-info div {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.condition div {
-    display: flex;
-}
-
-.buttons {
-    text-align: center;
-}
-
-.buttons button {
-    width: calc((100% - 20px) / 3);
-    margin-right: 20px;
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 10px 0;
-}
-
-.buttons button:last-child {
-    margin-right: 0;
-}
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     
-    </style>
+    <title>상품 상세 정보</title>
+    <!-- 필요한 CSS 파일들을 여기에 추가 -->
+    
+    <link rel="stylesheet" href="${path}/resources/assets/css/styles.css">
+    
+        <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/font-awesome.css">
+
+    <link rel="stylesheet" href="${path}/resources/assets/css/templatemo-hexashop.css">
+
+    <link rel="stylesheet" href="${path}/resources/assets/css/owl-carousel.css">
+
+    <link rel="stylesheet" href="${path}/resources/assets/css/lightbox.css">
+
+	<link rel="stylesheet" href="${path}/resources/product_detail.css">
 </head>
 <body>
-    <div class="container">
+
+    <%@include file="header.jsp"%>
+	
+	<!-- ***** Preloader Start ***** -->
+	    <div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>  
+	<!-- ***** Preloader End ***** -->
+	    
+	    
+	<%@include file ="header.jsp" %>
+	<div class="container">
+        <!-- 상품 상세 정보 표시 -->
+        <h1>${product.prod_name}</h1>
+        <p>가격: ${product.prod_price}</p>
+        <p>등급: ${product.prod_grade}</p>
+        <p>설명: ${product.prod_description}</p>
+        <!-- 다른 상세 정보 표시 -->
+    </div>
+	<div class="container">
         <div class="product-image">
             <!-- 상품 이미지 -->
-            <img src="product_image.jpg" alt="Product Image">
+            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA3MDhfODYg%2FMDAxNTYyNTc0NDcxOTM1.OjDgmUrFi8rByy6OSqCd2GPI0aUk8kxXqH4n5GDryxwg.jB_Kfi8ti-un99vALglDU2TFWU_5709C4o721FeGe8Ug.JPEG.msinvestment%2Fshutterstock_1320931688.jpg&type=ff332_332" alt="Product Image">
         </div>
         <div class="product-details">
-            <h1>상품명</h1>
-            <h1>가격</h1>
+        	<%-- <c:set var="product" value="<%=request.getAttribute("product_detail")%>"></c:set> --%>
+        	<%-- <% 
+        	ProductsDTO dto = (ProductsDTO)(request.getAttribute("prod_detail")); 
+        	
+        	String prod_name = dto.getProd_name();
+        	String prod_price = dto.getProd_price();
+        	String prod_category = dto.getProd_category();
+        	String prod_desc = dto.getProd_desc();
+        	String prod_option = dto.getProd_option();
+        	String prod_status = dto.getProd_status();
+        	
+        	%> --%>
+    		<!-- 형변환 필요 object type이기 때문에 -->
+			<c:set var="prod" value="${sessionScope.prod_detail}" />
+        	
+            <h1>${prod.prod_name}</h1>
+            <%-- <h1><%= prod_name %></h1>
+            <h3><%= prod_price %></h1> --%>
             <hr>
             <div class="product-info">
                 <div>
-                    <span>상품재고</span>
-                    <span>1개</span>
+                    <span>가격 :</span>
+                    <span>${prod.prod_price}</span>
                 </div>
                 <div>
-                    <span>원산지</span>
-                    <span>FANCE</span>
+                    <span>카테고리 :</span>
+                    <span>${prod.prod_category}</span>
                 </div>
+                <br>
                 <div>
-                    <span>배송지</span>
-                    <span>0원 / 주문시 결제 (선결제)</span>
+                    <span>상세 정보 :</span>
+                    <span>${prod.prod_option}</span>
                 </div>
+                <br>
+                <div>
+                    <span>제품 상태 :</span>
+                    <span>${prod.prod_desc}</span>
+                </div>
+                <br>
                 <div>
                     <span>외부상태</span>
+                    <br>
                     <div class="condition">
-                        <span>신품</span>
+                        <span>신품/</span>
                         <span>미사용</span>
                     </div>
                 </div>
+                <br>
                 <div>
                     <span>내부상태</span>
-                    <span>신품</span>
-                    <span>미사용</span>
+                    <br>
+                    <div class="condition">
+                        <span>신품/</span>
+                        <span>미사용</span>
+                    </div>
                 </div>
+                <br>
                 <div>
                     <span>부속품</span>
                     <span>더스크백, 케이스</span>
                 </div>
+                <br>
                 <div>
                     <span>색상</span>
                     <span>블랙</span>
@@ -120,5 +134,10 @@
             </div>
         </div>
     </div>
+		
+    
+
+    <%@include file="footer.jsp"%>
+
 </body>
 </html>

@@ -20,16 +20,17 @@
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 <style type="text/css">
-	.product_table{
-		margin-left:auto;
-		margin-right:auto;
-		text-align: center;
-	}
-	.img{
-		width: 200px;
-		margin-left: 20px;
-		margin-top: 60px;
-	}
+.product_table {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.img {
+	width: 200px;
+	margin-left: 20px;
+	margin-top: 60px;
+}
 </style>
 </head>
 
@@ -58,8 +59,8 @@
 
 				<!-- 구매 희망가격 슬라이더 STR -->
 				<div class="search_box">
-					<label for="amount">구매 희망가격(원)</label> 
-					<input type="text" id="amount" name="amount">
+					<label for="amount">구매 희망가격(원)</label> <input type="text"
+						id="amount" name="amount">
 					<div>
 						<div id="slider-range" class="slider-range"></div>
 					</div>
@@ -76,43 +77,43 @@
 
 
 	<!-- ***** Men Area Starts ***** -->
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="section-heading">
-						<h2>탑텐?</h2>
-						<span>개쩌는 인기상품 10가지를 만나보세요</span>
-					</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="section-heading">
+					<h2>탑텐?</h2>
+					<span>개쩌는 인기상품 10가지를 만나보세요</span>
 				</div>
 			</div>
 		</div>
+	</div>
 
 
-		<table class="product_table">
+	<table class="product_table">
 		<c:forEach var="result" items="${result}" varStatus="status">
 			<c:if test="${status.index % 5 == 0}">
-			  	<tr>
+				<tr>
 			</c:if>
-				    <th>
-				    	<td>
-					    	<a href="#">
-							    <img class="img" src="${path}/resources/assets/images/men-01.jpg" ><br>
-							    ${result.prod_grade} 
-							    ${result.prod_name}<br>
-							    ${result.prod_price}<br>
-					    	</a>
-				    	</td>
-				    </th>
+			<th>
+			<td>
+				<!-- 각 상품 이미지 클릭 시 상세 정보 페이지로 이동 --> <a
+				href="product_detail.do?product_id=${result.prod_id}"> <img
+					class="img" src="${path}/resources/assets/images/men-01.jpg"><br>
+					${result.prod_grade} ${result.prod_name}<br>
+					${result.prod_price}<br>
+			</a>
+			</td>
+			</th>
 			<c:if test="${status.index % 5 == 4 || status.last}">
-			  	</tr>
+				</tr>
 			</c:if>
 		</c:forEach>
-		</table>
+	</table>
 
 
-		<!-- ***** Men Area Ends ***** -->
+	<!-- ***** Men Area Ends ***** -->
 
-		<script>
+	<script>
  	<!-- 구매 희망가격 슬라이더 STR -->
 	$( function() {
 		$( "#slider-range" ).slider({
@@ -177,7 +178,7 @@
  	</script>
 
 
-		<!-- 복붙코드 jsp : footer 불러오기 ! ***** -->
+	<!-- 복붙코드 jsp : footer 불러오기 ! ***** -->
 	<%@include file="footer.jsp"%>
 </body>
 </html>
