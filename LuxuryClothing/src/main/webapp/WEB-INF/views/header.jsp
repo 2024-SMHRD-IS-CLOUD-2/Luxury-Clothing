@@ -64,7 +64,7 @@
 		                            <li class="submenu">
 		                                <a href="javascript:;">마이페이지</a>
 		                                <ul>
-		                                    <li><a href="#">회원정보수정</a></li>
+		                                    <li><a href="userModifyPage.do">회원정보수정</a></li>
 		                                    <li><a href="#">위탁상품관리</a></li>
 		                                    <li><a href="#">주문내역조회</a></li>
 		                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">입금 조회 및 환불</a></li>

@@ -12,8 +12,8 @@ import com.smhrd.admin.model.AdminDTO;
 import com.smhrd.main.controller.Controller;
 
 public class SearchUserCon implements Controller {
+	
     private static final String SEARCH_USER_JSP = "searchUser";
-
     private final AdminDAO adminDAO;
 
     public SearchUserCon() {

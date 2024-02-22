@@ -14,33 +14,6 @@
 
 <mapper namespace="com.smhrd.products.model.ProductImageDTO">
 
-	<!-- 이미지 SQL ============================================================================================================ -->
-	<insert id="ProductImageUpload" parameterType="java.util.ArrayList">
-	    <foreach collection="list" item="arr" index="index" separator=" " open="INSERT ALL" close="SELECT * FROM DUAL">
-	        INTO PROD_UPLOAD_IMAGES (
-	            PROD_ID,
-	            FILE_NAME,
-	            FILE_REALNAME,
-	            FILE_SIZE,
-	            FILE_EXT,
-	            FILE_PATH
-	        ) VALUES (
-	            #{arr.prod_id},
-	            #{arr.file_name},
-	            CONCAT(TO_CHAR(SYSDATE, 'YYMMDD_HH24MISS'), #{arr.file_name}),
-	            #{arr.prodFile_size},
-	            #{arr.prodFile_ext},
-	            #{arr.prodFile_path}
-	        )
-	    </foreach>
-	</insert>
 
-	
-	<!-- 상품 이미지 조회 -->
-	<select id="selectImages" parameterType="com.smhrd.products.model.ProductImageDTO" resultType="com.smhrd.products.model.ProductImageDTO">
-		SELECT *
-		FROM PROD_UPLOAD_IMAGES
-		WHERE PROD_ID = #{prod_id}
-	</select>
 
 </mapper>
