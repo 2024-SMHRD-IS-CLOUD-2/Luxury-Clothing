@@ -22,6 +22,7 @@ import com.smhrd.products.controller.CsgnGuideCon;
 import com.smhrd.products.controller.PayPageCon;
 import com.smhrd.products.controller.ProductDetailCon;
 import com.smhrd.products.controller.TestCon;
+import com.smhrd.purchases.controller.PaySuccess;
 
 //@WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 받음
 @WebServlet(urlPatterns = {"*.do", ""}) // *.do 와 서버구동 초기 요청을 받음
@@ -80,6 +81,8 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/ProductImageUpload.do", new ProductsImageUploadCon() );
 		handlerMapping.put("/ProductSelect.do", new ProductsImageSelectCon() );
 
+		// 결제
+		handlerMapping.put("/paySuccess.do", new PaySuccess());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
