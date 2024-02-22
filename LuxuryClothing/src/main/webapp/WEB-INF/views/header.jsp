@@ -24,6 +24,12 @@
                         
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
+                        <c:if test="${user_result !=null}">
+                       		<li><a href="main.do">${user_result.user_id} 님 환영합니다.</a></li>
+                        </c:if>
+                        <c:if test="${user_result == null}">
+                       		<li><a href="main.do">메인으로</a></li>
+                        </c:if>
                             <!-- <li class="scroll-to-section"><a href="#top" class="active">메인</a></li> -->
                             <!-- <li class="scroll-to-section"><a href="#men">남성의류</a></li>
                             <li class="scroll-to-section"><a href="#women">여성의류</a></li> -->
