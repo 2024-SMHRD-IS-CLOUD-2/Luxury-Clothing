@@ -1,6 +1,8 @@
 package com.smhrd.products.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +25,11 @@ public class ProductDetailCon implements Controller {
 		System.out.println("product_id값(식별자) : " + productId);
 		
 		ProductsDAO dao = new ProductsDAO();
+		ArrayList<ProductsDAO> arrDao = new ArrayList<ProductsDAO>();
+		
 		ProductsDTO prod_detail = dao.selectProduct(productId);
+		ProductsDTO prod_mainImage = dao.selectProductMainImage(productId);
+		List<ProductsDTO> prod_subImages = dao.selectProductSubImages(productId);
 		HttpSession session = request.getSession();
 		session.setAttribute("prod_detail", prod_detail);
 		/*
@@ -35,6 +41,8 @@ public class ProductDetailCon implements Controller {
 		 */
 		
 		request.setAttribute("prod_detail", prod_detail);
+		request.setAttribute("prod_mainImage", prod_mainImage);
+		request.setAttribute("prod_subImages", prod_subImages);
 		/*
 		 * request.setAttribute("prod_price", prod_price);
 		 * request.setAttribute("prod_desc", prod_desc);

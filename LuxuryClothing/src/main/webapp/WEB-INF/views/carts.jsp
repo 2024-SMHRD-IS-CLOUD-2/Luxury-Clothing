@@ -7,6 +7,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<style type="text/css">
+		img{
+			width: 50px;
+			height: 50px;
+		}
+	</style>
+	
+
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,9 +37,6 @@
 	<!-- ***** Preloader Start ***** -->
 	<div id="preloader">
 		<div class="jumper">
-			<div></div>
-			<div></div>
-			<div></div>
 		</div>
 	</div>
 	<!-- ***** Preloader End ***** -->
@@ -48,65 +53,93 @@
 					<hr class="border-line">
 					<!-- 장바구니 내용 -->
 					<div id="cart-container">
+					
 						<!-- 여기에 장바구니 내용을 표시할 것입니다 -->
 						<form id="cartForm">
 							<div class="product-list">
-								<c:forEach var="product" items="${cartItems}">
-									<div class="product-item">
-										<div class="product-info">
-											<div class="product-checkbox-container">
-												<input type="checkbox" class="product-checkbox">
-											</div>
-											<div class="product-details">
-												<div class="product-name">${product.prod_name}</div>
-												<div class="product-price">${product.prod_price}원</div>
-												<div class="product-desc">${product.prod_desc}</div>
-												<div class="product-category">${product.prod_category}</div>
-												<div class="product-option">${product.prod_option}</div>
-												<div class="product-grade">${product.prod_grade}</div>
-												<div class="product-yn">${product.prod_yn}</div>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
+							
+								<table class="product_table">
+									<c:if test="${totalPrice > 0}">
+										<tr>
+											<td class="search_admin_td">선택</td>
+											<td class="search_admin_td">번호</td>
+											<td class="search_admin_td">이미지</td>
+											<td class="search_admin_td">상품 코드</td>
+											<td class="search_admin_td">상품 명</td>
+											<td class="search_admin_td">상품 등급</td>
+											<td class="search_admin_td">판매가</td>
+										</tr>
+										
+									
+										<c:forEach var="result" items="${cartItems}" varStatus="status">
+											<input type="hidden" value="${result.prod_yn}">
+											<input type="hidden" value="${result.prod_id}" name="prod_id${result.prod_id}" id="prod_id${result.prod_id}">
+											
+											<tr>
+												<td><input type="checkbox" value="${result.prod_id}" name="prod_check${result.prod_id}" id="prod_check${result.prod_id}"></td>
+												<td> ${status.index+1}</td>
+												<td> <img class="cart_img" src="${path}/resources/assets/images/products/${result.file_name}"></td>
+												<td> ${result.prod_id} </td>
+												<td> <input type="hidden" value="${result.prod_name}" id="prod_name${result.prod_id}"> ${result.prod_name} </td>
+												<td> <input class="prod_grade" type="hidden" value="${result.prod_grade}" id="prod_grade${result.prod_id}"> ${result.prod_grade} </td>
+												<td> <input class="input_list2" type="hidden" value="${result.prod_price}" id="prod_price${result.prod_id}"> ${result.prod_price} </td>
+											</tr>
+										</c:forEach>
+									</c:if>
+								</table>
+								
+								<table class="product_table" style="margin-top: 100px">
+									<c:if test="${totalPrice > 0}">
+										<tr>
+											<!-- 장바구니 합계 -->
+											<td class="text_all">
+												총 ${count}개의 상품 
+											</td>
+										</tr>
+										<tr>
+											<!-- 장바구니 합계 -->
+											<td class="text_all">
+												장바구니 합계 : ${totalPrice} 원
+											</td>
+										</tr>
+										<tr><td></td></tr>
+										<tr>
+											<!-- 장바구니 합계 -->
+											<td class="text_all" colspan="7">
+												<button type="button" onclick="cartDelete();">선택 삭제</button>
+												<button>결제</button>
+											</td>
+										</tr>
+									</c:if>
+									<c:if test="${totalPrice == 0}">
+										<tr>
+											<!-- 장바구니가 비어있을 때 메시지 -->
+											<td>장바구니에 상품이 없습니다.</td>
+										</tr>
+									</c:if>
+								</table>
+								
 							</div>
 						</form>
+						
 					</div>
-					<!-- 장바구니 합계 -->
-					<div class="total-price">
-						<h4>
-							장바구니 합계: <span id="totalPrice">${totalPrice}</span>원
-						</h4>
-					</div>
-					<!-- 장바구니가 비어있을 때 메시지 -->
-					<c:if test="${empty cartItems}">
-						<div class="cart-message text-center">장바구니에 상품이 없습니다.</div>
-					</c:if>
+					
+		
 				</div>
 			</div>
 		</div>
 	</div>
+	
+		<!-- 삭제 세팅 -->
+	<form action="cartProductDelete.do" method="post" id="deleteForm" name="deleteForm">
+		<input type="hidden" value="" name="deleteProd_id" id="deleteProd_id">
+		<input type="hidden" value="" name="deleteUser_id" id="deleteUser_id">
+	</form>
+	
 	<!-- ***** Contact Area Ends ***** -->
-	<%@include file="footer.jsp"%>
-	<!-- jQuery -->
-	<script src="${path}/resources/assets/js/jquery-2.1.0.min.js"></script>
-	<!-- Bootstrap -->
-	<script src="${path}/resources/assets/js/popper.js"></script>
-	<script src="${path}/resources/assets/js/bootstrap.min.js"></script>
-	<!-- Plugins -->
-	<script src="${path}/resources/assets/js/owl-carousel.js"></script>
-	<script src="${path}/resources/assets/js/accordions.js"></script>
-	<script src="${path}/resources/assets/js/datepicker.js"></script>
-	<script src="${path}/resources/assets/js/scrollreveal.min.js"></script>
-	<script src="${path}/resources/assets/js/waypoints.min.js"></script>
-	<script src="${path}/resources/assets/js/jquery.counterup.min.js"></script>
-	<script src="${path}/resources/assets/js/imgfix.min.js"></script>
-	<script src="${path}/resources/assets/js/slick.js"></script>
-	<script src="${path}/resources/assets/js/lightbox.js"></script>
-	<script src="${path}/resources/assets/js/isotope.js"></script>
-	<!-- Global Init -->
-	<script src="${path}/resources/assets/js/custom.js"></script>
-	<!-- 스크립트 코드 -->
+	
+
+
 	<script>
 		// 페이지 로딩시 장바구니 상태 업데이트
 		// updateCart();
@@ -119,6 +152,8 @@
 			$(".product-checkbox").change(updateTotalPrice);
 		});
 
+		
+		// 장바구니 상품의 총 가격 보여주기
 		function updateTotalPrice() {
 			var totalPrice = 0;
 			$(".product-checkbox:checked").each(
@@ -135,6 +170,32 @@
 			// 합산된 가격을 화면에 출력
 			$("#totalPrice").text(totalPrice);
 		}
+		
+		
+		// 선택항목 지워주기
+		function cartDelete() {
+			// 체크박스가 체크된 input 요소들을 선택
+			var checkedInputs = document.querySelectorAll('input[type=checkbox]:checked');
+			
+			// 체크된 input 요소들의 값들을 저장할 배열
+			var values = [];
+			// 각 체크된 input 요소에 대해
+			checkedInputs.forEach(function(input) {
+			    // 해당 요소의 값을 배열에 추가
+			    values.push(input.value);
+			});
+			
+			console.log(values);  // 체크된 input 요소들의 값들을 출력
+			
+			$('#deleteProd_id').val(values);
+			$('#deleteUser_id').val($('#user_id').val());
+			
+			// form 태그 실행
+	 	 	var form = document.getElementById('deleteForm');
+		 	form.submit();
+			
+		}
 	</script>
 </body>
+<%@include file="footer.jsp"%>
 </html>

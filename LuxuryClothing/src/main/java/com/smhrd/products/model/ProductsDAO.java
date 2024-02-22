@@ -118,7 +118,40 @@ public class ProductsDAO {
 			System.out.println("selectProduct 상품 상세 조회 실패!");
 		} else {
 			System.out.println("selectProduct 상품 상세 조회 성공!");
-			
+		}
+		return result;
+	}
+	
+	// 상품 상세정보의 메인 이미지만 가져오기
+	public ProductsDTO selectProductMainImage(String productId) {
+		System.out.println("ProductsDAO 방문 selectProductMainImage");
+		
+		SqlSession sqlSession = factory.openSession();
+		ProductsDTO result = sqlSession.selectOne("selectProductMainImage", productId);
+		sqlSession.close();
+		System.out.println(result); 
+		
+		if (result.equals(null)) {
+			System.out.println("selectProductMainImage 상품 상세 조회 실패!");
+		} else {
+			System.out.println("selectProductMainImage 상품 상세 조회 성공!");
+		}
+		return result;
+	}
+	
+	// 상품 상세정보의 서브 이미지들 가져오기
+	public List<ProductsDTO> selectProductSubImages(String productId) {
+		System.out.println("ProductsDAO 방문 selectProduct");
+		
+		SqlSession sqlSession = factory.openSession();
+		List<ProductsDTO> result = sqlSession.selectList("selectProductSubImages", productId);
+		sqlSession.close();
+		System.out.println(result); 
+		
+		if (result.equals(null)) {
+			System.out.println("selectProductSubImages 상품 상세 조회 실패!");
+		} else {
+			System.out.println("selectProductSubImages 상품 상세 조회 성공!");
 		}
 		return result;
 	}

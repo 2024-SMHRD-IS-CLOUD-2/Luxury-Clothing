@@ -96,7 +96,7 @@
 	</div>
 
 
-	<!-- ***** Men Area Starts ***** -->
+	<!-- ***** 상품리스트 Area Starts ***** -->
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6" style="margin-top: 60px">

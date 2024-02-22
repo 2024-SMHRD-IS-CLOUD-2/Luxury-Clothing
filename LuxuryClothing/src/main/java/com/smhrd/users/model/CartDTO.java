@@ -17,6 +17,7 @@ public class CartDTO {
 	private String user_email;
 	private String user_grade;
 	private String joined_at;
+	
 	private String prod_id;
 	private String prod_name;
 	private String prod_price;
@@ -25,5 +26,12 @@ public class CartDTO {
 	private String prod_option;
 	private String prod_grade;
 	private String prod_yn;
+	
+	private String file_name;
+	private String prodUploaded_seq;	// 업로드 순번 (DB에서 시퀀스로 자동 번호 지정해줌)
+	private String prodFile_realname;	// 파일 실제이름
+	private String prodFile_size;		// 파일 사이즈
+	private String prodFile_ext;		// 파일 확장자
+	private String prodFile_path;		// 파일 경로
 
 }

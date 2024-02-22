@@ -28,18 +28,22 @@ public class CartController implements Controller {
 	    if (user == null || user.getUser_id() == null || user.getUser_id().isEmpty()) {
 	        return "redirect:/loginpage.do";
 	    }
+	    
 
 	    // 사용자 ID 가져오기
 	    String userId = user.getUser_id();
+	    
 	    // 장바구니에 담긴 상품 정보 가져오기
 	    List<CartDTO> cartItems = usersDAO.getCartItems(userId);
-
-	    // 장바구니에 담긴 상품들의 출력
-	    request.setAttribute("cartItems", cartItems);
-
+	    // 장바구니의 총 개수 가져오기
+	    int count = usersDAO.selectCartCount(userId);
 	    // 현재 장바구니에 담겨있는 전체 상품의 가격의 합 출력
 	    int totalPrice = usersDAO.getTotalPrice(userId);
-	    request.setAttribute("totalPrice", totalPrice);
+	    
+	    // 장바구니에 담긴 상품들의 출력
+	    session.setAttribute("cartItems", cartItems);
+	    session.setAttribute("count", count);
+	    session.setAttribute("totalPrice", totalPrice);
 
 	    // 장바구니 페이지로 이동
 	    return "carts";

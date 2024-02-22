@@ -2200,7 +2200,7 @@ contact Us Page
 */
 
 .contact-us {
-  margin-top: 90px;
+  margin-top: 150px;
   border-bottom: 3px dotted #eee;
   padding-bottom: 90px;
 }
@@ -2215,7 +2215,6 @@ contact Us Page
 
 .contact-us form input {
   width: 100%;
-  height: 44px;
   line-height: 44px;
   padding: 0px 15px;
   font-size: 14px;
