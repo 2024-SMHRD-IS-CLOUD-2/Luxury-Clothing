@@ -22,11 +22,6 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         
-                  <%--       <a href="main.do" class="logo" >
-                        
-                            <img src="${path}/resources/assets/images/logo.png">
-                        </a> --%>
-                        
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -95,12 +90,25 @@
 	                        </c:if>
 	                        <c:if test="${user_result != null}">
 								<li class="submenu3"><a href="logOutCon.do">로그아웃</a></li>
-								<li class="submenu3"><a href="#">/</a></li>
+								<c:if test="${user_result.user_id != 'admin'}">
+									<li class="submenu3"><a href="#">/</a></li>
+								</c:if>
 							</c:if>
 							<!-- 빈 <li> 요소 추가 -->
 							<li class="submenu3"></li>
 	                        <li class="scroll-to-section">
-	                        <a href="#">고객센터</a>
+	                        <c:if test="${user_result.user_id != 'admin'}">
+	                        	<a href="#">고객센터</a>
+	                        </c:if>
+	                        <c:if test="${user_result.user_id == 'admin'}">
+		                        <li class="submenu">
+		                        	<a href="javascript:;">관리자 권한</a>
+		                           	<ul>
+	                                    <li><a href="adminUsers.do">회원관리</a></li>
+	                                    <li><a href="adminProducts.do">상품관리</a></li>
+	                                </ul>
+	                            </li>
+	                        </c:if>
 	                        </li>
                         </ul>        
                         <a class='menu-trigger'>

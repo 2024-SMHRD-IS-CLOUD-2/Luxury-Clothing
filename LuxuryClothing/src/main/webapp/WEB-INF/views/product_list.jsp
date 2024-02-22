@@ -14,23 +14,12 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 <style type="text/css">
-.product_table {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
 
-.img {
-	width: 200px;
-	margin-left: 20px;
-	margin-top: 60px;
-}
 </style>
 </head>
 
@@ -175,7 +164,11 @@
 		console.log(prod_name);
 		
 		// 2) 태그에 이전 검색 기록 대입하기(값 넣어주기)
-		if (prod_grade == null && prod_category == null && prod_priceMin == null && prod_priceMax == null && prod_name == null) {
+		if (		(prod_grade === null || prod_grade === undefined || prod_grade === '') 
+				&& (prod_category === null || prod_category === undefined || prod_category === '') 
+				&& (prod_priceMin === null || prod_priceMin === undefined || prod_priceMin === '') 
+				&& (prod_priceMax === null || prod_priceMax === undefined || prod_priceMax === '') 
+				&& (prod_name === null || prod_name === undefined || prod_name === '')) {
 			// 첫 페이지 시작시 검색 값 세팅
 			$('#rating').val("전체 등급").prop("selected",true);
 			$('#kind').val("상품 종류").prop("selected",true);

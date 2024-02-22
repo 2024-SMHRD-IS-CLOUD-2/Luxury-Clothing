@@ -54,6 +54,27 @@ figure, header, nav, section, article, aside, footer, figcaption {
 	background-color: rgb(224, 224, 224);
 	margin-bottom: 20px;
 }
+
+.search_admin_main{
+	padding: 10px;
+	background-color:#EAEAEA;
+	margin-bottom: 20px;
+	border: 10px;
+}
+
+.search_admin_td{
+	padding: 20px;
+	background-color:#EAEAEA;
+}
+
+.input_list1{
+	width: 30px;
+}
+
+.input_list2{
+	width: 80px;
+}
+
 .search_box{
 	margin-bottom: 20px;
 }
@@ -64,6 +85,13 @@ figure, header, nav, section, article, aside, footer, figcaption {
 
 .search_div{
 	width : 700px;
+}
+
+.td_product_y{
+	background-color:yellowgreen;
+}
+.td_product_n{
+	background-color: tomato;
 }
 
 .hideme{
@@ -2499,11 +2527,6 @@ a.logo{
   /* 간격 조절 */
 }
 
-input[type="checkbox"] {
-  transform: scale(0.5);
-}
-
-
 /* 메인 슬라이드 */
    .main_luxuryClothing{
    		display: block; 
@@ -2605,5 +2628,32 @@ h5{
 .div_inline{
 	display: flex;
 	justify-content: center;
+}
+
+/* 상품 전체 리스트 */
+.product_table {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.img {
+	width: 200px;
+	margin-left: 20px;
+	margin-top: 60px;
+}
+
+.select_result_div{
+	display: flex;
+	justify-content: center;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+input[type="checkbox"]:checked {
+  background-color: red;
 }
 

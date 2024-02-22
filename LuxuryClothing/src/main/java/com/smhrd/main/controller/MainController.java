@@ -79,6 +79,15 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/test_ImageUpload.do", new TEST_ImageUpload() );
 		handlerMapping.put("/ProductImageUpload.do", new ProductsImageUploadCon() );
 		handlerMapping.put("/ProductSelect.do", new ProductsImageSelectCon() );
+		
+		// 관리자단
+		handlerMapping.put("/adminUsers.do", new AdminUserCon() );
+		handlerMapping.put("/adminSearchProducts.do", new AdminSearchProductsCon() );
+		handlerMapping.put("/adminProducts.do", new AdminProductCon() );
+		// 관리자 상품관리에서 수정버튼 누르면 해당 내용으로 업데이트
+		handlerMapping.put("/adminProductUpdate.do", new adminProductUpdateCon() );
+		// 관리자 상품관리에서 삭제버튼 누르면 해당 상품 삭제
+		handlerMapping.put("/adminProductDelete.do", new adminProductDeleteCon() );
 
 	}
 
