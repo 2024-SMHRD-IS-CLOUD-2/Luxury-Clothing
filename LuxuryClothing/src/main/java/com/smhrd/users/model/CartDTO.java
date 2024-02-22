@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor // 모든 필드를 초기화 하는 생성자 자동완성 
 @NoArgsConstructor	// 기본생성자 : 기본생성자는 반드시 있어야 한다.
 
-public class UsersDTO {
+public class CartDTO {
 	
 	private String user_id;
 	private String user_pw;
@@ -16,10 +16,14 @@ public class UsersDTO {
 	private String user_name;
 	private String user_email;
 	private String user_grade;
+	private String joined_at;
 	private String prod_id;
 	private String prod_name;
 	private String prod_price;
+	private String prod_desc;
+	private String prod_category;
 	private String prod_option;
+	private String prod_grade;
 	private String prod_yn;
 
 }

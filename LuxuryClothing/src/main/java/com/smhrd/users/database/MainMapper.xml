@@ -3,18 +3,33 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.smhrd.main.model.UsersDAO">
+<mapper namespace="com.smhrd.users.model.CartDAO">
 
 	<!-- 장바구니에 담긴 상품 정보 가져오기 -->
-	<select id="getCartItems" parameterType="com.smhrd.users.model.UsersDTO"
-		resultType="com.smhrd.users.model.UsersDTO">
-		SELECT * FROM CARTS WHERE USER_ID = #{user_id}
+	<select id="getCartItems"
+		parameterType="com.smhrd.users.model.CartDTO"
+		resultType="com.smhrd.users.model.CartDTO">
+		SELECT C.*, P.*
+		FROM CARTS C
+		JOIN PRODUCTS P ON C.PROD_ID =
+		P.PROD_ID
+		WHERE C.USER_ID = #{user_id}
 	</select>
 
 	<!-- 현재 장바구니에 담겨있는 전체 상품의 가격의 합 가져오기 -->
-	<select id="getTotalPrice" parameterType="com.smhrd.users.model.UsersDTO"
-		resultType="int">
-		SELECT SUM(PROD_PRICE) FROM CARTS C JOIN PRODUCTS P ON C.PROD_ID = P.PROD_ID
-		WHERE USER_ID = #{user_id}
+	<select id="getTotalPrice"
+		parameterType="com.smhrd.users.model.CartDTO" resultType="int">
+		SELECT
+		SUM(P.PROD_PRICE)
+		FROM CARTS C
+		JOIN PRODUCTS P ON C.PROD_ID = P.PROD_ID
+		WHERE C.USER_ID = #{user_id}
 	</select>
+
+	<!-- 장바구니에서 상품 삭제 -->
+	<delete id="removeFromCart" parameterType="com.smhrd.users.model.CartDTO">
+		DELETE FROM CARTS
+		WHERE USER_ID = #{user_id} AND PROD_ID = #{prod_id}
+	</delete>
+
 </mapper>

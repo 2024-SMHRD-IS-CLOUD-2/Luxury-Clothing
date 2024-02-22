@@ -36,7 +36,7 @@
 	<!-- 회원 탈퇴를 위한 쿼리 -->
 	<delete id="JoinOut" parameterType="com.smhrd.main.model.UserDTO">
 		DELETE FROM USERS
-		WHERE user_id = #{user_id} AND user_pw = #{user_pw}
+		WHERE USER_ID = #{user_id} AND USER_PW = #{user_pw}
 	</delete>
 
 
