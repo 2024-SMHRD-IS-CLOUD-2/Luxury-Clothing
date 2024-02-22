@@ -73,10 +73,10 @@ https://templatemo.com/tm-571-hexashop
 
 					</div>
 					<form id="contact" action="JoinOut.do" method="post">
+					<input type="hidden" id="user_id" name="user_id" value="${user_result.user_id}">
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="form-group">
-									<input type="hidden" name="user_id" value="${result.user_id }">
 									<input type="password" class="input-field" name="password"
 										id="password" style="border-radius: 10px;"
 										placeholder="비밀번호를 입력하세요.">

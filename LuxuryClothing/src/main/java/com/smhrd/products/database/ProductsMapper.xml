@@ -151,6 +151,7 @@
 			, B.FILE_NAME
 		FROM    PRODUCTS A, PROD_UPLOAD_IMAGES B 
 		WHERE  FILE_MAIN= 'Y'
+		AND A.PROD_ID = B.PROD_ID
 		AND A.PROD_CATEGORY LIKE '%'||#{prod_category}||'%'
 	</select>
 	

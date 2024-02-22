@@ -62,7 +62,7 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/userModifyPage.do", new UserModifyPageCon());
 		handlerMapping.put("/userModifyEnter.do", new UserModifyEnterCon());
 		handlerMapping.put("/userModify.do", new UserModifyCon());
-		handlerMapping.put("/carts.do", new CartsPage());
+//		handlerMapping.put("/carts.do", new CartsPage());
 		
 		// 메인 화면 구성
 		

@@ -20,25 +20,17 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
+                   
                         
-                        <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <!-- <li class="scroll-to-section"><a href="#top" class="active">메인</a></li> -->
                             <!-- <li class="scroll-to-section"><a href="#men">남성의류</a></li>
                             <li class="scroll-to-section"><a href="#women">여성의류</a></li> -->
-                            <c:if test="${user_result !=null}">
-                            	<li class="submenu3">
-                            		<a href="main.do">
-	                            		${user_result.user_id}님 환영합니다!
-	                            	</a>
-	                            </li>
-                            </c:if>
                             <li class="submenu">
                                 <a class="list" href="javascript:;">위탁서비스</a>
                                 <ul>
-                                    <li><a href="consignmentGuide.do">위탁안내 사항</a></li>
+                                    <li><a href="consignment.do">위탁안내 사항</a></li>
                                     <c:if test="${user_result !=null}">
                                     	<li><a href="csgnApplyPage.do">위탁판매 신청</a></li>
                                     </c:if>
@@ -74,7 +66,8 @@
 		                                </ul>
 		                            </li>
 		                            <li class="submenu2">
-		                            	<a href="#explore">장바구니</a>
+		                            <input type="hidden" id="user_id" name="user_id" value="${user_result.user_id}">
+		                            	<a href="carts.do">장바구니</a>
 		                            </li>
 		                        </c:if>
 		                    <c:if test="${user_result == null}">
