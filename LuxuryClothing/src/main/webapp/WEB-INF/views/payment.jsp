@@ -192,15 +192,16 @@
         	  // callback
               if (rsp.success) {
             	  console
-            	  var paid_amout = rsp.paid_amount;
-            	  var status = rsp.status;
-            	  var pay_method = rsp.pay_method;
             	  var user_id = "${user.user_id}";
             	  var prod_price = "${prod.prod_price}";
+            	  var pay_method = rsp.pay_method;
+            	  var paid_amout = rsp.paid_amount;
             	  var prod_id = "${prod.prod_id}";
             	  var deli_addr = $("#deli_addr").val();
-            	  var deli_phone = $("#deli_phone").val();
             	  var deli_name = $("#deli_name").val();
+            	  var deli_phone = $("#deli_phone").val();
+            	  var deli_message = $('#deli_message').val();
+            	  var status = rsp.status;
             	  
             	  console.log(user_id);
             	  console.log(prod_price);
@@ -213,15 +214,16 @@
             	  console.log(deli_name);
             	  
             	    var paymentData = {
-       		        	paidAmount: paid_amout,
-       		        	status: status,
-       		        	payMethod: pay_method,
        		            user_id: user_id,
                   	    prod_price: prod_price,
+       		        	pay_method: pay_method,
+       		        	paid_amount: paid_amout,
                   	    prod_id: prod_id,
                   	    deli_addr: deli_addr,
+                  	    deli_name: deli_name,
                   	    deli_phone: deli_phone,
-                  	    deli_name: deli_name
+                  	    deli_message : deli_message,                  	    
+       		        	status: status
        		        // 필요한 경우 다른 정보도 추가 가능
             		    };
             	    /* const obj = JSON.stringify(paymentData); */

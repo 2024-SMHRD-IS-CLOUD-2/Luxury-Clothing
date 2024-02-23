@@ -7,8 +7,11 @@
 <!-- mapper namespace란? mapper 파일이 여러개일때, 해당하는 파일을 식별할 수 있는 식별자 이름을 정해줄때, 
    해당 mapper파일과 연결이 되는 DAO 쿨래스 이름을 일치 시켜주는 것을 원칙으로 함 -->
 
-<mapper namespace="com.smhrd.main.model.UserDAO">
+<mapper namespace="com.smhrd.purchases.model.PurchasesDAO">
    <!-- mapper 태그 안쪽에 SQL 구문을 기술 -->
 
-	
+	<insert id="purchaseRecord" parameterType="com.smhrd.purchases.model.PurchasesDTO">
+		INSERT INTO PURCHASES(USER_ID, TOTAL_AMOUNT,PAY_METHOD, PAID_AMOUNT, PROD_ID, DELI_ADDR, RECIPIENT_NAME, RECIPIENT_PHONE, DELI_MESSAGE, ORDER_STATUS)
+      VALUES(#{user_id}, #{total_amount},#{pay_method}, #{paid_amount}, #{prod_id}, #{deli_addr}, #{recipient_name}, #{recipient_phone}, #{deli_message}, #{order_status})	
+	</insert>
 </mapper>
