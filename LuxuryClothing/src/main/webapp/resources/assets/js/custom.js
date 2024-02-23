@@ -110,7 +110,7 @@
 		}
 	});
 
-	$(document).ready(function () {
+/*	$(document).ready(function () {
 	    $(document).on("scroll", onScroll);
 	    
 	    //smoothscroll
@@ -133,9 +133,9 @@
 	            $(document).on("scroll", onScroll);
 	        });
 	    });
-	});
+	});*/
 
-	function onScroll(event){
+/*	function onScroll(event){
 	    var scrollPos = $(document).scrollTop();
 	    $('.nav a').each(function () {
 	        var currLink = $(this);
@@ -148,7 +148,7 @@
 	            currLink.removeClass("active");
 	        }
 	    });
-	}
+	}*/
 
 
 	// Page loading animation

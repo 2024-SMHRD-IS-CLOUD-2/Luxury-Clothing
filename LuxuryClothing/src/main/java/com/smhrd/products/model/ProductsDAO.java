@@ -12,6 +12,8 @@ public class ProductsDAO {
 	SqlSessionFactory factory =  SqlSessionManager.getFactory();
 	
 	
+	///////////////////////////// 사용자 ////////////////////////////////
+	
 	// 전체 상품 리스트 메소드
 	public List<ProductsDTO> selectProducts() {
 		
@@ -69,7 +71,7 @@ public class ProductsDAO {
 		return row;
 	}
 	
-
+	// 상품 이미지 등록
 	public void insertProductImageUpload(List<ProductImageDTO> dto) {
 		
 		System.out.println("ProductsDAO 방문 insertProductImageUpload");
@@ -79,13 +81,14 @@ public class ProductsDAO {
 		sqlSession.close();
 		
 		if (result > 0) {
-			System.out.println("ProductImageSave 상품 이미지 등록 성공!");
+			System.out.println("insertProductImageUpload 상품 이미지 등록 성공!");
 		} else {
-			System.out.println("ProductImageSave 상품 이미지 등록 실패!");
+			System.out.println("insertProductImageUpload 상품 이미지 등록 실패!");
 			
 		}
 	}
 	
+	// 상품 검색 결과 조회
 	public List<ProductImageDTO> selectProductImages(ProductImageDTO dto) {
 		
 		System.out.println("ProductsDAO 방문 selectProductImages");
@@ -95,12 +98,10 @@ public class ProductsDAO {
 		sqlSession.close();
 		
 		if (result.equals(null)) {
-			System.out.println("ProductImageSave 상품 이미지 조회 실패!");
+			System.out.println("selectProductImages 상품 이미지 조회 실패!");
 		} else {
-			System.out.println("ProductImageSave 상품 이미지 조회 성공!");
-			
+			System.out.println("selectProductImages 상품 이미지 조회 성공!");
 		}
-		
 		return result;
 	}
 	
@@ -117,7 +118,40 @@ public class ProductsDAO {
 			System.out.println("selectProduct 상품 상세 조회 실패!");
 		} else {
 			System.out.println("selectProduct 상품 상세 조회 성공!");
-			
+		}
+		return result;
+	}
+	
+	// 상품 상세정보의 메인 이미지만 가져오기
+	public ProductsDTO selectProductMainImage(String productId) {
+		System.out.println("ProductsDAO 방문 selectProductMainImage");
+		
+		SqlSession sqlSession = factory.openSession();
+		ProductsDTO result = sqlSession.selectOne("selectProductMainImage", productId);
+		sqlSession.close();
+		System.out.println(result); 
+		
+		if (result.equals(null)) {
+			System.out.println("selectProductMainImage 상품 상세 조회 실패!");
+		} else {
+			System.out.println("selectProductMainImage 상품 상세 조회 성공!");
+		}
+		return result;
+	}
+	
+	// 상품 상세정보의 서브 이미지들 가져오기
+	public List<ProductsDTO> selectProductSubImages(String productId) {
+		System.out.println("ProductsDAO 방문 selectProduct");
+		
+		SqlSession sqlSession = factory.openSession();
+		List<ProductsDTO> result = sqlSession.selectList("selectProductSubImages", productId);
+		sqlSession.close();
+		System.out.println(result); 
+		
+		if (result.equals(null)) {
+			System.out.println("selectProductSubImages 상품 상세 조회 실패!");
+		} else {
+			System.out.println("selectProductSubImages 상품 상세 조회 성공!");
 		}
 		return result;
 	}
@@ -167,6 +201,76 @@ public class ProductsDAO {
 		}
 		return result;
 	}
+	
+	
+	
+	///////////////////////////// 관리자 ////////////////////////////////
 
+	// 관리자 상품 검색 결과 조회
+	public List<ProductsDTO> selectSearchProducts(ProductsDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 selectSearchProducts");
+		// factory.openSession(true) 에서 true 가 커밋여부 !
+		SqlSession sqlSession =  factory.openSession();
+		List<ProductsDTO> result = sqlSession.selectList("selectSearchProducts", dto);
+		sqlSession.close();
+		
+		if (result.equals(null)) {
+			System.out.println("selectSearchProducts 관리자 상품 검색조회 실패!");
+		} else {
+			System.out.println("selectSearchProducts 관리자 상품 검색조회 성공!");
+		}
+		return result;
+	}
+	
+	// 관리자 상품 검색 결과 카운트 해줌
+	public int selectSearchProductsCount(ProductsDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 selectSearchProductsCount");
+		// factory.openSession(true) 에서 true 가 커밋여부 !
+		SqlSession sqlSession =  factory.openSession();
+		int result = sqlSession.selectOne("selectSearchProductsCount", dto);
+		sqlSession.close();
+		
+		return result;
+	}
+
+	// 관리자 상품 수정
+	public int adminProductUpdate(ProductsDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 adminProductUpdate");
+		// factory.openSession(true) 에서 true 가 커밋여부 !
+		SqlSession sqlSession =  factory.openSession(true);
+		int result = sqlSession.update("adminProductUpdate", dto);
+		sqlSession.close();
+		
+		if (result > 0) {
+			System.out.println("adminProductUpdate 관리자 상품 업데이트 성공!");
+		} else {
+			System.out.println("adminProductUpdate 관리자 상품 업데이트 실패!");
+		}
+		return result;
+	}
+	
+	public int adminProductDeleteCon(ProductsDTO dto ) {
+		
+		System.out.println("ProductsDAO 방문 adminProductDeleteCon");
+		// factory.openSession(true) 에서 true 가 커밋여부 !
+		SqlSession sqlSession =  factory.openSession(true);
+		int result = sqlSession.update("adminProductDelete", dto);
+		sqlSession.close();
+		
+		if (result > 0) {
+			System.out.println("adminProductDeleteCon 관리자 상품 삭제 성공!");
+		} else {
+			System.out.println("adminProductDeleteCon 관리자 상품 삭제 실패!");
+		}
+		return result;
+	}
+	
+	
+	
+	
+	
 }
 

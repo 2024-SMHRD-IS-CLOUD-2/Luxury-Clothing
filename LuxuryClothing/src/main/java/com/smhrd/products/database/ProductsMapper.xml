@@ -82,11 +82,28 @@
 	</insert>
 
 	<!-- product_id를 조건으로 상품 상세 조회 -->
-	<select id="selectProduct" parameterType="String" resultType="com.smhrd.products.model.ProductsDTO">
+	<select id="selectProduct" parameterType="com.smhrd.products.model.ProductsDTO" resultType="com.smhrd.products.model.ProductsDTO">
 		SELECT *
 		FROM PRODUCTS
 		WHERE PROD_ID=#{productId} AND PROD_YN='Y'
 	</select>
+	
+	<!-- product_id를 조건으로 상품 상세 조회 -->
+	<select id="selectProductMainImage" parameterType="com.smhrd.products.model.ProductsDTO" resultType="com.smhrd.products.model.ProductsDTO">
+        SELECT FILE_NAME, FILE_MAIN
+		FROM    PROD_UPLOAD_IMAGES 
+		WHERE  FILE_MAIN= 'Y'
+		AND PROD_ID = #{productId}
+	</select>
+	
+	<!-- product_id를 조건으로 상품 상세 조회 -->
+	<select id="selectProductSubImages" parameterType="com.smhrd.products.model.ProductsDTO" resultType="com.smhrd.products.model.ProductsDTO">
+        SELECT FILE_NAME, FILE_MAIN
+		FROM    PROD_UPLOAD_IMAGES 
+		WHERE  FILE_MAIN= 'N'
+		AND PROD_ID = #{productId}
+	</select>
+	
 	
 	
 	
@@ -113,11 +130,19 @@
 	    </foreach>
 	</insert>
 	
+	
+	
+	
+	
+	
+	
+	
 	<!-- 메인 상품 이미지 조회 -->
 	<select id="selectImageMain" resultType="com.smhrd.products.model.ProductsDTO">
-		SELECT A.PROD_ID, A.PROD_PRICE, A.PROD_NAME, A.PROD_GRADE,  B.FILE_NAME
+		SELECT A.PROD_ID, A.PROD_PRICE, A.PROD_NAME, A.PROD_GRADE, A.CREATED_AT, B.FILE_NAME
 		FROM    PRODUCTS A, PROD_UPLOAD_IMAGES B 
-		WHERE  FILE_MAIN= 'Y'
+		WHERE  FILE_MAIN = 'Y'
+		AND A.PROD_YN = 'Y'
 		AND A.PROD_ID = B.PROD_ID
 	</select>
 	
@@ -134,10 +159,118 @@
 	
 	<!-- 메인 한 주 추천 상품 조회 -->
 	<select id="selectImageMainPick" parameterType="com.smhrd.products.model.ProductsDTO" resultType="com.smhrd.products.model.ProductsDTO">
-		SELECT A.PROD_ID, A.PROD_PRICE, A.PROD_NAME, A.PROD_GRADE, A.PROD_CATEGORY, B.FILE_NAME
+		SELECT A.PROD_ID
+			, A.PROD_PRICE
+			, A.PROD_NAME
+			, A.PROD_GRADE
+			, A.CREATED_AT
+			, A.PROD_YN
+			, B.FILE_NAME
 		FROM    PRODUCTS A, PROD_UPLOAD_IMAGES B 
 		WHERE  FILE_MAIN= 'Y'
+		AND A.PROD_ID = B.PROD_ID
 		AND A.PROD_CATEGORY LIKE '%'||#{prod_category}||'%'
 	</select>
+	
+	
+	
+	
+	
+	<!-- 관리자 상품상세 검색 조건으로 상품 조회 -->
+	<select id="selectSearchProducts" parameterType="com.smhrd.products.model.ProductsDTO" resultType="com.smhrd.products.model.ProductsDTO">
+		SELECT A.PROD_ID
+			, A.PROD_PRICE
+			, A.PROD_NAME
+			, A.PROD_GRADE
+			, A.CREATED_AT
+			, A.PROD_YN
+			, B.FILE_NAME
+		FROM    PRODUCTS A, PROD_UPLOAD_IMAGES B 
+		WHERE  FILE_MAIN= 'Y'
+		AND A.PROD_ID = B.PROD_ID
+		<if test='prod_name != "" and prod_name != null'>
+			AND PROD_NAME LIKE '%'||#{prod_name}||'%'
+		</if>
+		<if test='prod_category != "상품 종류" and prod_category != null'>
+			AND PROD_CATEGORY LIKE '%'||#{prod_category}||'%'
+		</if>
+		<if test='prod_yn != "등록 여부" and prod_yn != null'>
+			AND PROD_YN = #{prod_yn}
+		</if>
+		<if test='prod_grade != "전체 등급" and prod_grade != null'>
+			AND PROD_GRADE = #{prod_grade}
+		</if>
+		<if test='prod_priceMin != null or prod_priceMax != null'>
+			AND PROD_PRICE BETWEEN #{prod_priceMin} AND #{prod_priceMax}
+		</if>
+	</select>
+	
+	<!-- 관리자 상품상세 검색 조건으로 상품 카운트 -->
+	<select id="selectSearchProductsCount" parameterType="com.smhrd.products.model.ProductsDTO" resultType="int">
+		SELECT COUNT(*)
+		FROM (
+			SELECT A.PROD_ID
+				, A.PROD_PRICE
+				, A.PROD_NAME
+				, A.PROD_GRADE
+				, A.CREATED_AT
+				, A.PROD_YN
+				, B.FILE_NAME
+			FROM    PRODUCTS A, PROD_UPLOAD_IMAGES B 
+			WHERE  FILE_MAIN= 'Y'
+			AND A.PROD_ID = B.PROD_ID
+			<if test='prod_name != "" and prod_name != null'>
+				AND PROD_NAME LIKE '%'||#{prod_name}||'%'
+			</if>
+			<if test='prod_category != "상품 종류" and prod_category != null'>
+				AND PROD_CATEGORY LIKE '%'||#{prod_category}||'%'
+			</if>
+			<if test='prod_yn != "등록 여부" and prod_yn != null'>
+				AND PROD_YN = #{prod_yn}
+			</if>
+			<if test='prod_grade != "전체 등급" and prod_grade != null'>
+				AND PROD_GRADE = #{prod_grade}
+			</if>
+			<if test='prod_priceMin != null or prod_priceMax != null'>
+				AND PROD_PRICE BETWEEN #{prod_priceMin} AND #{prod_priceMax}
+			</if>
+           	)
+	</select>
+	
+	<!-- 관리자가 상품을 수정하면 업데이트 -->
+	<update id="adminProductUpdate" parameterType="com.smhrd.products.model.ProductsDTO">
+		UPDATE PRODUCTS
+		SET PROD_NAME = #{prod_name}
+			, PROD_PRICE = #{prod_price}
+			, PROD_GRADE = #{prod_grade}
+		<if test='prod_grade != "N" and prod_grade != null'>
+			, PROD_YN = 'Y'
+		</if>
+		<if test='prod_grade == "N"'>
+			, PROD_YN = 'N'
+		</if>
+		WHERE PROD_ID = #{prod_id}
+	</update>
+	
+	<!-- 관리자 상품 정보삭제-->
+<!-- 	<delete id="adminProductDelete" parameterType="com.smhrd.products.model.ProductsDTO">
+		DELETE 
+		FROM PRODUCTS
+		WHERE PROD_ID = #{prod_id}
+	</delete> -->
+	
+	<!-- 관리자 상품의 이미지 모두 삭제-->
+<!-- 	<delete id="adminProductDeleteImage" parameterType="com.smhrd.products.model.ProductsDTO">
+		DELETE 
+		FROM PROD_UPLOAD_IMAGES
+		WHERE PROD_ID = #{prod_id}
+	</delete> -->
+	
+	<update id="adminProductDelete" parameterType="com.smhrd.products.model.ProductsDTO">
+		UPDATE PRODUCTS
+		SET PROD_YN = 'N'
+		WHERE PROD_ID = #{prod_id}
+	</update>
+	
 	
 </mapper>
