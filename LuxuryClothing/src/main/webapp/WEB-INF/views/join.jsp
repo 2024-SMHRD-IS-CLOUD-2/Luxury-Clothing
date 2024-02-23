@@ -64,8 +64,12 @@ https://templatemo.com/tm-571-hexashop
 <div class="context-box">
 
 <h2 align="center">회원가입</h2>
+<br>
+<br>
 <!-- 검은색 실선 구분선 -->
 <hr class="separator">
+<br>
+<br>
 
 <!-- 회원가입 폼 -->
 <form action="join.do" method="post" style="border-radius: 5px;">

@@ -37,6 +37,7 @@
 
 </head>
 <body>
+            	<c:set var="prod" value="${sessionScope.prod_detail}"/>
 
 	<!-- ***** Preloader Start ***** -->
 	    <div id="preloader">
@@ -50,15 +51,59 @@
 	    
 	    
 	   <%@include file ="header.jsp" %>
+	   
+	     <!-- 헤더 바 아래에 h1 태그로 주문서 작성/결제 텍스트 추가 -->
+    <h1 style="text-align: center;">주문서 작성/결제</h1>
 
-    <div class="center-container">
+    <!-- 테이블 추가 -->
+    <table border="1" align="center" class="fuck">
+        <!-- 첫 번째 행 -->
+        <tr>
+            <td>상품정보</td>
+            <td>수량</td>
+            <td>상품금액</td>
+            <td>할인/적립</td>
+            <td>합계</td>
+            <td>배송비</td>
+        </tr>
+        <!-- 두 번째 행 -->
+        <tr>
+            <!-- 상품정보 이미지 -->
+            <td class="img"><img alt="#" src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fkream-phinf.pstatic.net%2FMjAyMjEwMTdfMjUz%2FMDAxNjY1OTkwMjk2MzQ1.kD6Q835pRV53W8PxhqfWjjxVVyzrUfyXrLThdNTplG4g.kPptm_tqS761fmPajkMcBJqM9VqxQzRPqiF_yv6TIX8g.JPEG%2Fa_28e10190b4f94640addcc4cbd10458ec.jpg%3Ftype%3Dl_webp&type=sc960_832"></td>
+            <!-- 상품명 -->
+            <td>1개</td>
+            <!-- 수량 -->
+            <td>${prod.prod_price}</td>
+            <!-- 상품금액 -->
+            <td><input type="checkbox" ></td>
+            <!-- 할인/적립 -->
+            <td>${prod.prod_price}</td>
+            <!-- 합계 -->
+            <td>0원</td>
+        </tr>
+    </table>
+
+    <!-- 두 번의 개행 -->
+    <br><br>
+
+    <!-- 추가 정보를 담을 div -->
+    <div class="rufwp" style="border: 1px solid black; padding: 10px; position=relative top=200px">
+        <!-- 상품의 총 금액을 보여줄 부분 -->
+        <span style="float: right;">총 결제금액 : ${prod.prod_price}</span>
+        <div style="clear: both;"></div> <!-- float 해제 -->
+    </div>
+	<br>
+	<br>
+    <!-- 기존의 나머지 코드는 생략 -->
+
+    <div class="sibal">
         <div class="input-box">
             <form action="/주문처리경로" method="post">
-            	<c:set var="prod" value="${sessionScope.prod_detail}" />id="sameCustomer"
-                <p>결제 정보 입력</p>
-                <hr>
+          
                 <br>
                 <p>주문자 정보</p>
+                <br>
+ 
 				<span class="form_element">
 	                <input type="checkbox" id="sameCustomer" name="sameCustomer" onclick="checkSame();" required="required">
 	                <label for="sameCustomer" class="on">회원정보와 동일</label>
@@ -103,9 +148,11 @@
                 <hr>
                 <br>
                 
-                <div class="total-amount">
-                    <p class="total-amount-text">총 결제 금액: ${prod.prod_price}</p>
-                </div>
+                <div class="bottomrufwp" style="border: 1px solid black; padding: 10px; position=relative top=200px">
+        <!-- 상품의 총 금액을 보여줄 부분 -->
+        <span style="float: right;">총 결제금액 : ${prod.prod_price}</span>
+        <div style="clear: both;"></div> <!-- float 해제 -->
+    </div>
                 <br>
 
                 <div class="button-container">
