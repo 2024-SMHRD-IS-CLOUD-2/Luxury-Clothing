@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,55 +54,49 @@
 
     <div class="center-container">
         <div class="input-box">
-            <form action="/주문처리경로" method="post">
-            	<c:set var="prod" value="${sessionScope.prod_detail}" />id="sameCustomer"
+            <!-- <form  method="post"> -->
+            	<c:set var="prod" value="${sessionScope.prod_detail}"/>
+            	<c:set var="user" value="${sessionScope.user_result}"/>
                 <p>결제 정보 입력</p>
                 <hr>
                 <br>
                 <p>주문자 정보</p>
 				<span class="form_element">
-	                <input type="checkbox" id="sameCustomer" name="sameCustomer" onclick="checkSame();" required="required">
+	                <input type="checkbox" id="sameCustomer" name="sameCustomer" onclick="checkSame();">
 	                <label for="sameCustomer" class="on">회원정보와 동일</label>
                 </span><br>
                 <label for="주문자이름">주문하시는 분</label>
                 <input type="text" id="name" name="name" required="required">
                 <br>
-                <label for="주소">주소</label>
-                <input type="text" id="address" name="address" required="required">
-                <br>
                 <label for="연락처">연락처</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
-                    placeholder="010-1234-5678" required>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="010-1234-5678" required="required">
                 <br>
                 <label for="이메일">이메일 주소</label>
-                <input type="email" id="email" name=""email"" required="required">
+                <input type="email" id="email" name="email" required="required">
                 <br>
                 <br>
 
                 <p>배송 정보</p>
                 <label for="주문자이름">배송지 입력</label>
-                <input type="text" id="DELI_ADDR" name="DELI_ADDR" required>
+                <input type="text" id="deli_addr" name="deli_addr" required>
                 <br>
-                <label for="주소">받으실 분</label>
-                <input type="text" id="RECIPIENT_NAME" name="RECIPIENT_NAME" required>
+                <label for="주소">수령인</label>
+                <input type="text" id="deli_name" name="deli_name" required>
                 <br>
-                <label for="연락처">받으실 분 연락처</label>
-                <input type="tel" id="RECIPIENT_PHONE" name="RECIPIENT_PHONE" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+                <label for="연락처">수령인 연락처</label>
+                <input type="tel" id="deli_phone" name="deli_phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
                     placeholder="010-1234-5678" required>
                 <br>
                 <label for="주소">배송 메세지</label>
-                <input type="text" id="DELI_MESSAGE" name="DELI_MESSAGE" required>
+                <input type="text" id="deli_message" name="deli_message" required>
                 <br>
                 <br>
 
                 <p>결제 정보</p>
 
-                <label for="PAY_METHOD"><input type="radio" id="PAY_METHOD" name="결제수단" required> 무통장 입금</label>
-                <label for="PAY_METHOD"><input type="radio" id="PAY_METHOD" name="결제수단" required> 신용카드</label>
-                <label for="PAY_METHOD"><input type="radio" id="PAY_METHOD" name="결제수단" required> 계좌이체</label>
-                <label for="PAY_METHOD"><input type="radio" id="PAY_METHOD" name="결제수단" required> 가상계좌</label>
-                <hr>
+                <label for="PAY_METHOD"><input type="radio" id="PAY_METHOD" name="PAY_METHOD" required="required">카카오페이</label>
                 <br>
+                    <p>상품명: ${prod.prod_name}</p>
                 
                 <div class="total-amount">
                     <p class="total-amount-text">총 결제 금액: ${prod.prod_price}</p>
@@ -110,9 +105,9 @@
 
                 <div class="button-container">
                     <button type="submit">결제취소</button>
-                    <button type="submit">결제하기</button>
+                    <button onclick="requestPay()">결제하기</button>
                 </div>
-            </form>
+            <!-- </form> -->
         </div>
     </div>
     
@@ -179,6 +174,79 @@
             }
         }
         
+        IMP.init("imp03167257");
+
+        function requestPay() {
+          IMP.request_pay({
+            pg: "kakaopay",
+            pay_method: "card",
+            merchant_uid: "test_fa${prod.prod_id}",
+            name: "${prod.prod_name}",
+            amount: ${prod.prod_price},
+            popup: true,
+            buyer_name: "${user.user_name}",
+            buyer_tel: "${user.user_phone}",
+            buyer_email: "${user.user_email}",
+            buyer_addr: "${user.user_addr}",
+          }, function (rsp) { 
+        	  // callback
+              if (rsp.success) {
+            	  console
+            	  var user_id = "${user.user_id}";
+            	  var prod_price = "${prod.prod_price}";
+            	  var pay_method = rsp.pay_method;
+            	  var paid_amout = rsp.paid_amount;
+            	  var prod_id = "${prod.prod_id}";
+            	  var deli_addr = $("#deli_addr").val();
+            	  var deli_name = $("#deli_name").val();
+            	  var deli_phone = $("#deli_phone").val();
+            	  var deli_message = $('#deli_message').val();
+            	  var status = rsp.status;
+            	  
+            	  console.log(user_id);
+            	  console.log(prod_price);
+            	  console.log(paid_amout);
+            	  console.log(status);
+            	  console.log(pay_method);
+            	  console.log(prod_id);
+            	  console.log(deli_addr);
+            	  console.log(deli_phone);
+            	  console.log(deli_name);
+            	  
+            	    var paymentData = {
+       		            user_id: user_id,
+                  	    prod_price: prod_price,
+       		        	pay_method: pay_method,
+       		        	paid_amount: paid_amout,
+                  	    prod_id: prod_id,
+                  	    deli_addr: deli_addr,
+                  	    deli_name: deli_name,
+                  	    deli_phone: deli_phone,
+                  	    deli_message : deli_message,                  	    
+       		        	status: status
+       		        // 필요한 경우 다른 정보도 추가 가능
+            		    };
+            	    /* const obj = JSON.stringify(paymentData); */
+            	    console.log(paymentData);
+            	    $.ajax({
+            	        url: 'paySuccess.do', // 서버로 전송할 URL
+            	        type: 'POST', // 전송 방식
+            	        data: paymentData, // 전송할 데이터
+            	        // dataType: 'json', // 전송 데이터 형식
+            	        success: function(response) {
+            	            console.log('Data sent successfully:', response);
+            	            // 추가적인 처리 가능
+            	        },
+            	        error: function(xhr, status, error) {
+            	            console.error('Error occurred while sending data:', error);
+            	            // 에러 처리
+            	        }
+            	    });
+              } else {
+                  console.log(rsp);
+              }
+          });
+        }
 	</script>
 </body>
 </html>

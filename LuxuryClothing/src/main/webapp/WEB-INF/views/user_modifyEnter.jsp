@@ -51,11 +51,11 @@
 		        <br>
 		        <br>
 		        <hr>
-		        <a href="#" onclick="return false;">회원정보변경</a> 
-		        <a href="#" onclick="return false;">위탁 상품관리</a> 
-		        <a href="#" onclick="return false;">주문목록 내역</a> 
-		        <a href="#" onclick="return false;">환불/입금 내역</a> 
-		        <a href="#" onclick="return false;">회원탈퇴</a>
+		        <a class="top_manu" href="#" onclick="return false;">회원정보변경</a> 
+		        <a class="top_manu" href="#" onclick="return false;">위탁 상품관리</a> 
+		        <a class="top_manu" href="#" onclick="return false;">주문목록 내역</a> 
+		        <a class="top_manu" href="#" onclick="return false;">환불/입금 내역</a> 
+		        <a class="top_manu" href="#" onclick="return false;">회원탈퇴</a>
 		        <hr>
 		        <br>
 		        <br>

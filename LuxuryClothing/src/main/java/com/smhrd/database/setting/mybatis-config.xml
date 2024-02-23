@@ -46,6 +46,9 @@
     <mapper resource="com/smhrd/admin/database/AdminMapper.xml"/>
     <mapper resource="com/smhrd/products/database/ProductsMapper.xml"/>
     <mapper resource="com/smhrd/products/database/ProductsImageMapper.xml"/>
+    <mapper resource="com/smhrd/users/database/MainMapper.xml"/>
+    <mapper resource="com/smhrd/users/database/MainMapper.xml"/>
+    <mapper resource="com/smhrd/purchases/database/PurchasesMapper.xml"/>
     
     <!-- 작성 팁 맵퍼 추가할때마다 위와 같이 경로/파일명 적어줘야함! -->
     

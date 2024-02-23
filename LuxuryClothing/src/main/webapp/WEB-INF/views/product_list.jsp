@@ -14,81 +14,83 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 <style type="text/css">
-.product_table {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
 
-.img {
-	width: 200px;
-	margin-left: 20px;
-	margin-top: 60px;
-}
 </style>
 </head>
 
 <body>
 	<!-- 복붙코드 jsp : header 불러오기 ! ***** -->
 	<%@include file="header.jsp"%>
-
-	<form action="product_search.do">
 		<!-- 여백용 공간 -->
-		<div class="content_box">
-			<div class="search_box">
-				<h3 class="search_box">상품 검색</h3>
-				<select class="search_box" name="rating" id="rating">
-					<option value="전체 등급">전체 등급</option>
-					<option value="A">A</option>
-					<option value="B">B</option>
-					<option value="C">C</option>
-					<option value="D">D</option>
-				</select> <select class="search_box" name="kind" id="kind">
-					<option value="상품 종류">상품 종류</option>
-					<option value="모자">모자</option>
-					<option value="상의">상의</option>
-					<option value="하의">하의</option>
-					<option value="악세서리">악세서리</option>
-				</select>
-
-				<!-- 구매 희망가격 슬라이더 STR -->
-				<div class="search_box">
-					<label for="amount">구매 희망가격(원)</label> <input type="text"
-						id="amount" name="amount">
+	<div class="content_box">
+		<form action="product_search.do">
+			<div class="div_inline">
+				<div class="search_div">
+					<h3 class="search_main">상품 검색</h3>
+					<hr>
+					<b class="search_margin">등급 및 종류</b>
+					<select name="rating" id="rating">
+						<option value="전체 등급">전체 등급</option>
+						<option value="A">A</option>
+						<option value="B">B</option>
+						<option value="C">C</option>
+						<option value="D">D</option>
+					</select> 
+					<select name="kind" id="kind">
+						<option value="상품 종류">상품 종류</option>
+						<option value="모자">모자</option>
+						<option value="상의">상의</option>
+						<option value="하의">하의</option>
+						<option value="악세서리">악세서리</option>
+					</select>
+					<hr>
+					<!-- 구매 희망가격 슬라이더 STR -->
 					<div>
-						<div id="slider-range" class="slider-range"></div>
+					<b class="search_margin">구매가격(원)</b>
+						<label for="amount">
+							<div>
+								<input type="text" id="amount" name="amount">
+							</div>
+								<p id="slider-range" class="slider-range"></p>
+						</label> 
 					</div>
+					<!-- 구매 희망가격 슬라이더 END -->
+					<hr>
+					<b class="search_margin">상품 검색어</b>
+					<input class="search_box" type="text" id="searchInput"
+						name="searchInput" placeholder="검색어를 입력하세요">
+					<button>검색</button>
+					<button id="reset">초기화</button>
+					<div id="searchResults"></div>
 				</div>
-				<!-- 구매 희망가격 슬라이더 END -->
-				<input class="search_box" type="text" id="searchInput"
-					name="searchInput" placeholder="검색어를 입력하세요">
-				<button>검색</button>
-				<button id="reset">초기화</button>
-				<div id="searchResults"></div>
 			</div>
-		</div>
-	</form>
+		</form>
+	</div>
 
 
 	<!-- ***** Men Area Starts ***** -->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6">
+			<div class="col-lg-6" style="margin-top: 60px">
 				<div class="section-heading">
-					<h2>탑텐?</h2>
-					<span>개쩌는 인기상품 10가지를 만나보세요</span>
+				<!-- 	<h2>탑텐?</h2>
+					<span>개쩌는 인기상품 10가지를 만나보세요</span> -->
 				</div>
 			</div>
 		</div>
 	</div>
 
-
+	<div style="margin-left : 10%; margin-right: 10%">
+	<hr>
+		전체 : <b style="color: red">${count}</b>건 조회
+	<hr>
+	</div>
+	
 	<table class="product_table">
 		<c:forEach var="result" items="${result}" varStatus="status">
 			<c:if test="${status.index % 5 == 0}">
@@ -96,11 +98,24 @@
 			</c:if>
 			<th>
 			<td>
-				<!-- 각 상품 이미지 클릭 시 상세 정보 페이지로 이동 --> <a
-				href="product_detail.do?product_id=${result.prod_id}"> <img
-					class="img" src="${path}/resources/assets/images/men-01.jpg"><br>
-					${result.prod_grade} ${result.prod_name}<br>
-					${result.prod_price}<br>
+				<!-- 각 상품 이미지 클릭 시 상세 정보 페이지로 이동 --> 
+			<a href="product_detail.do?product_id=${result.prod_id}"> 
+			<img class="img" src="${path}/resources/assets/images/products/${result.file_name}">
+			<div class="down-content ">
+				<h5>${result.prod_name}</h5>
+				<div class="div_inline">
+					<table class="prod_list">
+						<tr >
+							<td>
+								<b class="prod_grade">${result.prod_grade}</b>
+							</td>
+							<td class="prod_price">
+								<span >${result.prod_price} 원</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 			</a>
 			</td>
 			</th>
@@ -149,7 +164,11 @@
 		console.log(prod_name);
 		
 		// 2) 태그에 이전 검색 기록 대입하기(값 넣어주기)
-		if (prod_grade == null && prod_category == null && prod_priceMin == null && prod_priceMax == null && prod_name == null) {
+		if (		(prod_grade === null || prod_grade === undefined || prod_grade === '') 
+				&& (prod_category === null || prod_category === undefined || prod_category === '') 
+				&& (prod_priceMin === null || prod_priceMin === undefined || prod_priceMin === '') 
+				&& (prod_priceMax === null || prod_priceMax === undefined || prod_priceMax === '') 
+				&& (prod_name === null || prod_name === undefined || prod_name === '')) {
 			// 첫 페이지 시작시 검색 값 세팅
 			$('#rating').val("전체 등급").prop("selected",true);
 			$('#kind').val("상품 종류").prop("selected",true);

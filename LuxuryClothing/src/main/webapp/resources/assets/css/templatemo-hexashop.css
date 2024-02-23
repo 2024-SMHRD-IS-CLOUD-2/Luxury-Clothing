@@ -47,11 +47,51 @@ figure, header, nav, section, article, aside, footer, figcaption {
 /*porduct_list.do = STR*/
 .content_box{
 	margin-top: 150px;
-	text-align: center;
+}
+
+.search_main{
+	padding: 10px;
+	background-color: rgb(224, 224, 224);
+	margin-bottom: 20px;
+}
+
+.search_admin_main{
+	padding: 10px;
+	background-color:#EAEAEA;
+	margin-bottom: 20px;
+	border: 10px;
+}
+
+.search_admin_td{
+	padding: 20px;
+	background-color:#EAEAEA;
+}
+
+.input_list1{
+	width: 30px;
+}
+
+.input_list2{
+	width: 80px;
 }
 
 .search_box{
-	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.search_margin{
+	margin-right: 5%;
+}
+
+.search_div{
+	width : 700px;
+}
+
+.td_product_y{
+	background-color:yellowgreen;
+}
+.td_product_n{
+	background-color: tomato;
 }
 
 .hideme{
@@ -59,8 +99,7 @@ figure, header, nav, section, article, aside, footer, figcaption {
 }
 
 .slider-range{
-	max-width: 20%;
-	margin-left: 40%;
+	margin-top: 10px;
 }
 
 /*porduct_list.do = END*/
@@ -309,8 +348,8 @@ header
 }
 
 .header-area .main-nav .nav li {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .header-area .main-nav .nav li:last-child {
@@ -784,13 +823,13 @@ banner
 
 /*
 ---------------------------------------------
-Men
+전체상품
 ---------------------------------------------
 */
 
 #men {
-  padding-top: 90px;
-  padding-bottom: 90px;
+  padding-top: 60px;
+  padding-bottom: 30px;
   border-bottom: 3px dotted #eee;
 }
 
@@ -950,13 +989,13 @@ Women
 */
 
 #women {
-  padding-top: 90px;
-  padding-bottom: 90px;
+  padding-top: 60px;
+  padding-bottom: 30px;
   border-bottom: 3px dotted #eee;
 }
 
 #women .section-heading {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 #women .item .down-content {
@@ -2161,7 +2200,7 @@ contact Us Page
 */
 
 .contact-us {
-  margin-top: 90px;
+  margin-top: 150px;
   border-bottom: 3px dotted #eee;
   padding-bottom: 90px;
 }
@@ -2176,7 +2215,6 @@ contact Us Page
 
 .contact-us form input {
   width: 100%;
-  height: 44px;
   line-height: 44px;
   padding: 0px 15px;
   font-size: 14px;
@@ -2488,8 +2526,133 @@ a.logo{
   /* 간격 조절 */
 }
 
-input[type="checkbox"] {
-  transform: scale(0.5);
+/* 메인 슬라이드 */
+   .main_luxuryClothing{
+   		display: block; 
+   		margin: 0 auto;
+   		width: 600px;
+   }
+   
+    /* slider__wrap */
+    .slider__wrap {
+        width: 100%;
+        height: 650px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .slider__img {
+        position: relative;
+        width: 1155px;
+        height: 650px;
+        overflow: hidden;
+    }
+    
+    .slider__img img {
+        height: 650px;
+        object-fit: cover;
+    }
+    
+    .slider {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: all 0.4s;
+    }
+    .slider::before {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        background: rgba(0, 0, 0, 0.4);
+        color: #fff;
+        padding: 5px 10px;
+    }
+
+/* 상품 정보 */
+.product_category_namme{
+	font-size: 50px;
+	text-align: center;
+	
 }
 
+.product_category_sub{
+	font-size: 20px;
+	margin: 20px 20px 50px 20px;
+	text-align: center;
+	
+}
+
+.product_table{
+	margin: auto;
+	text-align: center;
+}
+
+.product_category{
+	font-size: 20px;
+	padding-top: 20px;
+	padding-right: 40px;
+}
+
+
+.prod_grade {
+    background-color: red;
+	color:#fff !important; 
+	display:inline-block; 
+	width:18px; 
+	height:18px; 
+	line-height:18px; 
+	border-radius:4px; 
+	text-align:center;
+	font-weight: bold !important; 
+	font-size:15px ;
+	font-weight:normal ;
+	vertical-align:top; 
+}
+
+.prod_list{
+	text-align: center;
+}
+
+.prod_price{
+	padding-right: 10px;
+	padding-left: 20px;
+}
+
+h5{
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.div_inline{
+	display: flex;
+	justify-content: center;
+}
+
+/* 상품 전체 리스트 */
+.product_table {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.img {
+	width: 200px;
+	margin-left: 20px;
+	margin-top: 60px;
+}
+
+.select_result_div{
+	display: flex;
+	justify-content: center;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+input[type="checkbox"]:checked {
+  background-color: red;
+}
 
