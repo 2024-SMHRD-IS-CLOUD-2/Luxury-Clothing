@@ -140,28 +140,29 @@
 								<!-- img 배열로 바꿀 예정 -->                            
                             <tr>
                             	<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-                                <th>상품이미지1</th>
+                                <th>메인 사진<br>판매 상품의 이미지</th>
                                 <td>
                                     <div class="btn_upload_box">
-                                            <input type="file" name="img" id="img" class="file">
+                                            <input type="file" name="mainImg" id="mainImg" class="file" onchange="setThumbnail(event);">
+                                            <div id="image_container"></div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                             	<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-                                <th>상품이미지2</th>
+                                <th>서브 사진</th>
                                 <td>
                                     <div class="btn_upload_box">
-                                            <input type="file" name="img" id="img" class="file">
+                                            <input type="file" name="subImg1" id="subImg1" class="file">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                             	<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-                                <th>상품이미지3</th>
+                                <th>영수증 사진</th>
                                 <td>
                                     <div class="btn_upload_box">
-                                            <input type="file" name="img" id="img" class="file">
+                                            <input type="file" name="subImg2" id="subImg2" class="file">
                                     </div>
                                 </td>
                             </tr>
@@ -190,6 +191,7 @@
 										<option value="모자">모자</option>
 										<option value="상의">상의</option>
 										<option value="하의">하의</option>
+										<option value="하의">신발</option>
 										<option value="악세서리">악세서리</option>
 									</select>
 								</td>	
@@ -278,6 +280,76 @@
             }
         }
         
+	</script>
+	
+	
+	<script type="text/javascript">
+	
+	// 파일 업로드
+		function setThumbnail(event) {
+			
+			for (var image of event.target.files) {
+				var reader = new FileReader();
+				
+				/////////////////// 업로드한 이미지 데이터 추출  ///////////////////
+				// 확장자가 이미지 파일인지 확인
+				var fileExt = image.name.split(".").pop().toLowerCase(); // 파일명에서 확장자를 가져온다. 
+				var fileName = image.name.split(".")[0]; // 파일명에서 이름만 가져온다.
+				console.log("fileName : " + fileName);
+				console.log("fileExt : " + fileExt);
+				  
+				// 이미지 확장자에 따라 판별
+				var fileUpload_yn = ($.inArray(fileExt, ["jpg", "jpeg", "gif", "png"]) === -1) ? false : true;
+				console.log("fileUpload_yn 등록허가 : " + fileUpload_yn);
+				
+				// 파일의 최대 사이즈 확인
+				var maxSize = 5 * 1024 * 1024; // 5MB로 제한 
+				(image.size > maxSize) ? true : false;
+				
+			/* 	// 배열에 정보 넣어줌!
+				arrImag[num] = fileName+"/"+fileExt+"/"+maxSize;
+				num ++; */
+				
+				/////////////////// 실행 이벤트 항시 대기  ///////////////////
+					reader.onload = function (event) {
+					var img = document.createElement("img");	// 이미지 태그 선언
+					img.setAttribute("src", event.target.result);	
+					document.querySelector("div#image_container").appendChild(img);
+					
+					// 파일명 추가 코드
+					var fileNameList = document.createElement("butten");	// <butten> 태그 선언
+					var brTag =	document.createElement("br");				// <br> 태그 선언
+					var deleteButton = document.createElement("button"); 	// 삭제 <butten> 태그 선언
+					
+					deleteButton.textContent = "삭제"; 		// 삭제 버튼 내용(content) 설정
+					fileNameList.textContent = image.name;	// 업로드한 파일 이름
+					
+					// 이미지 있음 없음에 따라 판별
+					if (img == null) {
+						// html 태그 생성
+						document.querySelector("div#imageUpname_container").appendChild(fileNameList);	// 파일명 생성
+						document.querySelector("div#imageUpname_container").appendChild(deleteButton);	// 삭제버튼 생성
+						document.querySelector("div#imageUpname_container").appendChild(brTag);			// br 생성
+						console.log("이미지 세팅")
+					} else {
+						// 재 업로드시 이미지 초기화
+						img.parentNode.removeChild(img);					// 이미지 제거
+						fileNameList.parentNode.removeChild(fileNameList);	// 파일이름 제거
+						brTag.parentNode.removeChild(brTag);
+						console.log("이미지 초기화")
+					}
+					
+					// 삭제 버튼 클릭시 이벤트 발생
+					deleteButton.addEventListener("click", function () {
+						img.parentNode.removeChild(img);					// 이미지 제거
+						deleteButton.parentNode.removeChild(deleteButton);	// 삭제버튼 제거
+						fileNameList.parentNode.removeChild(fileNameList);	// 파일이름 제거
+						brTag.parentNode.removeChild(brTag);				// br태그 제거
+					});
+				};
+				reader.readAsDataURL(image);	// 이미지 보여짐
+			}
+		}
 	</script>
 </body>
 </html>
