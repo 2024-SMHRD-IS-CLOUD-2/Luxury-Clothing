@@ -25,6 +25,8 @@ import com.smhrd.products.controller.ProductsSearchCon;
 import com.smhrd.users.controller.CartController;
 import com.smhrd.users.controller.CartsPage;
 import com.smhrd.purchases.controller.PaySuccess;
+import com.smhrd.purchases.controller.OrderHistoryCon;
+import com.smhrd.purchases.controller.PayEndPageCon;
 
 @WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
 public class MainController extends HttpServlet {
@@ -61,6 +63,7 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/loginpage.do", new LoginPageCon());
 		handlerMapping.put("/logOutCon.do", new LogOutCon());
 		handlerMapping.put("/JoinOutCon.do", new JoinOutPage());
+		handlerMapping.put("/question.do", new questionCon());
 		
 		// 회원
 		handlerMapping.put("/userModifyPage.do", new UserModifyPageCon());
@@ -98,6 +101,8 @@ public class MainController extends HttpServlet {
 
 		// 결제
 		handlerMapping.put("/paySuccess.do", new PaySuccess());
+		handlerMapping.put("/payEndPage.do", new PayEndPageCon());
+		handlerMapping.put("/orderHistory.do", new OrderHistoryCon());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

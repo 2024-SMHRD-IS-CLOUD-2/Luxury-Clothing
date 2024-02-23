@@ -7,15 +7,15 @@
 <html>
 <head>
 
-	<meta charset="utf-8">
+   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <title>결제시스템</title>
-	
-	<!-- Additional CSS Files -->
+   
+   <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/font-awesome.css">
@@ -27,34 +27,34 @@
     <link rel="stylesheet" href="${path}/resources/assets/css/lightbox.css">
 
     <link rel="stylesheet" href="${path}/resources/assets/css/payment.css">
-	
-	<!--
+   
+   <!--
 
-	TemplateMo 571 Hexashop
+   TemplateMo 571 Hexashop
 
-	https://templatemo.com/tm-571-hexashop
+   https://templatemo.com/tm-571-hexashop
 
-	-->
+   -->
 
 </head>
 <body>
     <c:set var="prod" value="${sessionScope.prod_detail}"/>
     <c:set var="user" value="${sessionScope.user_result}"/>
 
-	<!-- ***** Preloader Start ***** -->
-	    <div id="preloader">
-	        <div class="jumper">
-	            <div></div>
-	            <div></div>
-	            <div></div>
-	        </div>
-	    </div>  
-	    <!-- ***** Preloader End ***** -->
-	    
-	    
-	   <%@include file ="header.jsp" %>
-	   
-	     <!-- 헤더 바 아래에 h1 태그로 주문서 작성/결제 텍스트 추가 -->
+   <!-- ***** Preloader Start ***** -->
+       <div id="preloader">
+           <div class="jumper">
+               <div></div>
+               <div></div>
+               <div></div>
+           </div>
+       </div>  
+       <!-- ***** Preloader End ***** -->
+       
+       
+      <%@include file ="header.jsp" %>
+      
+        <!-- 헤더 바 아래에 h1 태그로 주문서 작성/결제 텍스트 추가 -->
     <h1 style="text-align: center;">주문서 작성/결제</h1>
 
     <!-- 테이블 추가 -->
@@ -77,7 +77,7 @@
             <!-- 수량 -->
             <td>${prod.prod_price}</td>
             <!-- 상품금액 -->
-            <td><input type="checkbox" ></td>
+            <td>0원</td>
             <!-- 할인/적립 -->
             <td>${prod.prod_price}</td>
             <!-- 합계 -->
@@ -94,8 +94,8 @@
         <span style="float: right;">총 결제금액 : ${prod.prod_price}</span>
         <div style="clear: both;"></div> <!-- float 해제 -->
     </div>
-	<br>
-	<br>
+   <br>
+   <br>
     <!-- 기존의 나머지 코드는 생략 -->
 
     <div class="sibal">
@@ -106,9 +106,9 @@
                 <p>주문자 정보</p>
                 <br>
  
-				<span class="form_element">
-	                <input type="checkbox" id="sameCustomer" name="sameCustomer" onclick="checkSame();">
-	                <label for="sameCustomer" class="on">회원정보와 동일</label>
+            <span class="form_element">
+                   <input type="checkbox" id="sameCustomer" name="sameCustomer" onclick="checkSame();">
+                   <label for="sameCustomer" class="on">회원정보와 동일</label>
                 </span><br>
                 <label for="주문자이름">주문하시는 분</label>
                 <input type="text" id="name" name="name" required="required">
@@ -236,64 +236,64 @@
             buyer_email: "${user.user_email}",
             buyer_addr: "${user.user_addr}",
           }, function (rsp) { 
-        	  // callback
+             // callback
               if (rsp.success) {
-            	  console
-            	  var user_id = "${user.user_id}";
-            	  var prod_price = "${prod.prod_price}";
-            	  var pay_method = rsp.pay_method;
-            	  var paid_amout = rsp.paid_amount;
-            	  var prod_id = "${prod.prod_id}";
-            	  var deli_addr = $("#deli_addr").val();
-            	  var deli_name = $("#deli_name").val();
-            	  var deli_phone = $("#deli_phone").val();
-            	  var deli_message = $('#deli_message').val();
-            	  var status = rsp.status;
-            	  
-            	  console.log(user_id);
-            	  console.log(prod_price);
-            	  console.log(paid_amout);
-            	  console.log(status);
-            	  console.log(pay_method);
-            	  console.log(prod_id);
-            	  console.log(deli_addr);
-            	  console.log(deli_phone);
-            	  console.log(deli_name);
-            	  
-            	    var paymentData = {
-       		            user_id: user_id,
-                  	    prod_price: prod_price,
-       		        	pay_method: pay_method,
-       		        	paid_amount: paid_amout,
-                  	    prod_id: prod_id,
-                  	    deli_addr: deli_addr,
-                  	    deli_name: deli_name,
-                  	    deli_phone: deli_phone,
-                  	    deli_message : deli_message,                  	    
-       		        	status: status
-       		        // 필요한 경우 다른 정보도 추가 가능
-            		    };
-            	    /* const obj = JSON.stringify(paymentData); */
-            	    console.log(paymentData);
-            	    $.ajax({
-            	        url: 'paySuccess.do', // 서버로 전송할 URL
-            	        type: 'POST', // 전송 방식
-            	        data: paymentData, // 전송할 데이터
-            	        // dataType: 'json', // 전송 데이터 형식
-            	        success: function(response) {
-            	            console.log('Data sent successfully:', response);
-            	            // 추가적인 처리 가능
-            	        },
-            	        error: function(xhr, status, error) {
-            	            console.error('Error occurred while sending data:', error);
-            	            // 에러 처리
-            	        }
-            	    });
+                 console
+                 var user_id = "${user.user_id}";
+                 var prod_price = "${prod.prod_price}";
+                 var pay_method = rsp.pay_method;
+                 var paid_amout = rsp.paid_amount;
+                 var prod_id = "${prod.prod_id}";
+                 var deli_addr = $("#deli_addr").val();
+                 var deli_name = $("#deli_name").val();
+                 var deli_phone = $("#deli_phone").val();
+                 var deli_message = $('#deli_message').val();
+                 var status = rsp.status;
+                 
+                 console.log(user_id);
+                 console.log(prod_price);
+                 console.log(paid_amout);
+                 console.log(status);
+                 console.log(pay_method);
+                 console.log(prod_id);
+                 console.log(deli_addr);
+                 console.log(deli_phone);
+                 console.log(deli_name);
+                 
+                   var paymentData = {
+                         user_id: user_id,
+                         prod_price: prod_price,
+                        pay_method: pay_method,
+                        paid_amount: paid_amout,
+                         prod_id: prod_id,
+                         deli_addr: deli_addr,
+                         deli_name: deli_name,
+                         deli_phone: deli_phone,
+                         deli_message : deli_message,                         
+                        status: status
+                     // 필요한 경우 다른 정보도 추가 가능
+                      };
+                   /* const obj = JSON.stringify(paymentData); */
+                   console.log(paymentData);
+                   $.ajax({
+                       url: 'paySuccess.do', // 서버로 전송할 URL
+                       type: 'POST', // 전송 방식
+                       data: paymentData, // 전송할 데이터
+                       // dataType: 'json', // 전송 데이터 형식
+                       success: function(response) {
+                           console.log('Data sent successfully:', response);
+                           // 추가적인 처리 가능
+                       },
+                       error: function(xhr, status, error) {
+                           console.error('Error occurred while sending data:', error);
+                           // 에러 처리
+                       }
+                   });
               } else {
                   console.log(rsp);
               }
           });
         }
-	</script>
+   </script>
 </body>
 </html>

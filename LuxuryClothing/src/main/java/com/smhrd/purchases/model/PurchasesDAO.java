@@ -3,10 +3,13 @@ package com.smhrd.purchases.model;
 
 import java.util.List;
 
+import javax.mail.Session;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.database.setting.SqlSessionManager;
+import com.smhrd.main.model.UserDTO;
 import com.smhrd.products.model.ProductsDTO;
 
 public class PurchasesDAO {
@@ -25,4 +28,17 @@ public class PurchasesDAO {
 		return result;
 
 	}
+	
+	public List<PurchasesRecordDTO> getRecord(String user_id) {
+		
+		SqlSession sqlSession = factory.openSession();
+		
+		List<PurchasesRecordDTO> result = sqlSession.selectList("getRecord", user_id);
+		
+		sqlSession.close();
+		
+		return result;
+	}
+	
+	
 }

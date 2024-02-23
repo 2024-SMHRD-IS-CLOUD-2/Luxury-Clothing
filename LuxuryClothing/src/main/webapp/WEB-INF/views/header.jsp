@@ -66,7 +66,7 @@
 		                                <ul>
 		                                    <li><a href="userModifyPage.do">회원정보수정</a></li>
 		                                    <li><a href="#">위탁상품관리</a></li>
-		                                    <li><a href="#">주문내역조회</a></li>
+		                                    <li><a href="orderHistory.do">주문내역조회</a></li>
 		                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">입금 조회 및 환불</a></li>
 		                                	<li class="scroll-to-section"><a href="JoinOutCon.do">회원탈퇴</a></li>
 		                                </ul>
@@ -97,7 +97,7 @@
 							<li class="submenu3"></li>
 	                        <li class="scroll-to-section">
 	                        <c:if test="${user_result.user_id != 'admin'}">
-	                        	<a href="#">고객센터</a>
+	                        	<a href="question.do">고객센터</a>
 	                        </c:if>
 	                        <c:if test="${user_result.user_id == 'admin'}">
 		                        <li class="submenu">

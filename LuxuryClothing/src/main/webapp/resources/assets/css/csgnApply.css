@@ -26,19 +26,8 @@ li.submenu2{
   margin: 0;
   padding: 40px 5px 0; /* 위, 좌우, 아래 패딩 추가 */
 }
-a.logo{
-  position: relative;
-  right: 350px;
-  top: 50px;
-}
-.service_tit h2{
-  font-weight: 700;
-  padding: 0;
-  display: inline-block;
-  color: #333;
-  font-size: var(--m-font-size_32);
-  float: none;
-}
+
+
 
 .service_cont {
   line-height: 22px;
@@ -51,7 +40,7 @@ a.logo{
   text-align: center;
   margin: 0 auto 50px; /* 좌우 가운데 정렬 */
   line-height: 24px;
-  border-top: 2px solid #000;
+  border-top: 2px solid #f3f3f3;
   background-color: #f3f3f3;
   font-size: 16px;
   border-radius: 5px;
@@ -86,6 +75,7 @@ a.logo{
   padding-bottom: 5px;
   position: relative;
   right: 26%;
+  font-weight: bold;
 }
 
 .cocoService table {
@@ -103,6 +93,7 @@ a.logo{
   font-weight: normal;
   border-bottom: 1px solid #dbdbdb;
   padding: 15px;
+  font-weight: bold;
 }
 
 .cocoService table td{
@@ -111,8 +102,11 @@ a.logo{
   text-align: left; /* 가운데 정렬 */
 }
 td input[type="text"], td input[type="password"], td input[type="tel"], td input[type="email"] {
+  width: 200px;
   margin: 10px auto; /* 상하 가운데 정렬 */
 }
+
+
 
 table {
   margin: 0 auto; /* 테이블 가운데 정렬 */
@@ -128,3 +122,29 @@ table {
 colgroup {
   display: table-column-group;
 }
+
+/* ================= 하늘 추가*/
+
+button[type="submit"] {
+    width: 150px;
+    height: 40px;
+    margin: 4px;
+    border-radius: 5px;
+     background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    
+}
+
+
+button[type="submit"]:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 1px solid rgb(0, 0, 0); /* 검정색 테두리선 추가 */
+    border-radius: 5px;
+    
+}
+
+textarea[name="goods_detail"]{
+	font-weight: 11px;
+}
+
