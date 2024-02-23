@@ -36,7 +36,7 @@
                             <li class="submenu">
                                 <a class="list" href="javascript:;">위탁서비스</a>
                                 <ul>
-                                    <li><a href="consignment.do">위탁안내 사항</a></li>
+                                    <li><a href="consignmentGuide.do">위탁안내 사항</a></li>
                                     <c:if test="${user_result !=null}">
                                     	<li><a href="csgnApplyPage.do">위탁판매 신청</a></li>
                                     </c:if>
@@ -66,7 +66,7 @@
 		                                <ul>
 		                                    <li><a href="userModifyPage.do">회원정보수정</a></li>
 		                                    <li><a href="#">위탁상품관리</a></li>
-		                                    <li><a href="#">주문내역조회</a></li>
+		                                    <li><a href="orderHistory.do">주문내역조회</a></li>
 		                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">입금 조회 및 환불</a></li>
 		                                	<li class="scroll-to-section"><a href="JoinOutCon.do">회원탈퇴</a></li>
 		                                </ul>
