@@ -28,8 +28,13 @@
 
         <div class="product-image">
             <!-- 상품 이미지 -->
-            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA3MDhfODYg%2FMDAxNTYyNTc0NDcxOTM1.OjDgmUrFi8rByy6OSqCd2GPI0aUk8kxXqH4n5GDryxwg.jB_Kfi8ti-un99vALglDU2TFWU_5709C4o721FeGe8Ug.JPEG.msinvestment%2Fshutterstock_1320931688.jpg&type=ff332_332" alt="Product Image">
+            <img src="${path}/resources/assets/images/products/${prod_mainImage.file_name}">
         </div>
+        
+        <c:forEach var="arr" items="${prod_subImages}" varStatus="status">
+        	<img src="${path}/resources/assets/images/products/${arr.file_name}">
+        </c:forEach>
+        
         <div class="product-details">
         	<%-- <c:set var="product" value="<%=request.getAttribute("product_detail")%>"></c:set> --%>
         	
@@ -106,11 +111,16 @@
          
             <div class="buttons">
                 <button id="buyNow">바로 구매</button>
-                <button class="add-to-cart">장바구니</button>
+                <button class="cartPickList">장바구니</button>
                 <button class="add-to-wishlist">찜하기</button>
             </div>
         </div>
     </div>
+    
+    <form action="cartPickList.do" id="insertForm" name="insertForm">
+    	<input type="hidden" id="user_id" name="user_id" value="${user_result.user_id}">
+    	<input type="hidden" id="prod_id" name="prod_id" value="${prod.prod_id}">
+    </form>
 		
     <%@include file="footer.jsp"%>
     
@@ -129,6 +139,19 @@
 			}
 			
 			
+		});
+		
+		// 장바구니 버튼 클릭시 장바구니 상품 담기
+		$(".cartPickList").on("click", function(){
+			console.log("event")
+			
+			if(user == null || user == ""){
+				window.location.href="loginpage.do"
+			}else{
+				// form 태그 실행
+			 	var form = document.getElementById('insertForm');
+			 	form.submit();
+			}
 		});
 		
     	</script>

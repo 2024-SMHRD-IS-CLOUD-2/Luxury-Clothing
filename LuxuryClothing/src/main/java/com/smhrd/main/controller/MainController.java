@@ -12,16 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.admin.controller.SearchUserCon;
 import com.smhrd.admin.controller.selectAllCon;
-import com.smhrd.products.controller.ProductListCon;
-import com.smhrd.products.controller.ProductsImageSelectCon;
-import com.smhrd.products.controller.ProductsImageUploadCon;
-import com.smhrd.products.controller.ProductsSearchCon;
 import com.smhrd.products.controller.CsgnApplyCon;
 import com.smhrd.products.controller.CsgnApplyPageCon;
 import com.smhrd.products.controller.CsgnGuideCon;
 import com.smhrd.products.controller.PayPageCon;
 import com.smhrd.products.controller.ProductDetailCon;
-import com.smhrd.products.controller.TestCon;
+import com.smhrd.products.controller.ProductListCon;
+import com.smhrd.products.controller.ProductsImageSelectCon;
+import com.smhrd.products.controller.ProductsImageUploadCon;
+import com.smhrd.products.controller.ProductsSearchCon;
+import com.smhrd.users.controller.CartController;
+import com.smhrd.users.controller.CartsPage;
+import com.smhrd.purchases.controller.PaySuccess;
 
 @WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
 public class MainController extends HttpServlet {
@@ -58,13 +60,17 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/loginpage.do", new LoginPageCon());
 		handlerMapping.put("/logOutCon.do", new LogOutCon());
 		handlerMapping.put("/JoinOutCon.do", new JoinOutPage());
+		
+		// 회원
 		handlerMapping.put("/userModifyPage.do", new UserModifyPageCon());
 		handlerMapping.put("/userModifyEnter.do", new UserModifyEnterCon());
 		handlerMapping.put("/userModify.do", new UserModifyCon());
-		handlerMapping.put("/carts.do", new CartsPage());
 		handlerMapping.put("/Rsidpw.do", new RsidpwCon());
 
-		// 메인 화면 구성
+		// 장바구니
+		handlerMapping.put("/carts.do", new CartController());	// 장바구니 페이지 
+		handlerMapping.put("/cartPickList.do", new CartListInsertCon());	// 장바구니에 넣기
+		handlerMapping.put("/cartProductDelete.do", new CartProductDeleteCon());	// 장바구니에 선택항목 제거
 		
 		// 상품
 		handlerMapping.put("/product_list.do", new ProductListCon() );
@@ -79,7 +85,18 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/test_ImageUpload.do", new TEST_ImageUpload() );
 		handlerMapping.put("/ProductImageUpload.do", new ProductsImageUploadCon() );
 		handlerMapping.put("/ProductSelect.do", new ProductsImageSelectCon() );
+		
+		// 관리자단
+		handlerMapping.put("/adminUsers.do", new AdminUserCon() );
+		handlerMapping.put("/adminSearchProducts.do", new AdminSearchProductsCon() );
+		handlerMapping.put("/adminProducts.do", new AdminProductCon() );
+		// 관리자 상품관리에서 수정버튼 누르면 해당 내용으로 업데이트
+		handlerMapping.put("/adminProductUpdate.do", new adminProductUpdateCon() );
+		// 관리자 상품관리에서 삭제버튼 누르면 해당 상품 삭제
+		handlerMapping.put("/adminProductDelete.do", new adminProductDeleteCon() );
 
+		// 결제
+		handlerMapping.put("/paySuccess.do", new PaySuccess());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -27,6 +27,7 @@ public class JoinOutCon implements Controller {
         String password = request.getParameter("password");
         dto.setUser_id(userId);
         dto.setUser_pw(password);
+        System.out.println("JoinOutCon 유저 id : "+dto.getUser_id());
         
         String url = null;
         System.out.println(userId);
@@ -35,8 +36,6 @@ public class JoinOutCon implements Controller {
         	url = "redirect:/loginpage.do";
         }
         
-
-        
         // 회원 탈퇴 실행
         int result = userDAO.JoinOut(dto);
         
@@ -44,10 +43,12 @@ public class JoinOutCon implements Controller {
         if (result > 0) {
             // 회원 탈퇴 성공 시 세션 해제하고 메인 페이지로 리다이렉트
             session.invalidate();
+            System.out.println("회원 탈퇴에 성공하였습니다.");
             return "redirect:/main.do";
         } else {
             // 회원 탈퇴 실패 시 메시지 설정
         	url = "JoinOut";
+        	System.out.println("회원 탈퇴에 실패하였습니다.");
             request.setAttribute("message", "회원 탈퇴에 실패하였습니다.");
             return url; // 회원 탈퇴 페이지로 다시 이동
         }

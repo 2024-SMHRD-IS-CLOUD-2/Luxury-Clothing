@@ -96,7 +96,7 @@
 						<c:forEach var="arr" items="${product_result}" varStatus="status">
 							<div class="item">
 								<div class="thumb">
-									<a href="#?prod_id=${arr.prod_id}">
+									<a href="product_detail.do?product_id=${arr.prod_id}">
 										<img src="${path}/resources/assets/images/products/${arr.file_name}" alt="이미지 준비 중">
 									</a>
 								</div>
@@ -149,7 +149,7 @@
 						<c:forEach var="arr" items="${product_pick}" varStatus="status">
 							<div class="item">
 								<div class="thumb">
-									<a href="#?prod_id=${arr.prod_id}">
+									<a href="product_detail.do?product_id=${arr.prod_id}">
 										<img src="${path}/resources/assets/images/products/${arr.file_name}" alt="이미지 준비 중">
 									</a>
 								</div>
