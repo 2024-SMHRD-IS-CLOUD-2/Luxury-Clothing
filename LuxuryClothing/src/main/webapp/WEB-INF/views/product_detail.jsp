@@ -27,8 +27,6 @@
 	href="${path}/resources/assets/css/owl-carousel.css">
 
 
-	<link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/payment.css">
-
 <link rel="stylesheet" href="${path}/resources/assets/css/lightbox.css">
 
 <link rel="stylesheet"
@@ -47,17 +45,18 @@
 	<div class="container">
 
 		<div class="product-image">
-            <!-- 상품 이미지 -->
-            <img src="${path}/resources/assets/images/products/${prod_mainImage.file_name}">
-        </div>
-        
-        <c:forEach var="arr" items="${prod_subImages}" varStatus="status">
-        	<img src="${path}/resources/assets/images/products/${arr.file_name}">
-        </c:forEach>
-        
-        <div class="product-details">
-        	<%-- <c:set var="product" value="<%=request.getAttribute("product_detail")%>"></c:set> --%>
-        	
+			<!-- 상품 이미지 -->
+			<img
+				src="${path}/resources/assets/images/products/${prod_mainImage.file_name}">
+		</div>
+
+		<c:forEach var="arr" items="${prod_subImages}" varStatus="status">
+			<img src="${path}/resources/assets/images/products/${arr.file_name}">
+		</c:forEach>
+
+		<div class="product-details">
+			<%-- <c:set var="product" value="<%=request.getAttribute("product_detail")%>"></c:set> --%>
+
 			<%--
         	ProductsDTO dto = (ProductsDTO)(request.getAttribute("prod_detail")); 
         	
@@ -74,55 +73,56 @@
 			<%-- <c:set var="user" value="${sessionScope.user_result}"/> --%>
 
 			<form action="payment.do" method="get" id="payment">
+				<br> <br> <br> <br> <br>
 				<h1>${prod.prod_name}</h1>
 				<%-- <h1><%= prod_name %></h1>
             <h3><%= prod_price %></h1> --%>
 				<hr>
 
 
-	<!-- ================== 여기서부터 table 로 해볼 공간====================  -->
+				<!-- ================== 여기서부터 table 로 해볼 공간====================  -->
 
-	<table>
-        <tr>
-            <th>가격</th>
-            <td>${prod.prod_price}원</td>
-        </tr>
-        <tr>
-            <th>카테고리</th>
-            <td>${prod.prod_category}</td>
-        </tr>
-        <tr>
-            <th>상세정보</th>
-            <td>${prod.prod_option}</td>
-        </tr>
-        <tr>
-            <th>제품상태</th>
-            <td>${prod.prod_desc}</td>
-        </tr>
-        <tr>
-            <th>외부상태</th>
-            <td><div class="condition">
-							<span>신품/</span> <span>미사용</span></td>
-        </tr>
-        <tr>
-            <th>내부상태</th>
-            <td><div class="condition">
-							<span>신품/</span> <span>미사용</span>
-						</div></td>
-        </tr>
-        <tr>
-            <th>부속품</th>
-            <td>더스크백, 케이스</td>
-        </tr>
-        <tr>
-            <th>색상</th>
-            <td>블랙</td>
-        </tr>
-    </table>
-			
+				<table>
+					<tr>
+						<th>가격</th>
+						<td>${prod.prod_price}원</td>
+					</tr>
+					<tr>
+						<th>카테고리</th>
+						<td>${prod.prod_category}</td>
+					</tr>
+					<tr>
+						<th>상세정보</th>
+						<td>${prod.prod_option}</td>
+					</tr>
+					<tr>
+						<th>제품상태</th>
+						<td>${prod.prod_desc}</td>
+					</tr>
+					<tr>
+						<th>외부상태</th>
+						<td><div class="condition">
+								<span>신품/</span> <span>미사용</span></td>
+					</tr>
+					<tr>
+						<th>내부상태</th>
+						<td><div class="condition">
+								<span>신품/</span> <span>미사용</span>
+							</div></td>
+					</tr>
+					<tr>
+						<th>부속품</th>
+						<td>더스크백, 케이스</td>
+					</tr>
+					<tr>
+						<th>색상</th>
+						<td>블랙</td>
+					</tr>
+				</table>
 
-		<!-- ======================여기 아래론 건들면 안댄다 ========================= -->
-		</form>
+
+				<!-- ======================여기 아래론 건들면 안댄다 ========================= -->
+			</form>
 			<hr>
 			<div class="box">
 				<span>S 신품과 동일,</span> <span>A+ 미세한 사용감 외 매우 좋은 상태,</span> <span>A
@@ -131,24 +131,26 @@
 			</div>
 
 			<hr>
-			<div style="position: relative; left: 200px;">
-				<span style="font-weight: bold;">총 결제금액 :</span> <span
-					style="font-weight: bold;">${prod.prod_price} 원</span>
+			<div style="position: relative; left: 250px;">
+				<h3><span style="font-weight: bold;">총 결제금액 :</span> <span
+					style="font-weight: bold;">${prod.prod_price} 원</span></h3>
 			</div>
 			<hr>
-			<div class="buttons">
-                <button id="buyNow">바로 구매</button>
-                <button class="cartPickList">장바구니</button>
-                <button class="add-to-wishlist">찜하기</button>
-            </div>
+			
+			<div style="position: relative; left: 160px;">
+							<button class="cartPickList">장바구니</button>
+				<button id="buyNow">바로 구매</button>
+			</div>
+			
 		</div>
 
 	</div>
 
 	<form action="cartPickList.do" id="insertForm" name="insertForm">
-    	<input type="hidden" id="user_id" name="user_id" value="${user_result.user_id}">
-    	<input type="hidden" id="prod_id" name="prod_id" value="${prod.prod_id}">
-    </form>
+		<input type="hidden" id="user_id" name="user_id"
+			value="${user_result.user_id}"> <input type="hidden"
+			id="prod_id" name="prod_id" value="${prod.prod_id}">
+	</form>
 	</div>
 	</div>
 
@@ -183,6 +185,7 @@
 			 	form.submit();
 			}
 		});
+		
 		
     	</script>
 

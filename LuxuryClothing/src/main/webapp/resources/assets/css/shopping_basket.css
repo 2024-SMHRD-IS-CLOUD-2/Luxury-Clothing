@@ -1,6 +1,5 @@
 body {
-<<<<<<< HEAD
-	font-family: Arial, sans-serif;
+	font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -8,6 +7,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
+
 }
 
 hr {
@@ -105,16 +105,6 @@ hr {
 	padding: 5px 10px;
 	cursor: pointer;
 }
-=======
-	font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-}
 
 hr {
 	width: 1000px;
@@ -211,4 +201,3 @@ hr {
 	padding: 5px 10px;
 	cursor: pointer;
 }
->>>>>>> branch 'develop' of https://github.com/2024-SMHRD-IS-CLOUD-2/LuxuryClothing.git
