@@ -110,9 +110,9 @@
 	                        </c:if>
 	                        </li>
                         </ul>        
-                        <a class='menu-trigger'>
+              <!--      <a class='menu-trigger'>
                             <span>Menu</span>
-                        </a>
+                        </a> -->
                         <!-- ***** Menu End ***** -->
                     </nav>
                 </div>

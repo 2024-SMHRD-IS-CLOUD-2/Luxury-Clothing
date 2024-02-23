@@ -15,17 +15,6 @@
 	<title>Luxury Clothing</title>
 	
 	<!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/bootstrap.min.css">
-
-    <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/font-awesome.css">
-
-    <link rel="stylesheet" href="${path}/resources/assets/css/templatemo-hexashop.css">
-
-    <link rel="stylesheet" href="${path}/resources/assets/css/owl-carousel.css">
-
-    <link rel="stylesheet" href="${path}/resources/assets/css/lightbox.css">
-
-    <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/csgnApply.css">
 	
 	<link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/update_modifyEnter.css">
 	
@@ -33,7 +22,7 @@
 </head>
 <body>
 
-	    <div id="preloader">
+	    <div id="preloader" style="margin-top: 100px">
 	        <div class="jumper">
 	            <div></div>
 	            <div></div>

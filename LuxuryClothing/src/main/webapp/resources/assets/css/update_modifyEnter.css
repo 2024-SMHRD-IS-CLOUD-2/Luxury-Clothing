@@ -11,7 +11,7 @@ h1 {
     color: black;
 }
 
-a {
+.top_manu {
     color: black !important; /* 링크의 색상을 검정색으로 설정 */
     text-decoration: none !important; /* 링크의 밑줄 제거 */
     font-weight: bold !important; /* 글꼴 굵기 설정 */
@@ -20,11 +20,11 @@ a {
     margin-right: 50px !important; /* 좌우 간격을 10px로 설정 */
 }
 
-a:first-child {
+.top_manu a:first-child {
     margin-left: 0 !important;
 }
 
-a:last-child {
+.top_manu a:last-child {
     margin-right: 0 !important;
 }
 

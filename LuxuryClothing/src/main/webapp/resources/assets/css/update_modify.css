@@ -21,15 +21,13 @@ body {
 }
 
 /*a랑 .top-manu는 5개 적혀있는 값 설정해주는거! */
-a {
+.top_manu {
   color: black !important;
   text-decoration: none !important;
-}
-
-.top_manu {
   margin-right: 120px;
   text-align: center;
 }
+
 
 .container a:first-child,
 .container a:last-child {

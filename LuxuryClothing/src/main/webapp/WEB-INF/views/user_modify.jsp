@@ -11,51 +11,35 @@
 
 <title>회원정보변경</title>
 
-<!-- 필요한 CSS 파일들을 여기에 추가 -->
-<link rel="stylesheet" type="text/css"
-	href="${path}/resources/assets/css/bootstrap.min.css">
-
-<link rel="stylesheet" type="text/css"
-	href="${path}/resources/assets/css/font-awesome.css">
-
-<link rel="stylesheet"
-	href="${path}/resources/assets/css/templatemo-hexashop.css">
-
-<link rel="stylesheet"
-	href="${path}/resources/assets/css/owl-carousel.css">
-
-<link rel="stylesheet" href="${path}/resources/assets/css/lightbox.css">
-
-<link rel="stylesheet"
-	href="${path}/resources/assets/css/update_modify.css">
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+<link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/update_modify.css">
 
 </head>
+<%@include file ="header.jsp" %>
+
 <body>
 
-	<%@include file ="header.jsp" %>
-			<div class="container">
-		        <br>
-		        <br>
-		        <br>
-		        <br>
-		        <br>
-		        <hr>
-		        
+	<div class="container">
+		<br>
+		<br>
+		<br>
+		<br>
+        <br>
+        <h1>마이페이지</h1>
+        <br>
+        <br>
+        <hr>
+		
 		 <a class="top_manu" href="#" onclick="return false;">회원정보변경</a> 
-              <a class="top_manu" href="#" onclick="return false;">위탁 상품관리</a> 
-              <a class="top_manu" href="#" onclick="return false;">주문목록 내역</a> 
-              <a class="top_manu" href="#" onclick="return false;">환불/입금 내역</a> 
-              <a class="top_manu" href="#" onclick="return false;">회원탈퇴</a>
-			
+         <a class="top_manu" href="#" onclick="return false;">위탁 상품관리</a> 
+         <a class="top_manu" href="#" onclick="return false;">주문목록 내역</a> 
+         <a class="top_manu" href="#" onclick="return false;">환불/입금 내역</a> 
+         <a class="top_manu" href="#" onclick="return false;">회원탈퇴</a>
 		<hr>
-		<br> <br>
+			
+		<br>
+		<br>
 		<h2>회원정보변경</h2>
-		<br> <br>
-	
+		<br>
 		<form action="userModify.do" method="post">
 			<table>
 				<tr>
@@ -79,7 +63,6 @@
 						id="address" placeholder="주소를 입력하세요"></td>
 				</tr>
 			</table>
-			<br> <br>
 
 			<button id="goBack" type="button" border-radius="10px">돌아가기</button>
 			<button type="button" onclick="showAlert()">정보 수정</button>
