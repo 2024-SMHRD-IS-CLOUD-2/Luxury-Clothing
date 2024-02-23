@@ -77,7 +77,7 @@
             <!-- 수량 -->
             <td>${prod.prod_price}</td>
             <!-- 상품금액 -->
-            <td><input type="checkbox" ></td>
+            <td>0원</td>
             <!-- 할인/적립 -->
             <td>${prod.prod_price}</td>
             <!-- 합계 -->

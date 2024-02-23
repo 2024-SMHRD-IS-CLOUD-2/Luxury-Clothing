@@ -97,7 +97,7 @@
 							<li class="submenu3"></li>
 	                        <li class="scroll-to-section">
 	                        <c:if test="${user_result.user_id != 'admin'}">
-	                        	<a href="#">고객센터</a>
+	                        	<a href="question.do">고객센터</a>
 	                        </c:if>
 	                        <c:if test="${user_result.user_id == 'admin'}">
 		                        <li class="submenu">

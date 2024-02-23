@@ -89,8 +89,8 @@ https://templatemo.com/tm-571-hexashop
 						</div>
 						<div class="col-lg-12 text-center">
 							<div class="form-group">
-								<a href="main.do" class="btn btn-secondary">돌아가기</a> 
-								<input type="submit" value="회원 탈퇴" class="btn btn-primary" id="withdrawalButton" disabled>
+								<input type="submit" value="회원 탈퇴" class="btn btn-primary" id="withdrawalButton" disabled
+								style="background-color:black; color:white; border:none; ">
 							</div>
 						</div>
 					</form>
