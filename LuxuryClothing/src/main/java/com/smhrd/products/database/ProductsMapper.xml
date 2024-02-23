@@ -106,11 +106,14 @@
 	
 	
 	
-	
+	<select id="selectProductIdNum" parameterType="com.smhrd.products.model.ProductsDTO" resultType="int">
+        SELECT PRODUCTS_SEQ.NEXTVAL+1
+        FROM DUAL
+	</select>
 	
 	
 	<!-- 다중 이미지 업로드 -->
-	<insert id="ProductImageUpload" parameterType="java.util.ArrayList">
+<!-- 	<insert id="ProductImageUpload" parameterType="java.util.ArrayList">
 	    <foreach collection="list" item="arr" index="index" separator=" " open="INSERT ALL" close="SELECT * FROM DUAL">
 	        INTO PROD_UPLOAD_IMAGES (
 	            PROD_ID,
@@ -128,10 +131,47 @@
 	            #{arr.prodFile_path}
 	        )
 	    </foreach>
+	</insert> -->
+	
+	<insert id="insertProductMainImageUpload" parameterType="com.smhrd.products.model.ProductsDTO">
+        INSERT INTO PROD_UPLOAD_IMAGES (
+            PROD_ID
+            , FILE_NAME
+            , FILE_REALNAME
+            , FILE_SIZE
+            , FILE_EXT
+            , FILE_PATH
+            , FILE_MAIN
+        ) VALUES (
+            #{prod_id}
+            , #{file_name}
+            , CONCAT(TO_CHAR(SYSDATE, 'YYMMDD_HH24MISS'), #{file_name})
+            , #{prodFile_size}
+            , #{prodFile_ext}
+            , '/products'
+            , 'Y'
+        )
 	</insert>
 	
-	
-	
+	<insert id="insertProductSubImageUpload" parameterType="com.smhrd.products.model.ProductsDTO">
+        INSERT INTO PROD_UPLOAD_IMAGES (
+            PROD_ID
+            , FILE_NAME
+            , FILE_REALNAME
+            , FILE_SIZE
+            , FILE_EXT
+            , FILE_PATH
+            , FILE_MAIN
+        ) VALUES (
+            #{prod_id}
+            , #{file_name}
+            , CONCAT(TO_CHAR(SYSDATE, 'YYMMDD_HH24MISS'), #{file_name})
+            , #{prodFile_size}
+            , #{prodFile_ext}
+            , '/products'
+            , 'N'
+        )
+	</insert>
 	
 	
 	

@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.admin.controller.SearchUserCon;
 import com.smhrd.admin.controller.selectAllCon;
 import com.smhrd.products.controller.CsgnApplyCon;
@@ -19,7 +21,6 @@ import com.smhrd.products.controller.PayPageCon;
 import com.smhrd.products.controller.ProductDetailCon;
 import com.smhrd.products.controller.ProductListCon;
 import com.smhrd.products.controller.ProductsImageSelectCon;
-import com.smhrd.products.controller.ProductsImageUploadCon;
 import com.smhrd.products.controller.ProductsSearchCon;
 import com.smhrd.users.controller.CartController;
 import com.smhrd.users.controller.CartsPage;
@@ -83,7 +84,7 @@ public class MainController extends HttpServlet {
 		
 		// 상품 이미지
 		handlerMapping.put("/test_ImageUpload.do", new TEST_ImageUpload() );
-		handlerMapping.put("/ProductImageUpload.do", new ProductsImageUploadCon() );
+//		handlerMapping.put("/ProductImageUpload.do", new ProductsImageUploadCon() );
 		handlerMapping.put("/ProductSelect.do", new ProductsImageSelectCon() );
 		
 		// 관리자단
@@ -124,6 +125,29 @@ public class MainController extends HttpServlet {
 		con = handlerMapping.get(mapping);
 		
 		if(con != null) {
+			
+//			// 이미지 등록하는 객체
+//			if(mapping.equals("/csgnApply.do")) {
+//				String savePath = "C:\\Users\\smhrd4\\git\\repository2\\LuxuryClothing\\src\\main\\webapp\\resources\\assets\\images\\products"; 
+//				int maxSize = 1024 * 1024 * 10 ; 
+//				
+//				// 최대 용량 10 MB
+//				String encoding = "UTF-8"; // 인코딩 방식
+//				DefaultFileRenamePolicy realName = null;
+//				
+//				// 프로젝트내 파일 등록
+//				MultipartRequest multi = new MultipartRequest(
+//						request // 요청객체 
+//						, savePath
+//						, maxSize
+//						, encoding
+//						, realName = new DefaultFileRenamePolicy() // 파일 이름 재정의
+//				);
+//				
+//				System.out.println("ProductsImageUploadCon realName : " + realName);
+//				System.out.println("ProductsImageUploadCon multi 사이즈 : " + maxSize);
+//				System.out.println("ProductsImageUploadCon multi 경로 : " + savePath);
+//			}
 			nextPage = con.execute(request, response);
 		}
 		
