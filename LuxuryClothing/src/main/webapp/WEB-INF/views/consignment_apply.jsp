@@ -2,8 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,33 +18,7 @@
 
 <title>Luxury Clothing</title>
 
-<!-- Additional CSS Files -->
-<link rel="stylesheet" type="text/css"
-	href="${path}/resources/assets/css/bootstrap.min.css">
-
-<link rel="stylesheet" type="text/css"
-	href="${path}/resources/assets/css/font-awesome.css">
-
-<link rel="stylesheet"
-	href="${path}/resources/assets/css/templatemo-hexashop.css">
-
-<link rel="stylesheet"
-	href="${path}/resources/assets/css/owl-carousel.css">
-
-<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/csgnApply.css">
-	
-	<style type="text/css">
-=======
-<link rel="stylesheet" href="${path}/resources/assets/css/lightbox.css">
-
-<link rel="stylesheet" type="text/css"
-	href="${path}/resources/assets/css/csgnApply.css">
-
-<!--
->>>>>>> branch 'develop' of https://github.com/2024-SMHRD-IS-CLOUD-2/LuxuryClothing.git
-
-	</style>
 
 </head>
 <body>
@@ -71,7 +44,6 @@
                     <li class="select"><a href="/service/trust_sell_request.php">위탁신청</a></li>
                 </ul>
             </div> -->
-<<<<<<< HEAD
             <div class="bannercocoService bannercocoService2">
                 <span>
                     Luxury Clothing에서는 고객님과의 상호 신뢰를 바탕으로 위탁판매 서비스를 실시하고 있습니다.
@@ -133,83 +105,10 @@
                         </colgroup>
                         <tbody>
                             <tr>
-                                <th>상품 인증</th>
+                                <th>영수증</th>
                                 <td>
                                     <span class="certification">
-                                        <!-- <input type="checkbox" id="tmp_certify_goods1_1" name="tmp_certify_goods[]" value="1">
-=======
-			<div class="bannercocoService bannercocoService2">
-				<span> Luxury Clothing에서는 고객님과의 상호 신뢰를 바탕으로 위탁판매 서비스를 실시하고
-					있습니다. </span>
-				<p>
-					전문가의 정확한 감정과 합리적인 가격 책정으로 위탁 고객님과 구매고객님께 </span>
-				<p>모두 만족을 드리는 차별화된 코코럭스만의 서비스를 체험해보세요.</p>
-			</div>
-			<form action="csgnApply.do" method="post"
-				onsubmit="return checkPrice()">
-				<input type="hidden" name="user_id" id="user_id"
-					value="${user_result.user_id}">
-				<div class="cocoService">
-					<h1 class="title">
-						<span>01</span> 주문자 정보
-					</h1>
-					<div class="checkSame">
-						<span class="form_element"> <input type="checkbox"
-							id="sameCustomer" name="sameCustomer" onclick="checkSame();">
-							<label for="sameCustomer" class="on">회원정보와 동일</label>
-						</span>
-					</div>
-					<section>
-						<table class="consignment_table" border="0" cellpadding="0"
-							cellspacing="0">
-							<colgroup>
-								<col width="25%">
-								<col width="75%">
-							</colgroup>
-							<tbody>
-								<tr>
-									<th>이름</th>
-									<td><input type="text" name="name" id="name"
-										maxlength="30"></td>
-								</tr>
-								<tr>
-									<th>이메일</th>
-									<td><input type="text" name="email" id="email"></td>
-								</tr>
-								<tr>
-									<th>주소</th>
-									<td class="address">
-										<div class="address_input">
-											<input type="text" name="address" id="address">
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<th>휴대폰번호</th>
-									<td><input type="text" name="phone" id="phone"></td>
-								</tr>
-							</tbody>
-						</table>
-					</section>
-					<h1 class="title">
-						<span>02 </span>제품 정보
-					</h1>
-					<table border="0" cellpadding="0" cellspacing="0">
-						<colgroup>
-							<col width="25%">
-							<col width="75%">
-						</colgroup>
-						<tbody>
-							<tr>
-								<th>상품 인증</th>
-								<td><span class="certification"> <!-- <input type="checkbox" id="tmp_certify_goods1_1" name="tmp_certify_goods[]" value="1">
->>>>>>> branch 'develop' of https://github.com/2024-SMHRD-IS-CLOUD-2/LuxuryClothing.git
-                                        <label for="tmp_certify_goods1_2">보증서</label> -->
-										<!-- 다른거 추가 시 배열형태로 변경 필요 --> <input type="checkbox"
-										id="tmp_certify_goods" name="tmp_certify_goods" value="2">
-										<label for="tmp_certify_goods">영수증</label> <!-- <input type="checkbox" id="tmp_certify_goods1_5" name="tmp_certify_goods[]" value="5">
-                                        <label for="tmp_certify_goods1_6">택</label> -->
-<<<<<<< HEAD
+                                        <input type="checkbox" id="tmp_certify_goods1_1" name="tmp_certify_goods[]" value="1">
                                         <!-- OCR 기능 사용 방법에 따라 변경 -->
                                     </span>
 
@@ -271,64 +170,13 @@
 	                            <th>상품 종류</th>
 	                            <td>
 		                            <select class="category" name="goods_kind" id="goods_kind">
-=======
-										<!-- OCR 기능 사용 방법에 따라 변경 -->
-								</span></td>
-							</tr>
-							<!-- img 배열로 바꿀 예정 -->
-							<tr>
-								<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-								<th>상품이미지1</th>
-								<td>
-									<div class="btn_upload_box">
-										<input type="file" name="img" id="img" class="file">
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-								<th>상품이미지2</th>
-								<td>
-									<div class="btn_upload_box">
-										<input type="file" name="img" id="img" class="file">
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-								<th>상품이미지3</th>
-								<td>
-									<div class="btn_upload_box">
-										<input type="file" name="img" id="img" class="file">
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>제품명</th>
-								<td><input required="required" type="text"
-									name="goods_name" id="goods_name"></td>
-							</tr>
-							<tr>
-								<th>구매가격</th>
-								<td><input required="required" type="number"
-									name="goods_price" id="goods_price"></td>
-							</tr>
-							<tr>
-								<th>희망가격</th>
-								<td><input required="required" type="number"
-									name="wish_price"></td>
-							</tr>
-							<tr>
-								<th>상품 종류</th>
-								<td><select class="category" name="goods_kind"
-									id="goods_kind">
->>>>>>> branch 'develop' of https://github.com/2024-SMHRD-IS-CLOUD-2/LuxuryClothing.git
 										<option value="모자">모자</option>
 										<option value="상의">상의</option>
 										<option value="하의">하의</option>
 										<option value="하의">신발</option>
 										<option value="악세서리">악세서리</option>
-								</select></td>
+									</select>
+								</td>
 							</tr>
 							<tr>
 								<th>상품 정보 기입</th>
@@ -353,35 +201,10 @@
 		</div>
 	</div>
 
-<<<<<<< HEAD
-    <script>
-=======
 	<%@include file="footer.jsp"%>
+	
 
-	<!-- jQuery -->
-	<script src="${path}/resources/assets/js/jquery-2.1.0.min.js"></script>
-
-	<!-- Bootstrap -->
-	<script src="${path}/resources/assets/js/popper.js"></script>
-	<script src="${path}/resources/assets/js/bootstrap.min.js"></script>
-
-	<!-- Plugins -->
-	<script src="${path}/resources/assets/js/owl-carousel.js"></script>
-	<script src="${path}/resources/assets/js/accordions.js"></script>
-	<script src="${path}/resources/assets/js/datepicker.js"></script>
-	<script src="${path}/resources/assets/js/scrollreveal.min.js"></script>
-	<script src="${path}/resources/assets/js/waypoints.min.js"></script>
-	<script src="${path}/resources/assets/js/jquery.counterup.min.js"></script>
-	<script src="${path}/resources/assets/js/imgfix.min.js"></script>
-	<script src="${path}/resources/assets/js/slick.js"></script>
-	<script src="${path}/resources/assets/js/lightbox.js"></script>
-	<script src="${path}/resources/assets/js/isotope.js"></script>
->>>>>>> branch 'develop' of https://github.com/2024-SMHRD-IS-CLOUD-2/LuxuryClothing.git
-
-	<!-- Global Init -->
-	<script src="${path}/resources/assets/js/custom.js"></script>
-
-	<script>
+	<script type="text/javascript">
 		$(function() {
 			var selectedClass = "";
 			$("p").click(function() {

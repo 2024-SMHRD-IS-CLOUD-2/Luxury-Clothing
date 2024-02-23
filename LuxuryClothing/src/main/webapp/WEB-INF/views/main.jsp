@@ -28,6 +28,7 @@
         .slider:nth-child(5) {z-index: 1;} 
         */
     </style>
+    
 </head>
 
 <body>
@@ -44,11 +45,10 @@
 	<main id="main">
 	    <div class="slider__wrap">
 	        <div class="slider__img">
-	            <div class="slider"><img src="${path}/resources/assets/images/slider-240221-01.jpg" ></div>
+	            <div class="slider"><img src="${path}/resources/assets/images/team-member-04.png" ></div>
+	            <div class="slider"><img src="${path}/resources/assets/images/team-member-05.png" ></div>
+	            <div class="slider"><img src="${path}/resources/assets/images/team-member-06.png" ></div>
 	            <div class="slider"><img src="${path}/resources/assets/images/slider-240221-02.jpg" ></div>
-	            <div class="slider"><img src="${path}/resources/assets/images/slider-240221-03.jpg" ></div>
-	            <div class="slider"><img src="${path}/resources/assets/images/slider-240221-04.jpg" ></div>
-	            <div class="slider"><img src="${path}/resources/assets/images/slider-240221-05.jpg" ></div>
 	        </div>
 	    </div>
 	</main>
@@ -63,6 +63,16 @@
         let currentIndex = 0;               // 현재 보이는 이미지
         let sliderCount = slider.length;    // 이미지 갯수
         let sliderInterval = 3000;          // 이미지 변경 간격 시간
+        
+        
+		setInterval(() => {
+		    let nextIndex = (currentIndex + 1) % sliderCount;
+		  
+		    $(slider[currentIndex]).animate({ opacity: 0 }, 500); // 현재 슬라이더 숨기기
+		    $(slider[nextIndex]).animate({ opacity: 1 }, 500); // 다음 슬라이더 보여주기
+		  
+		    currentIndex = nextIndex;
+		}, sliderInterval);
     </script>
 
 	<!-- ***** 전체 Area Starts ***** -->
@@ -206,14 +216,7 @@
 		});
 		
 		
-        setInterval(() => {
-            let nextIndex = (currentIndex + 1) % sliderCount;
-          
-            $(slider[currentIndex]).animate({ opacity: 0 }, 500); // 현재 슬라이더 숨기기
-            $(slider[nextIndex]).animate({ opacity: 1 }, 500); // 다음 슬라이더 보여주기
-          
-            currentIndex = nextIndex;
-        }, sliderInterval);
+
 	</script>
 
 </body>
