@@ -25,8 +25,7 @@ import com.smhrd.users.controller.CartController;
 import com.smhrd.users.controller.CartsPage;
 import com.smhrd.purchases.controller.PaySuccess;
 
-//@WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 받음
-@WebServlet(urlPatterns = {"*.do", ""}) // *.do 와 서버구동 초기 요청을 받음
+@WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -66,7 +65,8 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/userModifyPage.do", new UserModifyPageCon());
 		handlerMapping.put("/userModifyEnter.do", new UserModifyEnterCon());
 		handlerMapping.put("/userModify.do", new UserModifyCon());
-		
+		handlerMapping.put("/Rsidpw.do", new RsidpwCon());
+
 		// 장바구니
 		handlerMapping.put("/carts.do", new CartController());	// 장바구니 페이지 
 		handlerMapping.put("/cartPickList.do", new CartListInsertCon());	// 장바구니에 넣기

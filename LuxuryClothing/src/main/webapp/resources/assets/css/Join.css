@@ -48,7 +48,8 @@ td input[type="text"], td input[type="password"], td input[type="tel"], td input
 /* 1열의 너비를 1.5배로 늘리고 */
 td.label {
     width: 35%; /* 1열의 너비를 1.5배로 늘림 */
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    color: black;
     text-align: right;
     font-weight: bold;
     padding: 10px;
