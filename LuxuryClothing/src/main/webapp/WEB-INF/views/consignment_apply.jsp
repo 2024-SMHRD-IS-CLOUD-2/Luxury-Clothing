@@ -27,13 +27,9 @@
 
     <link rel="stylesheet" type="text/css" href="${path}/resources/assets/css/csgnApply.css">
 	
-	<!--
+	<style type="text/css">
 
-	TemplateMo 571 Hexashop
-
-	https://templatemo.com/tm-571-hexashop
-
-	-->
+	</style>
 
 </head>
 <body>
@@ -68,7 +64,7 @@
                 <p>전문가의 정확한 감정과 합리적인 가격 책정으로 위탁 고객님과 구매고객님께 </span> 
                 <p>모두 만족을 드리는 차별화된 코코럭스만의 서비스를 체험해보세요.</p>
             </div>
-            <form action="csgnApply.do" method="post" onsubmit="return checkPrice()">
+            <form action="csgnApply.do" method="post" enctype="multipart/form-data" >
             	<input type="hidden" name="user_id" id="user_id" value="${user_result.user_id}">
                 <div class="cocoService">
                     <h1 class="title"><span>01</span> 주문자 정보</h1>
@@ -140,28 +136,34 @@
 								<!-- img 배열로 바꿀 예정 -->                            
                             <tr>
                             	<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-                                <th>상품이미지1</th>
+                                <th>메인 사진<br>판매 상품의 이미지</th>
                                 <td>
                                     <div class="btn_upload_box">
-                                            <input type="file" name="img" id="img" class="file">
+                                        <input type="file" name="mainImg" id="mainImg" class="file" onchange="mainImageView(event);">
+                                        <div id="mainImage_container"></div>
+                                        <div id="mainImageUpname_container"></div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                             	<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-                                <th>상품이미지2</th>
+                                <th>서브 사진</th>
                                 <td>
                                     <div class="btn_upload_box">
-                                            <input type="file" name="img" id="img" class="file">
+                                        <input type="file" name="subImg" id="subImg" class="file" onchange="subImageView(event);">
+                                        <div id="subImage_container"></div>
+                                        <div id="subImageUpname_container"></div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                             	<!-- 파일 선택 버튼 이 클래스에서 크기좀 줄여야함. -->
-                                <th>상품이미지3</th>
+                                <th>영수증 사진</th>
                                 <td>
                                     <div class="btn_upload_box">
-                                            <input type="file" name="img" id="img" class="file">
+                                        <input type="file" name="yongImg" id="yongImg" class="file" onchange="yongImageView(event);">
+                                        <div id="yongImage_container"></div>
+                                        <div id="yongImageUpname_container"></div>
                                     </div>
                                 </td>
                             </tr>
@@ -190,6 +192,7 @@
 										<option value="모자">모자</option>
 										<option value="상의">상의</option>
 										<option value="하의">하의</option>
+										<option value="하의">신발</option>
 										<option value="악세서리">악세서리</option>
 									</select>
 								</td>	
@@ -216,28 +219,6 @@
     </div>
     
     <%@include file ="footer.jsp" %>
-
-    <!-- jQuery -->
-    <script src="${path}/resources/assets/js/jquery-2.1.0.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="${path}/resources/assets/js/popper.js"></script>
-    <script src="${path}/resources/assets/js/bootstrap.min.js"></script>
-
-    <!-- Plugins -->
-    <script src="${path}/resources/assets/js/owl-carousel.js"></script>
-    <script src="${path}/resources/assets/js/accordions.js"></script>
-    <script src="${path}/resources/assets/js/datepicker.js"></script>
-    <script src="${path}/resources/assets/js/scrollreveal.min.js"></script>
-    <script src="${path}/resources/assets/js/waypoints.min.js"></script>
-    <script src="${path}/resources/assets/js/jquery.counterup.min.js"></script>
-    <script src="${path}/resources/assets/js/imgfix.min.js"></script> 
-    <script src="${path}/resources/assets/js/slick.js"></script> 
-    <script src="${path}/resources/assets/js/lightbox.js"></script> 
-    <script src="${path}/resources/assets/js/isotope.js"></script> 
-    
-    <!-- Global Init -->
-    <script src="${path}/resources/assets/js/custom.js"></script>
 
     <script>
 
@@ -279,5 +260,225 @@
         }
         
 	</script>
+	
+	
+	<script type="text/javascript">
+	
+	// 파일 업로드 (메인)
+		function mainImageView(event) {
+		
+		    // 이전에 업로드된 이미지와 관련 요소들을 모두 제거합니다.
+		    var prevImage = document.querySelector("div#mainImage_container img");
+		    var prevDeleteButton = document.querySelector("div#mainImageUpname_container button");
+		    var prevFileNameList = document.querySelector("div#mainImageUpname_container butten");
+		    var prevBrTag = document.querySelector("div#mainImageUpname_container br");
+		
+		    if (prevImage) prevImage.parentNode.removeChild(prevImage);
+		    if (prevDeleteButton) prevDeleteButton.parentNode.removeChild(prevDeleteButton);
+		    if (prevFileNameList) prevFileNameList.parentNode.removeChild(prevFileNameList);
+		    if (prevBrTag) prevBrTag.parentNode.removeChild(prevBrTag);
+			
+			for (var image of event.target.files) {
+				var reader = new FileReader();
+				
+				/////////////////// 업로드한 이미지 데이터 추출  ///////////////////
+				// 확장자가 이미지 파일인지 확인
+				var fileExt = image.name.split(".").pop().toLowerCase(); // 파일명에서 확장자를 가져온다. 
+				var fileName = image.name.split(".")[0]; // 파일명에서 이름만 가져온다.
+				console.log("fileName : " + fileName);
+				console.log("fileExt : " + fileExt);
+				  
+				// 이미지 확장자에 따라 판별
+				var fileUpload_yn = ($.inArray(fileExt, ["jpg", "jpeg", "gif", "png"]) === -1) ? false : true;
+				console.log("fileUpload_yn 등록허가 : " + fileUpload_yn);
+				
+				// 파일의 최대 사이즈 확인
+				var maxSize = 5 * 1024 * 1024; // 5MB로 제한 
+				(image.size > maxSize) ? true : false;
+				
+				/////////////////// 실행 이벤트 항시 대기  ///////////////////
+					reader.onload = function (event) {
+					var img = document.createElement("img");	// 이미지 태그 선언
+					img.setAttribute("src", event.target.result);	
+					
+				    // 이미지 크기 설정
+				    img.style.width = '300px';
+				    img.style.height = '300px';
+					
+					document.querySelector("div#mainImage_container").appendChild(img);
+					
+					// 파일명 추가 코드
+					var deleteButton = document.createElement("button"); 	// 삭제 <butten> 태그 선언
+					var brTag =	document.createElement("br");				// <br> 태그 선언
+					var fileNameList = document.createElement("butten");	// <butten> 태그 선언
+					
+					deleteButton.textContent = "이미지 삭제"; 		// 삭제 버튼 내용(content) 설정
+					fileNameList.textContent = image.name;	// 업로드한 파일 이름
+					
+					// html 태그 생성
+					document.querySelector("div#mainImageUpname_container").appendChild(deleteButton);	// 삭제버튼 생성
+					document.querySelector("div#mainImageUpname_container").appendChild(brTag);			// br 생성
+					console.log("이미지 없는 경우")
+					
+					// 삭제 버튼 클릭시 이벤트 발생
+					deleteButton.addEventListener("click", function () {
+						img.parentNode.removeChild(img);					// 이미지 제거
+						deleteButton.parentNode.removeChild(deleteButton);	// 삭제버튼 제거
+						brTag.parentNode.removeChild(brTag);				// br태그 제거
+						// 파일 입력 필드 초기화
+					    document.getElementById('mainImg').value = '';
+					});
+				};
+				reader.readAsDataURL(image);	// 이미지 보여짐
+			}
+		}
+	</script>
+	
+	
+	
+	<script type="text/javascript">
+	// 파일 업로드 (서브)
+		function subImageView(event) {
+		
+		    // 이전에 업로드된 이미지와 관련 요소들을 모두 제거합니다.
+		    var prevImage = document.querySelector("div#subImage_container img");
+		    var prevDeleteButton = document.querySelector("div#subImageUpname_container button");
+		    var prevFileNameList = document.querySelector("div#subImageUpname_container butten");
+		    var prevBrTag = document.querySelector("div#subImageUpname_container br");
+		
+		    if (prevImage) prevImage.parentNode.removeChild(prevImage);
+		    if (prevDeleteButton) prevDeleteButton.parentNode.removeChild(prevDeleteButton);
+		    if (prevFileNameList) prevFileNameList.parentNode.removeChild(prevFileNameList);
+		    if (prevBrTag) prevBrTag.parentNode.removeChild(prevBrTag);
+			
+			for (var image of event.target.files) {
+				var reader = new FileReader();
+				
+				/////////////////// 업로드한 이미지 데이터 추출  ///////////////////
+				// 확장자가 이미지 파일인지 확인
+				var fileExt = image.name.split(".").pop().toLowerCase(); // 파일명에서 확장자를 가져온다. 
+				var fileName = image.name.split(".")[0]; // 파일명에서 이름만 가져온다.
+				console.log("fileName : " + fileName);
+				console.log("fileExt : " + fileExt);
+				  
+				// 이미지 확장자에 따라 판별
+				var fileUpload_yn = ($.inArray(fileExt, ["jpg", "jpeg", "gif", "png"]) === -1) ? false : true;
+				console.log("fileUpload_yn 등록허가 : " + fileUpload_yn);
+				
+				// 파일의 최대 사이즈 확인
+				var maxSize = 5 * 1024 * 1024; // 5MB로 제한 
+				(image.size > maxSize) ? true : false;
+				
+				/////////////////// 실행 이벤트 항시 대기  ///////////////////
+					reader.onload = function (event) {
+					var img = document.createElement("img");	// 이미지 태그 선언
+					img.setAttribute("src", event.target.result);	
+					
+				    // 이미지 크기 설정
+				    img.style.width = '300px';
+				    img.style.height = '300px';
+					
+					document.querySelector("div#subImage_container").appendChild(img);
+					
+					// 파일명 추가 코드
+					var deleteButton = document.createElement("button"); 	// 삭제 <butten> 태그 선언
+					var brTag =	document.createElement("br");				// <br> 태그 선언
+					var fileNameList = document.createElement("butten");	// <butten> 태그 선언
+					
+					deleteButton.textContent = "이미지 삭제"; 		// 삭제 버튼 내용(content) 설정
+					fileNameList.textContent = image.name;	// 업로드한 파일 이름
+					
+					// html 태그 생성
+					document.querySelector("div#subImageUpname_container").appendChild(deleteButton);	// 삭제버튼 생성
+					document.querySelector("div#subImageUpname_container").appendChild(brTag);			// br 생성
+					console.log("이미지 없는 경우")
+					
+					// 삭제 버튼 클릭시 이벤트 발생
+					deleteButton.addEventListener("click", function () {
+						img.parentNode.removeChild(img);					// 이미지 제거
+						deleteButton.parentNode.removeChild(deleteButton);	// 삭제버튼 제거
+						brTag.parentNode.removeChild(brTag);				// br태그 제거
+						// 파일 입력 필드 초기화
+					    document.getElementById('subImg').value = '';
+					});
+				};
+				reader.readAsDataURL(image);	// 이미지 보여짐
+			}
+		}
+	</script>
+	
+
+
+	<script type="text/javascript">
+	// 파일 업로드 (영수증)
+		function yongImageView(event) {
+		
+		    // 이전에 업로드된 이미지와 관련 요소들을 모두 제거합니다.
+		    var prevImage = document.querySelector("div#yongImage_container img");
+		    var prevDeleteButton = document.querySelector("div#yongImageUpname_container button");
+		    var prevFileNameList = document.querySelector("div#yongImageUpname_container butten");
+		    var prevBrTag = document.querySelector("div#yongImageUpname_container br");
+		
+		    if (prevImage) prevImage.parentNode.removeChild(prevImage);
+		    if (prevDeleteButton) prevDeleteButton.parentNode.removeChild(prevDeleteButton);
+		    if (prevFileNameList) prevFileNameList.parentNode.removeChild(prevFileNameList);
+		    if (prevBrTag) prevBrTag.parentNode.removeChild(prevBrTag);
+			
+			for (var image of event.target.files) {
+				var reader = new FileReader();
+				
+				/////////////////// 업로드한 이미지 데이터 추출  ///////////////////
+				// 확장자가 이미지 파일인지 확인
+				var fileExt = image.name.split(".").pop().toLowerCase(); // 파일명에서 확장자를 가져온다. 
+				var fileName = image.name.split(".")[0]; // 파일명에서 이름만 가져온다.
+				console.log("fileName : " + fileName);
+				console.log("fileExt : " + fileExt);
+				  
+				// 이미지 확장자에 따라 판별
+				var fileUpload_yn = ($.inArray(fileExt, ["jpg", "jpeg", "gif", "png"]) === -1) ? false : true;
+				console.log("fileUpload_yn 등록허가 : " + fileUpload_yn);
+				
+				// 파일의 최대 사이즈 확인
+				var maxSize = 5 * 1024 * 1024; // 5MB로 제한 
+				(image.size > maxSize) ? true : false;
+				
+				/////////////////// 실행 이벤트 항시 대기  ///////////////////
+					reader.onload = function (event) {
+					var img = document.createElement("img");	// 이미지 태그 선언
+					img.setAttribute("src", event.target.result);	
+					
+				    // 이미지 크기 설정
+				    img.style.width = '300px';
+				    img.style.height = '300px';
+					
+					document.querySelector("div#yongImage_container").appendChild(img);
+					
+					// 파일명 추가 코드
+					var deleteButton = document.createElement("button"); 	// 삭제 <butten> 태그 선언
+					var brTag =	document.createElement("br");				// <br> 태그 선언
+					var fileNameList = document.createElement("butten");	// <butten> 태그 선언
+					
+					deleteButton.textContent = "이미지 삭제"; 		// 삭제 버튼 내용(content) 설정
+					fileNameList.textContent = image.name;	// 업로드한 파일 이름
+					
+					// html 태그 생성
+					document.querySelector("div#yongImageUpname_container").appendChild(deleteButton);	// 삭제버튼 생성
+					document.querySelector("div#yongImageUpname_container").appendChild(brTag);			// br 생성
+					console.log("이미지 없는 경우")
+					
+					// 삭제 버튼 클릭시 이벤트 발생
+					deleteButton.addEventListener("click", function () {
+						img.parentNode.removeChild(img);					// 이미지 제거
+						deleteButton.parentNode.removeChild(deleteButton);	// 삭제버튼 제거
+						brTag.parentNode.removeChild(brTag);				// br태그 제거
+						// 파일 입력 필드 초기화
+					    document.getElementById('yongImg').value = '';
+					});
+				};
+				reader.readAsDataURL(image);	// 이미지 보여짐
+			}
+		}
+	</script>
+	
 </body>
 </html>

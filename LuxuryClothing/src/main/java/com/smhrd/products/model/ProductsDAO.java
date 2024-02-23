@@ -1,5 +1,6 @@
 package com.smhrd.products.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -71,22 +72,52 @@ public class ProductsDAO {
 		return row;
 	}
 	
-	// 상품 이미지 등록
-	public void insertProductImageUpload(List<ProductImageDTO> dto) {
+	// 이미지 등록시 상품id 를 조회
+	public int selectProductIdNum() {
 		
-		System.out.println("ProductsDAO 방문 insertProductImageUpload");
+		System.out.println("ProductsDAO 방문 selectProductIdNum");
+		SqlSession sqlSession =  factory.openSession();
+		int result = sqlSession.selectOne("selectProductIdNum");
+		sqlSession.close();
+		
+		return result;
+	}
+	
+	
+	//////////////////// 메인 이미지 등록 - STR ///////////////////////////////////////////
+
+	// 상품 메인 이미지 등록
+	public void insertProductMainImageUpload(ProductsDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 insertProductMainImageUpload");
 		// factory.openSession(true) 에서 true 가 커밋여부 !
 		SqlSession sqlSession =  factory.openSession(true);
-		int result = sqlSession.insert("ProductImageUpload", dto);
+		int result = sqlSession.insert("insertProductMainImageUpload", dto);
 		sqlSession.close();
 		
 		if (result > 0) {
-			System.out.println("insertProductImageUpload 상품 이미지 등록 성공!");
+			System.out.println("insertProductMainImageUpload 상품 이미지 등록 성공!");
 		} else {
-			System.out.println("insertProductImageUpload 상품 이미지 등록 실패!");
-			
+			System.out.println("insertProductMainImageUpload 상품 이미지 등록 실패!");
 		}
 	}
+	
+	// 상품 메인 외, 이미지 등록
+	public void insertProductSubImageUpload(ProductsDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 insertProductSubImageUpload");
+		// factory.openSession(true) 에서 true 가 커밋여부 !
+		SqlSession sqlSession =  factory.openSession(true);
+		int result = sqlSession.insert("insertProductSubImageUpload", dto);
+		sqlSession.close();
+		
+		if (result > 0) {
+			System.out.println("insertProductSubImageUpload 상품 이미지 등록 성공!");
+		} else {
+			System.out.println("insertProductSubImageUpload 상품 이미지 등록 실패!");
+		}
+	}
+	//////////////////// 메인 이미지 등록 - END ///////////////////////////////////////////
 	
 	// 상품 검색 결과 조회
 	public List<ProductImageDTO> selectProductImages(ProductImageDTO dto) {
