@@ -134,7 +134,7 @@
 
 			});
 		});
-		 function showAlert() {
+		function showAlert() {
 		      // 버튼 클릭 시 정보 수정 완료 안내창 표시
 		      window.alert("정보 수정이 완료되었습니다.");
 		    }

@@ -42,16 +42,18 @@
 <body>
 
 	<%@include file="footer.jsp"%>
-	
+
 	<div class="container">
 
-        <div class="product-image">
-            <!-- 상품 이미지 -->
-            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA3MDhfODYg%2FMDAxNTYyNTc0NDcxOTM1.OjDgmUrFi8rByy6OSqCd2GPI0aUk8kxXqH4n5GDryxwg.jB_Kfi8ti-un99vALglDU2TFWU_5709C4o721FeGe8Ug.JPEG.msinvestment%2Fshutterstock_1320931688.jpg&type=ff332_332" alt="Product Image">
-        </div>
-        <div class="product-details">
-        	<%-- <c:set var="product" value="<%=request.getAttribute("product_detail")%>"></c:set> --%>
-        	
+		<div class="product-image">
+			<!-- 상품 이미지 -->
+			<img
+				src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA3MDhfODYg%2FMDAxNTYyNTc0NDcxOTM1.OjDgmUrFi8rByy6OSqCd2GPI0aUk8kxXqH4n5GDryxwg.jB_Kfi8ti-un99vALglDU2TFWU_5709C4o721FeGe8Ug.JPEG.msinvestment%2Fshutterstock_1320931688.jpg&type=ff332_332"
+				alt="Product Image">
+		</div>
+		<div class="product-details">
+			<%-- <c:set var="product" value="<%=request.getAttribute("product_detail")%>"></c:set> --%>
+
 			<%--
         	ProductsDTO dto = (ProductsDTO)(request.getAttribute("prod_detail")); 
         	
@@ -66,74 +68,86 @@
 			<!-- 형변환 필요 object type이기 때문에 -->
 			<c:set var="prod" value="${sessionScope.prod_detail}" />
 			<%-- <c:set var="user" value="${sessionScope.user_result}"/> --%>
-		
-       	<form action="payment.do" method="get" id="payment">
-            <h1>${prod.prod_name}</h1>
-            <%-- <h1><%= prod_name %></h1>
+
+			<form action="payment.do" method="get" id="payment">
+				<h1>${prod.prod_name}</h1>
+				<%-- <h1><%= prod_name %></h1>
             <h3><%= prod_price %></h1> --%>
-            <hr>
-            <div class="product-info">
-                <div>
-                    <span>가격 :</span>
-                    <span>${prod.prod_price}</span>
-                </div>
-                <div>
-                    <span>카테고리 :</span>
-                    <span>${prod.prod_category}</span>
-                </div>
-                <br>
-                <div>
-                    <span>상세 정보 :</span>
-                    <span>${prod.prod_option}</span>
-                </div>
-                <br>
-                <div>
-                    <span>제품 상태 :</span>
-                    <span>${prod.prod_desc}</span>
-                </div>
-                <br>
-                <div>
-                    <span>외부상태</span>
-                    <br>
-                    <div class="condition">
-                        <span>신품/</span>
-                        <span>미사용</span>
-                    </div>
-                </div>
-                <br>
-                <div>
-                    <span>내부상태</span>
-                    <br>
-                    <div class="condition">
-                        <span>신품/</span>
-                        <span>미사용</span>
-                    </div>
-                </div>
-                <br>
-                <div>
-                    <span>부속품</span>
-                    <span>더스크백, 케이스</span>
-                </div>
-                <br>
-                <div>
-                    <span>색상</span>
-                    <span>블랙</span>
-                </div>
-            </div>
-            <hr>
-         </form>
-         
-            <div class="buttons">
-                <button id="buyNow">바로 구매</button>
-                <button class="add-to-cart">장바구니</button>
-                <button class="add-to-wishlist">찜하기</button>
-            </div>
-        </div>
-    </div>
-		
-    <%@include file="footer.jsp"%>
-    
-    <script type="text/javascript">
+				<hr>
+
+
+	<!-- ================== 여기서부터 table 로 해볼 공간====================  -->
+
+	<table>
+        <tr>
+            <th>가격</th>
+            <td>${prod.prod_price}원</td>
+        </tr>
+        <tr>
+            <th>카테고리</th>
+            <td>${prod.prod_category}</td>
+        </tr>
+        <tr>
+            <th>상세정보</th>
+            <td>${prod.prod_option}</td>
+        </tr>
+        <tr>
+            <th>제품상태</th>
+            <td>${prod.prod_desc}</td>
+        </tr>
+        <tr>
+            <th>외부상태</th>
+            <td><div class="condition">
+							<span>신품/</span> <span>미사용</span></td>
+        </tr>
+        <tr>
+            <th>내부상태</th>
+            <td><div class="condition">
+							<span>신품/</span> <span>미사용</span>
+						</div></td>
+        </tr>
+        <tr>
+            <th>부속품</th>
+            <td>더스크백, 케이스</td>
+        </tr>
+        <tr>
+            <th>색상</th>
+            <td>블랙</td>
+        </tr>
+    </table>
+			
+
+		<!-- ======================여기 아래론 건들면 안댄다 ========================= -->
+		</form>
+			<hr>
+			<div class="box">
+				<span>S 신품과 동일,</span> <span>A+ 미세한 사용감 외 매우 좋은 상태,</span> <span>A
+					사용감은 있지만 매우 좋은 상태,</span> <span>B+ A와 B의 중간정도 상태 ,</span> <span>B
+					적당한 상태,</span> <span>C 사용감이 많고 중고품으로 사용가능한 최저상태</span>
+			</div>
+
+			<hr>
+			<div style="position: relative; left: 200px;">
+				<span style="font-weight: bold;">총 결제금액 :</span> <span
+					style="font-weight: bold;">${prod.prod_price} 원</span>
+			</div>
+			<hr>
+			<div class="buttons">
+				<button type="button" class="add-to-cart">장바구니</button>
+				<button type="button" class="add-to-wishlist">찜하기</button>
+				<button type="button" id="buyNow">바로 구매</button>
+			</div>
+		</div>
+
+	</div>
+
+
+	</div>
+	</div>
+
+	<%@include file="footer.jsp"%>
+
+	<script type="text/javascript">
     	var user = "${user_result}";
 		
 	    <!-- 세션에 저장된 user_result 가져오기 -->
