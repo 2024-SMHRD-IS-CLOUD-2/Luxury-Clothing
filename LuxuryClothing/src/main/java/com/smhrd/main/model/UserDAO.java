@@ -9,24 +9,23 @@ import com.smhrd.database.setting.SqlSessionManager;
 public class UserDAO {
 
 	// 1) SqlSession을 가지고 올 수 있는 SqlSessionFactory 생성
-	SqlSessionFactory factory =  SqlSessionManager.getFactory();
-	
+	SqlSessionFactory factory = SqlSessionManager.getFactory();
+
 	public int join(UserDTO dto) {
-		
+
 		// 1. 연결객체(sqlsession, connection) 빌려오기
 		// true 커밋을 해줌
-	 	SqlSession sqlSession = factory.openSession(true);
+		SqlSession sqlSession = factory.openSession(true);
 		// 2. 연결객체를 사용해서 sql구문을 실행
-		//		sql : MemberMapper.xml 파일 안에 있음
-	 	int row = sqlSession.insert("join", dto);
+		// sql : MemberMapper.xml 파일 안에 있음
+		int row = sqlSession.insert("join", dto);
 		// 3. 연결객체 반납
 //	 	sqlSession.commit();
 		sqlSession.close();
-		
-	 	
+
 		return row;
 	}
-	
+
 	// 로그인 메소드
 	public UserDTO login(UserDTO dto) {
 		// 1. 연결객체 빌려오기
@@ -36,11 +35,10 @@ public class UserDAO {
 		UserDTO result = sqlSession.selectOne("login", dto);
 		// 3. 연결객체 반납
 		sqlSession.close();
-		
+
 		return result;
 	}
 
-	
 //	// 전체회원 조회 메소드
 //	public List<UserDTO> selectAll() {
 //		// 1. sql 세션 빌려오기
@@ -75,27 +73,33 @@ public class UserDAO {
 
 		return row;
 	}
-	
-	// 회원 탈퇴
-    public int JoinOut(UserDTO dto) {
-    	SqlSession sqlSession = factory.openSession(true);
-       
-           int result = sqlSession.delete("JoinOut", dto);
-            sqlSession.close();
-            
-        return result;
-    }
-    
 
-    
-    // 회원정보변경을 위한 pw 체크 메소드
-    public UserDTO userModifyEnter(UserDTO dto) {
-    	
-    	SqlSession sqlSession = factory.openSession();
-    	
-    	UserDTO result = sqlSession.selectOne("userModifyEnter", dto);
-    	sqlSession.close();
-    	
-    	return result; 
+	// 회원 탈퇴
+	public int JoinOut(UserDTO dto) {
+		SqlSession sqlSession = factory.openSession(true);
+
+		int result = sqlSession.delete("JoinOut", dto);
+		sqlSession.close();
+
+		return result;
+	}
+
+	// 회원정보변경을 위한 pw 체크 메소드
+	public UserDTO userModifyEnter(UserDTO dto) {
+
+		SqlSession sqlSession = factory.openSession();
+
+		UserDTO result = sqlSession.selectOne("userModifyEnter", dto);
+		sqlSession.close();
+
+		return result;
+	}
+
+	// 비밀번호 변경 메서드
+	public int changePassword(UserDTO dto) {
+		SqlSession sqlSession = factory.openSession(true);
+        int result = sqlSession.update("changePassword", dto);
+        sqlSession.close();
+        return result;
     }
 }

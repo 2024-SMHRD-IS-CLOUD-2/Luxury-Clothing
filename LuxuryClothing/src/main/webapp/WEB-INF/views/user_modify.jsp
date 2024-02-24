@@ -65,6 +65,7 @@
 			</table>
 
 			<button id="goBack" type="button" border-radius="10px">돌아가기</button>
+			<button id="changePWPage" type="button" border-radius="10px">비밀번호 변경</button>
 			<button type="button" onclick="showAlert()">정보 수정</button>
 		</form>
 	</div>
@@ -91,6 +92,13 @@
 		goback.addEventListener("click", function() {
 			console.log("event")
 			window.location.href = "main.do"
+		});
+		
+		const changePW = document.getElementById("changePWPage");
+
+		changePW.addEventListener("click", function() {
+			console.log("event")
+		    window.location.href = "changePWPage.do"
 		});
 
 		$(function() {

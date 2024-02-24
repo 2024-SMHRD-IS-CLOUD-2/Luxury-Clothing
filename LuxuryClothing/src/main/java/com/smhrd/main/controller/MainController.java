@@ -70,6 +70,8 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/userModifyEnter.do", new UserModifyEnterCon());
 		handlerMapping.put("/userModify.do", new UserModifyCon());
 		handlerMapping.put("/Rsidpw.do", new RsidpwCon());
+		handlerMapping.put("/changePWPage.do", new changePWCon());
+		handlerMapping.put("/changePW.do", new changePWController());
 
 		// 장바구니
 		handlerMapping.put("/carts.do", new CartController());	// 장바구니 페이지 
