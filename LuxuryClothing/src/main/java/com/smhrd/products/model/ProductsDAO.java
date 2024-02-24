@@ -37,6 +37,28 @@ public class ProductsDAO {
 		return resultList;
 	}
 	
+	// 마이페이지 위탁상품관리 상품리스트 조회
+	public List<ProductsDTO> selectMyProducts(ProductsDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 selectMyProducts");
+		SqlSession sqlSession =  factory.openSession();
+		List<ProductsDTO> resultList = sqlSession.selectList("selectMyProducts", dto);
+		sqlSession.close();
+		
+		return resultList;
+	}
+	
+	// 마이페이지 위탁상품관리 상품리스트 개수 조회
+	public int selectMyProductsCount(ProductsDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 selectMyProductsCount");
+		SqlSession sqlSession =  factory.openSession();
+		int result = sqlSession.selectOne("selectMyProductsCount", dto);
+		sqlSession.close();
+		
+		return result;
+	}
+	
 	
 	// 검색조건으로 상품 리스트 메소드
 	public List<ProductsDTO> selectProductsAll(ProductsDTO dto) {
@@ -283,6 +305,23 @@ public class ProductsDAO {
 		return result;
 	}
 	
+	// 유저 상품판매요청 시 판매가능 기능
+	public int userMyProductSellUpdate(ProductsDTO dto) {
+		
+		System.out.println("ProductsDAO 방문 userMyProductSellUpdate");
+		// factory.openSession(true) 에서 true 가 커밋여부 !
+		SqlSession sqlSession =  factory.openSession(true);
+		int result = sqlSession.update("userMyProductSellUpdate", dto);
+		sqlSession.close();
+		
+		if (result > 0) {
+			System.out.println("userMyProductSellUpdate 관리자 상품 업데이트 성공!");
+		} else {
+			System.out.println("userMyProductSellUpdate 관리자 상품 업데이트 실패!");
+		}
+		return result;
+	}
+	
 	public int adminProductDeleteCon(ProductsDTO dto ) {
 		
 		System.out.println("ProductsDAO 방문 adminProductDeleteCon");
@@ -292,9 +331,9 @@ public class ProductsDAO {
 		sqlSession.close();
 		
 		if (result > 0) {
-			System.out.println("adminProductDeleteCon 관리자 상품 삭제 성공!");
+			System.out.println("adminProductDeleteCon 관리자/유저 상품판매중단 성공!");
 		} else {
-			System.out.println("adminProductDeleteCon 관리자 상품 삭제 실패!");
+			System.out.println("adminProductDeleteCon 관리자/유저 상품판매중단 실패!");
 		}
 		return result;
 	}

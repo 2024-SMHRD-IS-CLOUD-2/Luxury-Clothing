@@ -65,9 +65,9 @@
 		                                <a href="javascript:;">마이페이지</a>
 		                                <ul>
 		                                    <li><a href="userModifyPage.do">회원정보수정</a></li>
-		                                    <li><a href="#">위탁상품관리</a></li>
+		                                    <li><a href="csgnOfficerCrown.do">위탁상품관리</a></li>
 		                                    <li><a href="orderHistory.do">주문내역조회</a></li>
-		                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">입금 조회 및 환불</a></li>
+		                                    <li><a rel="nofollow" href="#" target="_blank">입금 조회 및 환불</a></li>
 		                                	<li class="scroll-to-section"><a href="JoinOutCon.do">회원탈퇴</a></li>
 		                                </ul>
 		                            </li>

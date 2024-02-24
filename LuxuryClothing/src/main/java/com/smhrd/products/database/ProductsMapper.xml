@@ -105,14 +105,35 @@
 	</select>
 	
 	
-	
+	<!-- 위탁판매 등록시 상품ID를 추출하여 참조키 상품이미지ID 에 부여할 목적으로 조회  -->
 	<select id="selectProductIdNum" parameterType="com.smhrd.products.model.ProductsDTO" resultType="int">
         SELECT PRODUCTS_SEQ.NEXTVAL+1
         FROM DUAL
 	</select>
 	
+	<!-- 마이페이지 위탁판매 상품관리 리스트 불러오기 -->
+	<select id="selectMyProducts" parameterType="com.smhrd.products.model.ProductsDTO" resultType="com.smhrd.products.model.ProductsDTO">
+		SELECT A.*, B.*
+        FROM PRODUCTS A, PROD_UPLOAD_IMAGES B
+        WHERE B.FILE_MAIN = 'Y'
+        AND A.PROD_ID =  B.PROD_ID
+        AND  A.USER_ID = #{user_id}
+	</select>
 	
-	<!-- 다중 이미지 업로드 -->
+	<!-- 마이페이지 위탁판매 상품관리 리스트 카운트 -->
+	<select id="selectMyProductsCount" parameterType="com.smhrd.products.model.ProductsDTO" resultType="int">
+		SELECT COUNT(*)
+		FROM (
+			SELECT A.*, B.*
+	        FROM PRODUCTS A, PROD_UPLOAD_IMAGES B
+	        WHERE B.FILE_MAIN = 'Y'
+	        AND A.PROD_ID =  B.PROD_ID
+	        AND  A.USER_ID = #{user_id}
+		)
+	</select>
+	
+	
+	<!-- 다중 이미지 업로드 (다중으로 처리할 일이 생길 경우를 대비해 참고용으로 남김) -->
 <!-- 	<insert id="ProductImageUpload" parameterType="java.util.ArrayList">
 	    <foreach collection="list" item="arr" index="index" separator=" " open="INSERT ALL" close="SELECT * FROM DUAL">
 	        INTO PROD_UPLOAD_IMAGES (
@@ -133,6 +154,7 @@
 	    </foreach>
 	</insert> -->
 	
+	<!-- 상품 메인 이미지 등록 (선행 작업으로 등록되는 상품ID가 필요함)-->
 	<insert id="insertProductMainImageUpload" parameterType="com.smhrd.products.model.ProductsDTO">
         INSERT INTO PROD_UPLOAD_IMAGES (
             PROD_ID
@@ -153,6 +175,7 @@
         )
 	</insert>
 	
+	<!-- 상품 서브 이미지 등록 (선행 작업으로 등록되는 상품ID가 필요함)-->
 	<insert id="insertProductSubImageUpload" parameterType="com.smhrd.products.model.ProductsDTO">
         INSERT INTO PROD_UPLOAD_IMAGES (
             PROD_ID
@@ -175,7 +198,7 @@
 	
 	
 	
-	
+	<!-- 메인 ////////////////////////////////////////////////////////////////////////////////// -->
 	
 	<!-- 메인 상품 이미지 조회 -->
 	<select id="selectImageMain" resultType="com.smhrd.products.model.ProductsDTO">
@@ -208,13 +231,14 @@
 			, B.FILE_NAME
 		FROM    PRODUCTS A, PROD_UPLOAD_IMAGES B 
 		WHERE  FILE_MAIN= 'Y'
+		AND A.PROD_YN = 'Y'
 		AND A.PROD_ID = B.PROD_ID
 		AND A.PROD_CATEGORY LIKE '%'||#{prod_category}||'%'
 	</select>
 	
 	
 	
-	
+	<!-- 관리자 ////////////////////////////////////////////////////////////////////////////////// -->
 	
 	<!-- 관리자 상품상세 검색 조건으로 상품 조회 -->
 	<select id="selectSearchProducts" parameterType="com.smhrd.products.model.ProductsDTO" resultType="com.smhrd.products.model.ProductsDTO">
@@ -285,32 +309,33 @@
 			, PROD_GRADE = #{prod_grade}
 		<if test='prod_grade != "N" and prod_grade != null'>
 			, PROD_YN = 'Y'
+			, PROD_STATUS = 'Y'
 		</if>
 		<if test='prod_grade == "N"'>
 			, PROD_YN = 'N'
+			, PROD_STATUS = 'D'
 		</if>
 		WHERE PROD_ID = #{prod_id}
 	</update>
 	
-	<!-- 관리자 상품 정보삭제-->
-<!-- 	<delete id="adminProductDelete" parameterType="com.smhrd.products.model.ProductsDTO">
-		DELETE 
-		FROM PRODUCTS
-		WHERE PROD_ID = #{prod_id}
-	</delete> -->
 	
-	<!-- 관리자 상품의 이미지 모두 삭제-->
-<!-- 	<delete id="adminProductDeleteImage" parameterType="com.smhrd.products.model.ProductsDTO">
-		DELETE 
-		FROM PROD_UPLOAD_IMAGES
-		WHERE PROD_ID = #{prod_id}
-	</delete> -->
-	
+	<!-- 관리자가 상품 판매를 중단 -->
 	<update id="adminProductDelete" parameterType="com.smhrd.products.model.ProductsDTO">
 		UPDATE PRODUCTS
 		SET PROD_YN = 'N'
+			, PROD_STATUS = 'D'
 		WHERE PROD_ID = #{prod_id}
 	</update>
+	
+	
+	<!-- 유저가 판매요청 하면 상품 판매가능 기능 -->
+	<update id="userMyProductSellUpdate" parameterType="com.smhrd.products.model.ProductsDTO">
+		UPDATE PRODUCTS
+		SET PROD_YN = 'Y'
+			, PROD_STATUS = 'Y'
+		WHERE PROD_ID = #{prod_id}
+	</update>
+	
 	
 	
 </mapper>
