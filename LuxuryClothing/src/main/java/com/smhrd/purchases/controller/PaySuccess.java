@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import com.smhrd.main.controller.Controller;
 import com.smhrd.purchases.model.PurchasesDAO;
 import com.smhrd.purchases.model.PurchasesDTO;
+import com.smhrd.purchases.model.PurchasesRecordDTO;
 
 public class PaySuccess implements Controller {
 
@@ -48,11 +49,22 @@ public class PaySuccess implements Controller {
 		
 		PurchasesDAO dao = new PurchasesDAO();
 		int res = dao.purchaseRecord(dto);
+		System.out.println("ORDER_SEQ값: "+res);
 		
 		if (res > 0) {
             System.out.println("결제 성공");
             HttpSession session = request.getSession();
-            session.setAttribute("purchaseRecord", dto);
+            
+            int nRes= dao.setNo(prod_id);
+            if(nRes > 0) {
+            	System.out.println("판매 여부 N 변경 성공");
+            }else {
+            	System.out.println("판매 여부 N 변경 실패");
+            }
+            
+            PurchasesRecordDTO payEndDto = dao.payEndDto(prod_id);
+            session.setAttribute("payEndDto", payEndDto);
+            
         } else {
         	System.out.println("결제 실패");
         }

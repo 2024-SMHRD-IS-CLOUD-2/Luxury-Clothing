@@ -13,7 +13,7 @@ public class PayEndPageCon implements Controller {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		System.out.println("payEndPage Con 방문");
 		
 		return "payEndPage";
 

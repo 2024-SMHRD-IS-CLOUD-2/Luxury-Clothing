@@ -40,5 +40,25 @@ public class PurchasesDAO {
 		return result;
 	}
 	
+	public int setNo(String prod_id) {
+		
+		SqlSession sqlSession = factory.openSession(true);
+		
+		int result = sqlSession.update("setNo", prod_id);
+		
+		sqlSession.close();
+		
+		return result;
+	}
+	
+	public PurchasesRecordDTO payEndDto(String prod_id) {
+		SqlSession sqlSession = factory.openSession();
+		
+		PurchasesRecordDTO dto = sqlSession.selectOne("payEndDto", prod_id);
+		
+		sqlSession.close();
+		
+		return dto;
+	}
 	
 }

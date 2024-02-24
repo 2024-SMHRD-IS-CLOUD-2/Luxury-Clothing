@@ -100,7 +100,6 @@
 
     <div class="sibal">
         <div class="input-box">
-            <form action="/주문처리경로" method="post">
           
                 <br>
                 <p>주문자 정보</p>
@@ -242,7 +241,7 @@
                  var user_id = "${user.user_id}";
                  var prod_price = "${prod.prod_price}";
                  var pay_method = rsp.pay_method;
-                 var paid_amout = rsp.paid_amount;
+                 var paid_amount = rsp.paid_amount;
                  var prod_id = "${prod.prod_id}";
                  var deli_addr = $("#deli_addr").val();
                  var deli_name = $("#deli_name").val();
@@ -264,7 +263,7 @@
                          user_id: user_id,
                          prod_price: prod_price,
                         pay_method: pay_method,
-                        paid_amount: paid_amout,
+                        paid_amount: paid_amount,
                          prod_id: prod_id,
                          deli_addr: deli_addr,
                          deli_name: deli_name,
@@ -282,6 +281,7 @@
                        // dataType: 'json', // 전송 데이터 형식
                        success: function(response) {
                            console.log('Data sent successfully:', response);
+                           window.location.href = "payEndPage.do"
                            // 추가적인 처리 가능
                        },
                        error: function(xhr, status, error) {
