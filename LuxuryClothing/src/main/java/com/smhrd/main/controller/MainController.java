@@ -133,28 +133,6 @@ public class MainController extends HttpServlet {
 		
 		if(con != null) {
 			
-//			// 이미지 등록하는 객체
-//			if(mapping.equals("/csgnApply.do")) {
-//				String savePath = "C:\\Users\\smhrd4\\git\\repository2\\LuxuryClothing\\src\\main\\webapp\\resources\\assets\\images\\products"; 
-//				int maxSize = 1024 * 1024 * 10 ; 
-//				
-//				// 최대 용량 10 MB
-//				String encoding = "UTF-8"; // 인코딩 방식
-//				DefaultFileRenamePolicy realName = null;
-//				
-//				// 프로젝트내 파일 등록
-//				MultipartRequest multi = new MultipartRequest(
-//						request // 요청객체 
-//						, savePath
-//						, maxSize
-//						, encoding
-//						, realName = new DefaultFileRenamePolicy() // 파일 이름 재정의
-//				);
-//				
-//				System.out.println("ProductsImageUploadCon realName : " + realName);
-//				System.out.println("ProductsImageUploadCon multi 사이즈 : " + maxSize);
-//				System.out.println("ProductsImageUploadCon multi 경로 : " + savePath);
-//			}
 			nextPage = con.execute(request, response);
 		}
 		
