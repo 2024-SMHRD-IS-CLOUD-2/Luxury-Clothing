@@ -28,7 +28,7 @@ import com.smhrd.purchases.controller.PaySuccess;
 import com.smhrd.purchases.controller.OrderHistoryCon;
 import com.smhrd.purchases.controller.PayEndPageCon;
 
-@WebServlet("*.do") // *.do ㅣ .do로 : 끝나는 모든 요청을 방 
+@WebServlet(urlPatterns={"*.do", ""})
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
