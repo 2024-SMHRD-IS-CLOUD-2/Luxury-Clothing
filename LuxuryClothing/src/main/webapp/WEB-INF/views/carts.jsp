@@ -107,7 +107,7 @@
 											<!-- 장바구니 합계 -->
 											<td class="text_all" colspan="7">
 												<button type="button" onclick="cartDelete();">선택 삭제</button>
-												<button>결제</button>
+												<button type="button" onclick="cartPayPage();">결제</button>
 											</td>
 										</tr>
 									</c:if>
@@ -136,6 +136,9 @@
 		<input type="hidden" value="" name="deleteUser_id" id="deleteUser_id">
 	</form>
 	
+	<form action="cartPayPage.do" method="post" id="cartPayForm" name="cartPayForm">
+		<input type="hidden" value="" name="cartPayProd_id" id="cartPayProd_id">
+	</form>
 	<!-- ***** Contact Area Ends ***** -->
 	
 
@@ -192,6 +195,29 @@
 			
 			// form 태그 실행
 	 	 	var form = document.getElementById('deleteForm');
+		 	form.submit();
+			
+		}
+		
+		// 체크된 항목들 결제하기
+		function cartPayPage() {
+			// 체크박스가 체크된 input 요소들을 선택
+			var checkedInputs = document.querySelectorAll('input[type=checkbox]:checked');
+			
+			// 체크된 input 요소들의 값들을 저장할 배열
+			var values = [];
+			// 각 체크된 input 요소에 대해
+			checkedInputs.forEach(function(input) {
+			    // 해당 요소의 값을 배열에 추가
+			    values.push(input.value);
+			});
+			
+			console.log(values);  // 체크된 input 요소들의 값들을 출력
+			
+			$('#cartPayProd_id').val(values);
+			
+			// form 태그 실행
+	 	 	var form = document.getElementById('cartPayForm');
 		 	form.submit();
 			
 		}

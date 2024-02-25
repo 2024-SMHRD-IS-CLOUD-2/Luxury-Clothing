@@ -14,6 +14,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.admin.controller.SearchUserCon;
 import com.smhrd.admin.controller.selectAllCon;
+import com.smhrd.products.controller.CartPayPageCon;
 import com.smhrd.products.controller.CsgnApplyCon;
 import com.smhrd.products.controller.CsgnApplyPageCon;
 import com.smhrd.products.controller.CsgnGuideCon;
@@ -25,6 +26,7 @@ import com.smhrd.products.controller.ProductsSearchCon;
 import com.smhrd.users.controller.CartController;
 import com.smhrd.users.controller.CartsPage;
 import com.smhrd.purchases.controller.PaySuccess;
+import com.smhrd.purchases.controller.CartPaySuccess;
 import com.smhrd.purchases.controller.OrderHistoryCon;
 import com.smhrd.purchases.controller.PayEndPageCon;
 
@@ -105,6 +107,8 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/paySuccess.do", new PaySuccess());
 		handlerMapping.put("/payEndPage.do", new PayEndPageCon());
 		handlerMapping.put("/orderHistory.do", new OrderHistoryCon());
+		handlerMapping.put("/cartPayPage.do", new CartPayPageCon());
+		handlerMapping.put("/cartPaySuccess.do", new CartPaySuccess());
 		
 		// 마이페이지
 		handlerMapping.put("/csgnOfficerCrown.do", new CsgnOfficerCrownCon());	// 위탁상품관리

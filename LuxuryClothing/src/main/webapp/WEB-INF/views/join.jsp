@@ -85,7 +85,7 @@ https://templatemo.com/tm-571-hexashop
             <td class="label">아이디</td>
             <td>
             	<input type="text" name="id" id="id" style="border-radius: 5px;">
-            	<button type="button" onclick="checkDuplicate()">중복확인</button>
+            	<!-- <button type="button" onclick="checkDuplicate()">중복확인</button> -->
             	<span id="idMessage"></span>
             </td>
         </tr>

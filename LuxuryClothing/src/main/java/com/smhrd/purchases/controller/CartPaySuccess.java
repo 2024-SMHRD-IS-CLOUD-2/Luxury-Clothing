@@ -15,8 +15,10 @@ import com.smhrd.products.model.ProductsDTO;
 import com.smhrd.purchases.model.PurchasesDAO;
 import com.smhrd.purchases.model.PurchasesDTO;
 import com.smhrd.purchases.model.PurchasesRecordDTO;
+import com.smhrd.users.model.CartDAO;
+import com.smhrd.users.model.CartDTO;
 
-public class PaySuccess implements Controller {
+public class CartPaySuccess implements Controller {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -34,39 +36,60 @@ public class PaySuccess implements Controller {
 		String deli_phone  = request.getParameter("deli_phone");
 		String deli_message  = request.getParameter("deli_message");
 		String status  = request.getParameter("status");
-		
+		String prodsName = request.getParameter("prodsName");
 		
 		System.out.println(status);
+		HttpSession session = request.getSession();
+		String arr = (String)session.getAttribute("arr");
+		
+		String[] productId = arr.split(",");
+		
 		
 		PurchasesDTO dto = new PurchasesDTO();
+		CartDTO cartDto = new CartDTO();
+		
 		dto.setUser_id(user_id);
 		dto.setTotal_amount(prod_price);
 		dto.setPay_method(pay_method);
 		dto.setPaid_amount(paid_amount);
-		dto.setProd_id(prod_id);
+		dto.setProd_id(productId[0]);
 		dto.setDeli_addr(deli_addr);
 		dto.setRecipient_name(deli_name);
 		dto.setRecipient_phone(deli_phone);
 		dto.setDeli_message(deli_message);
 		dto.setOrder_status(status);
 		
-		HttpSession session = request.getSession();
 		
 		PurchasesDAO dao = new PurchasesDAO();
+		CartDAO cartDao = new CartDAO();
 		int res = dao.purchaseRecord(dto);
 		
 		if (res > 0) {
             System.out.println("결제 성공");
             
-            int nRes= dao.setNo(prod_id);
-            if(nRes > 0) {
-            	System.out.println("판매 여부 N 변경 성공");
-            }else {
-            	System.out.println("판매 여부 N 변경 실패");
-            }
+            // 각 상품 판매여부 N으로 변경
+            for (int i = 0; i < productId.length; i++) {
+
+            	int nRes= dao.setNo(productId[i]);
+            	
+    			if(nRes > 0) {
+    				System.out.println("판매 여부 N 변경 성공");
+    			}else {
+    				System.out.println("판매 여부 N 변경 실패");
+    			}
+    		}
             
-            PurchasesRecordDTO payEndDto = dao.payEndDto(prod_id);
+            PurchasesRecordDTO payEndDto = dao.payEndDto(productId[0]);
+            payEndDto.setProd_name(prodsName);
             session.setAttribute("payEndDto", payEndDto);
+            
+            for (int i = 0; i < productId.length; i++) {
+    			cartDto.setProd_id(productId[i]);	// 상품 id
+    			cartDto.setUser_id(user_id);			// 회원 id
+    			System.out.println("CartPaySuccess Prod_id : " + dto.getProd_id());
+    			System.out.println("CartPaySuccess user_Id : " + dto.getUser_id());
+    			cartDao.removeFromCart(cartDto);
+    		}
         } else {
         	System.out.println("결제 실패");
         }
