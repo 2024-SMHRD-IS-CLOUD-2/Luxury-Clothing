@@ -83,9 +83,12 @@
 
 	<!-- product_id를 조건으로 상품 상세 조회 -->
 	<select id="selectProduct" parameterType="com.smhrd.products.model.ProductsDTO" resultType="com.smhrd.products.model.ProductsDTO">
-		SELECT *
-		FROM PRODUCTS
-		WHERE PROD_ID=#{productId} AND PROD_YN='Y'
+		SELECT A.*, B.FILE_NAME
+		FROM PRODUCTS A, PROD_UPLOAD_IMAGES B
+		WHERE A.PROD_ID = B.PROD_ID
+		AND A.PROD_ID= #{prod_id}
+		AND A.PROD_YN='Y'
+		AND B.FILE_MAIN = 'Y'
 	</select>
 	
 	<!-- product_id를 조건으로 상품 상세 조회 -->

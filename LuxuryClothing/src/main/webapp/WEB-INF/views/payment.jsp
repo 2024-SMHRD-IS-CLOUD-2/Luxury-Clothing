@@ -64,20 +64,20 @@
             <td>상품정보</td>
             <td>수량</td>
             <td>상품금액</td>
-            <td>할인/적립</td>
+            <td>상품명</td>
             <td>합계</td>
             <td>배송비</td>
         </tr>
         <!-- 두 번째 행 -->
         <tr>
             <!-- 상품정보 이미지 -->
-            <td class="img"><img alt="#" src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fkream-phinf.pstatic.net%2FMjAyMjEwMTdfMjUz%2FMDAxNjY1OTkwMjk2MzQ1.kD6Q835pRV53W8PxhqfWjjxVVyzrUfyXrLThdNTplG4g.kPptm_tqS761fmPajkMcBJqM9VqxQzRPqiF_yv6TIX8g.JPEG%2Fa_28e10190b4f94640addcc4cbd10458ec.jpg%3Ftype%3Dl_webp&type=sc960_832"></td>
+            <td class="img"><img alt="상품 이미지" src="${path}/resources/assets/images/products/${prod.file_name}"></td>
             <!-- 상품명 -->
             <td>1개</td>
             <!-- 수량 -->
             <td>${prod.prod_price}</td>
             <!-- 상품금액 -->
-            <td>0원</td>
+            <td>${prod.prod_name}</td>
             <!-- 할인/적립 -->
             <td>${prod.prod_price}</td>
             <!-- 합계 -->
@@ -138,9 +138,8 @@
 
                 <p>결제 정보</p>
 
-                <label for="PAY_METHOD"><input type="radio" id="PAY_METHOD" name="PAY_METHOD" required="required">카카오페이</label>
+                <label for="pay_method"><input type="radio" id="pay_method" name="pay_method" required="required">카카오페이</label>
                 <br>
-                    <p>상품명: ${prod.prod_name}</p>
                 
                 <div class="bottomrufwp" style="border: 1px solid black; padding: 10px; position=relative top=200px">
         <!-- 상품의 총 금액을 보여줄 부분 -->
@@ -150,8 +149,8 @@
                 <br>
 
                 <div class="button-container">
-                    <button type="submit">결제취소</button>
-                    <button onclick="requestPay()">결제하기</button>
+                    <button onclick="goBack()">결제취소</button>
+                    <button id="pay" disabled="disabled" onclick="requestPay()">결제하기</button>
                 </div>
             <!-- </form> -->
         </div>
@@ -197,6 +196,10 @@
             });
         });
 
+        function goBack() {
+			window.history.back();
+		}
+        
         function checkSame() {
             // 체크박스가 체크되었는지 확인
             if ($('input:checkbox[id="sameCustomer"]').is(":checked") == true){
@@ -220,9 +223,32 @@
             }
         }
         
+        $(function(){
+            $("input").keyup(function(){
+                var name=$("#name").val();
+                var phone=$("#phone").val();
+                var email=$("#email").val();
+                var deli_addr=$("#deli_addr").val();
+                var deli_name=$("#deli_name").val();
+                var deli_phone=$("#deli_phone").val();
+                var deli_message=$("#deli_message").val();
+                var pay_method=$("#pay_method").val();
+                
+                
+                if(name != "" && phone != "" && email != "" && deli_addr != "" && deli_name != "" && deli_phone != "" && deli_message != "" && pay_method != ""){
+                    // 비밀번호가 일치하는지 확인
+                        $("#pay").removeAttr("disabled"); // 회원가입 버튼 활성화
+                } else {
+                    $("#pay").attr("disabled", "disabled"); // 모든 필수 입력 칸이 채워지지 않은 경우 회원가입 버튼 비활성화
+                }
+                
+            });
+        });
+        
         IMP.init("imp03167257");
-
+		
         function requestPay() {
+        	
           IMP.request_pay({
             pg: "kakaopay",
             pay_method: "card",

@@ -137,11 +137,11 @@ public class ProductsDAO {
 	}
 	
 	// 상품 상세 조회 정보 가져오는 메소드
-	public ProductsDTO selectProduct(String productId) {
+	public ProductsDTO selectProduct(String prod_id) {
 		System.out.println("ProductsDAO 방문 selectProduct");
 		
 		SqlSession sqlSession = factory.openSession();
-		ProductsDTO result = sqlSession.selectOne("selectProduct", productId);
+		ProductsDTO result = sqlSession.selectOne("selectProduct", prod_id);
 		sqlSession.close();
 		System.out.println(result); 
 		
