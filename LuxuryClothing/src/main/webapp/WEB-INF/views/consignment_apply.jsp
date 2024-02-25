@@ -145,6 +145,7 @@
                                         <input type="file" name="yongImg" id="yongImg" class="file" onchange="yongImageView(event);">
                                         <div id="yongImage_container"></div>
                                         <div id="yongImageUpname_container"></div>
+                                        <input type="button" onclick="uploadFile();" value="조회">
                                     </div>
                                 </td>
                             </tr>
@@ -200,6 +201,12 @@
 			</form>
 		</div>
 	</div>
+	
+	<form id="uploadForm">
+	    <input type="file" name="file"/>
+	</form>
+
+
 
 	<%@include file="footer.jsp"%>
 	
@@ -300,7 +307,6 @@
 					// html 태그 생성
 					document.querySelector("div#mainImageUpname_container").appendChild(deleteButton);	// 삭제버튼 생성
 					document.querySelector("div#mainImageUpname_container").appendChild(brTag);			// br 생성
-					console.log("이미지 없는 경우")
 					
 					// 삭제 버튼 클릭시 이벤트 발생
 					deleteButton.addEventListener("click", function () {
@@ -373,7 +379,6 @@
 					// html 태그 생성
 					document.querySelector("div#subImageUpname_container").appendChild(deleteButton);	// 삭제버튼 생성
 					document.querySelector("div#subImageUpname_container").appendChild(brTag);			// br 생성
-					console.log("이미지 없는 경우")
 					
 					// 삭제 버튼 클릭시 이벤트 발생
 					deleteButton.addEventListener("click", function () {
@@ -446,7 +451,6 @@
 					// html 태그 생성
 					document.querySelector("div#yongImageUpname_container").appendChild(deleteButton);	// 삭제버튼 생성
 					document.querySelector("div#yongImageUpname_container").appendChild(brTag);			// br 생성
-					console.log("이미지 없는 경우")
 					
 					// 삭제 버튼 클릭시 이벤트 발생
 					deleteButton.addEventListener("click", function () {
@@ -460,6 +464,39 @@
 				reader.readAsDataURL(image);	// 이미지 보여짐
 			}
 		}
+	</script>
+	
+	<script type="text/javascript">
+	function uploadFile() {
+		console.log('uploadFile 방문');
+		
+	    $('#file').val( $('#yongImg').val() );
+	    var file = $('#uploadForm')[0];
+	    
+	    var formData = new FormData(file);
+	    formData.append('file', file);
+
+	    console.log(file);
+	    $('#goods_price').val( 21000 );
+	    
+	    $.ajax({
+	        url: 'yongImg.do',
+	        type: 'POST',
+	        data: formData,
+	        contentType : false ,
+	        processData : false ,
+	        success: function(data) {
+	            console.log(data);
+	            console.log('파일 업로드 성공!');
+	            
+	            
+	        },
+	        error: function(e) {
+	            console.log('파일 업로드 실패!');
+	        } 
+	    });
+	}
+	
 	</script>
 	
 </body>

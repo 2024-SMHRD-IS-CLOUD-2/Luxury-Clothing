@@ -71,7 +71,12 @@
 	    <version>05Nov2002</version>
 	</dependency>
 	<!-- 이미지 업로드 관련 메이븐 END-->
-
+	
+	<dependency>
+	 	<groupId>org.zeroturnaround</groupId>
+	    <artifactId>zt-exec</artifactId>
+	    <version>1.12</version>
+	</dependency>
 
 <!-- 
 	<dependency>

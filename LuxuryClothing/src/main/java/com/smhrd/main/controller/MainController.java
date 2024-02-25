@@ -28,7 +28,7 @@ import com.smhrd.purchases.controller.PaySuccess;
 import com.smhrd.purchases.controller.OrderHistoryCon;
 import com.smhrd.purchases.controller.PayEndPageCon;
 
-@WebServlet(urlPatterns={"*.do", ""})
+@WebServlet(urlPatterns={"*.do", ""}) // *.do ㅣ .do로 : 끝나는 모든 요청
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -84,27 +84,33 @@ public class MainController extends HttpServlet {
 		handlerMapping.put("/csgnApplyPage.do", new CsgnApplyPageCon());
 		handlerMapping.put("/csgnApply.do", new CsgnApplyCon());
 		handlerMapping.put("/consignmentGuide.do", new CsgnGuideCon());
+		
 		handlerMapping.put("/product_detail.do", new ProductDetailCon());
 		handlerMapping.put("/payment.do", new PayPageCon());
+		handlerMapping.put("/yongImg.do", new YongImgCon());
 		
 		// 상품 이미지
+//		handlerMapping.put("/ProductImageUpload.do", new ProductsImageUploadCon() );	// 이미지 업로드 테스트용
 		handlerMapping.put("/test_ImageUpload.do", new TEST_ImageUpload() );
-//		handlerMapping.put("/ProductImageUpload.do", new ProductsImageUploadCon() );
 		handlerMapping.put("/ProductSelect.do", new ProductsImageSelectCon() );
 		
 		// 관리자단
 		handlerMapping.put("/adminUsers.do", new AdminUserCon() );
 		handlerMapping.put("/adminSearchProducts.do", new AdminSearchProductsCon() );
 		handlerMapping.put("/adminProducts.do", new AdminProductCon() );
-		// 관리자 상품관리에서 수정버튼 누르면 해당 내용으로 업데이트
-		handlerMapping.put("/adminProductUpdate.do", new adminProductUpdateCon() );
-		// 관리자 상품관리에서 삭제버튼 누르면 해당 상품 삭제
-		handlerMapping.put("/adminProductDelete.do", new adminProductDeleteCon() );
+		handlerMapping.put("/adminProductUpdate.do", new adminProductUpdateCon() );	// 관리자 상품관리에서 수정버튼 누르면 해당 내용으로 업데이트
+		handlerMapping.put("/adminProductDelete.do", new adminProductDeleteCon() );	// 관리자 상품관리에서 삭제버튼 누르면 해당 상품 삭제
 
 		// 결제
 		handlerMapping.put("/paySuccess.do", new PaySuccess());
 		handlerMapping.put("/payEndPage.do", new PayEndPageCon());
 		handlerMapping.put("/orderHistory.do", new OrderHistoryCon());
+		
+		// 마이페이지
+		handlerMapping.put("/csgnOfficerCrown.do", new CsgnOfficerCrownCon());	// 위탁상품관리
+		handlerMapping.put("/userMyProductDelete.do", new UserProductDeleteCon());	// 위탁상품관리
+		handlerMapping.put("/userMyProductSellUpdate.do", new UserMyProductSellUpdate());	// 위탁상품관리
+		
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -132,29 +138,6 @@ public class MainController extends HttpServlet {
 		con = handlerMapping.get(mapping);
 		
 		if(con != null) {
-			
-//			// 이미지 등록하는 객체
-//			if(mapping.equals("/csgnApply.do")) {
-//				String savePath = "C:\\Users\\smhrd4\\git\\repository2\\LuxuryClothing\\src\\main\\webapp\\resources\\assets\\images\\products"; 
-//				int maxSize = 1024 * 1024 * 10 ; 
-//				
-//				// 최대 용량 10 MB
-//				String encoding = "UTF-8"; // 인코딩 방식
-//				DefaultFileRenamePolicy realName = null;
-//				
-//				// 프로젝트내 파일 등록
-//				MultipartRequest multi = new MultipartRequest(
-//						request // 요청객체 
-//						, savePath
-//						, maxSize
-//						, encoding
-//						, realName = new DefaultFileRenamePolicy() // 파일 이름 재정의
-//				);
-//				
-//				System.out.println("ProductsImageUploadCon realName : " + realName);
-//				System.out.println("ProductsImageUploadCon multi 사이즈 : " + maxSize);
-//				System.out.println("ProductsImageUploadCon multi 경로 : " + savePath);
-//			}
 			nextPage = con.execute(request, response);
 		}
 		
