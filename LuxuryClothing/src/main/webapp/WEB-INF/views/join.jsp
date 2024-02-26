@@ -200,6 +200,31 @@ https://templatemo.com/tm-571-hexashop
             });
         });
 
+        /* function checkDuplicate() {
+            // 입력된 아이디 가져오기
+            var id = $('#id').val();
+            
+            // AJAX를 이용한 서버 통신
+            $.ajax({
+                type: 'POST', // HTTP 요청 방식
+                url: 'checkDuplicateId.do', // 요청을 보낼 서버의 URL
+                data: {id: id}, // 서버로 보낼 데이터
+                success: function(response) {
+                    // 서버로부터의 응답을 받았을 때 실행할 콜백 함수
+                    if (response === 'true') {
+                        // 아이디가 중복되지 않은 경우
+                        $('#idMessage').text('사용 가능한 아이디입니다.').css('color', 'green');
+                    } else {
+                        // 아이디가 중복된 경우
+                        $('#idMessage').text('이미 사용 중인 아이디입니다.').css('color', 'red');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // AJAX 요청 실패 시 실행할 콜백 함수
+                    console.error('AJAX request failed:', error);
+                }
+            });
+        } */
     $(function(){
         $("#alert-success").hide();
         $("#alert-danger").hide();
