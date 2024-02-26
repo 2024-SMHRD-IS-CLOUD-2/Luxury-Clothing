@@ -32,9 +32,10 @@
 				src="${path}/resources/assets/images/products/${prod_mainImage.file_name}">
 		</div>
 
+	<%-- 서브 이미지
 		<c:forEach var="arr" items="${prod_subImages}" varStatus="status">
 			<img src="${path}/resources/assets/images/products/${arr.file_name}">
-		</c:forEach>
+		</c:forEach> --%>
 
 		<div class="product-details">
 			<%-- <c:set var="product" value="<%=request.getAttribute("product_detail")%>"></c:set> --%>
