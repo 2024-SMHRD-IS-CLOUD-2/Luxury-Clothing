@@ -197,8 +197,8 @@
         });
 
         function goBack() {
-			window.history.back();
-		}
+         window.history.back();
+      }
         
         function checkSame() {
             // 체크박스가 체크되었는지 확인
@@ -246,13 +246,13 @@
         });
         
         IMP.init("imp03167257");
-		
+      
         function requestPay() {
-        	
+           
           IMP.request_pay({
             pg: "kakaopay",
             pay_method: "card",
-            merchant_uid: "test_fa${prod.prod_id}",
+            merchant_uid: "test_fadsdsfddd${prod.prod_id}",
             name: "${prod.prod_name}",
             amount: ${prod.prod_price},
             popup: true,
@@ -277,7 +277,6 @@
                  
                  console.log(user_id);
                  console.log(prod_price);
-                 console.log(paid_amout);
                  console.log(status);
                  console.log(pay_method);
                  console.log(prod_id);
