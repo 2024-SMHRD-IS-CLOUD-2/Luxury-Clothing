@@ -23,7 +23,7 @@ public class CsgnApplyCon implements Controller {
 		
 		////////////////////////////////// 이미지 등록 ///////////////////////////////////////////
 		// 파일을 저장할 경로 설정
-		String savePath = "C:\\Users\\SMHRD\\git\\repository2\\LuxuryClothing\\src\\main\\webapp\\resources\\assets\\images\\products"; 
+		String savePath = "C:\\Users\\smhrd4\\git\\repository2\\LuxuryClothing\\src\\main\\webapp\\resources\\assets\\images\\products"; 
 		int maxSize = 1024 * 1024 * 10 ; 
 		
 		// 최대 용량 10 MB
