@@ -65,7 +65,6 @@ OCR 기반 영수증 활용 중고 명품 판매 플랫폼
 </table>
 
 
-
 ### ✔ 6.시스템 아키텍처
 ![시스템아키텍처](https://github.com/2024-SMHRD-IS-CLOUD-2/LuxuryClothing/assets/158141404/5fd6d43d-4c7d-4530-946c-d0b718e3025e)
 
@@ -83,40 +82,38 @@ OCR 기반 영수증 활용 중고 명품 판매 플랫폼
 
 
 ### ✔ 10.화면구성
--- 이건 찾아봐야할듯
-
+![20](https://github.com/2024-SMHRD-IS-CLOUD-2/LuxuryClothing/assets/158141404/c8cd5041-44b8-43cf-a81c-755c3250d0a2)
+![21](https://github.com/2024-SMHRD-IS-CLOUD-2/LuxuryClothing/assets/158141404/64a8e335-b754-4a01-a346-7bb2faf57e07)
+![22](https://github.com/2024-SMHRD-IS-CLOUD-2/LuxuryClothing/assets/158141404/235e621b-4b24-470d-afe1-ba91ec07bd3f)
 
 ### ✔ 11.팀원역할
 <table>
-  <tr>
-    <td align="center"><img src="https://item.kakaocdn.net/do/fd49574de6581aa2a91d82ff6adb6c0115b3f4e3c2033bfd702a321ec6eda72c" width="100" height="100"/></td>
-    <td align="center"><img src="https://mb.ntdtv.kr/assets/uploads/2019/01/Screen-Shot-2019-01-08-at-4.31.55-PM-e1546932545978.png" width="100" height="100"/></td>
-    <td align="center"><img src="https://mblogthumb-phinf.pstatic.net/20160127_177/krazymouse_1453865104404DjQIi_PNG/%C4%AB%C4%AB%BF%C0%C7%C1%B7%BB%C1%EE_%B6%F3%C0%CC%BE%F0.png?type=w2" width="100" height="100"/></td>
-    <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="100"/></td>
-    <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
-  </tr>
-  <tr>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-  </tr>
-  <tr>
+    <tr>
+    <td align="center"><strong>전석균</strong></td>
     <td align="center"><b>Frontend</b></td>
+        <td>교과서적인 코딩만 공부하다가 프로젝트를 진행하면서 배웠던 개념들을 왜 쓰는지 이해할 수 있었고,실전에 부딪치며 좋은 경험을 한 것 같습니다.</td>
+    </tr>
+<tr>
+    <td align="center"><strong>전송민</strong></td>
     <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Deep Learning</b></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-  </tr>
-</table>
+        <td>계획에 맞춘 기능들을 일정다 구현하고 싶었으나,생각한데로 이루어지지 않아 자신의 한계와 부족함을 다시 한번 느낄 수 있는 시간이 였습니다..</td>
+    </tr>
+    <tr>
+    <td align="center"><strong>문성진</strong></td>
+    <td align="center"><b>Frontend</b></td>
+        <td>좀 더 세세한 기능들을 구현해 보고 싶었지만 자신의 개발 능력이 부족하다는 것을 알게 되어 많은 것을 생각하게 된 시간이었습니다.</td>
+    </tr>
+    <tr>
+    <td align="center"><strong>구희철</strong></td>
+    <td align="center"><b>Frontend</b></td>
+        <td>이번 프로젝트에서 Front를 맡아서 했는데 제 실력이 많이 부족하다는 것을 알았고, 앞으로 풀스텍 개발자를 목표로 열심히 공부하겠습니다.</td>
+    </tr>
+    <tr>
+    <td align="center"><strong>김하늘</strong></td>
+    <td align="center"><b>Frontend</b></td>
+        <td>이번에 Front를 하면서 기본적인 기본기 자체가 매우 부족하단 걸 느끼고 열심히 공부해야겠다고 느꼈습니다.</td>
+    </tr>
+   </table>
 
 ### ✔ 12.트러블슈팅
 ![트러블슈팅1](https://github.com/2024-SMHRD-IS-CLOUD-2/LuxuryClothing/assets/158141404/4d4fa080-34a2-455b-acb7-fc2fcfb91772)
