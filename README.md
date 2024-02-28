@@ -2,9 +2,13 @@
 
 ### ✔ 2.서비스소개 
 OCR 기반 영수증 활용 중고 명품 판매 플랫폼
+위탁 서비스를 통한 편리한 거래 기능
+- 다양한 상품을 개인에게 맞는 이번 주 상품 추천 구매 기능
+- 적정한 가격과 신뢰를 기반한 명품 의류 판매
+- 검색 및 필터링 기능  
 
 ### ✔ 3.프로젝트기간
-2024.1.16 ~ 2.26
+2024 1. 16 ~ 2024. 2. 26
 
 ### ✔ 4.주요기능
 - OCR을 이용한 영수증 인증
@@ -31,28 +35,28 @@ OCR 기반 영수증 활용 중고 명품 판매 플랫폼
         <td>
         <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/>
             <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/>
-            <img src="https://img.shields.io/badge/KakaoMap-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white"/>
+            <img src="https://img.shields.io/badge/eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white"/>
         </td>
     </tr>
      <tr>
         <td>DATABASE</td>
         <td>
            <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/> 
-            <img src="https://img.shields.io/badge/KakaoMap-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white"/>
+           <img src="https://img.shields.io/badge/MyBatis-1D2D35?style=for-the-badge&logo=MyBatis&logoColor=white"/>
         </td>
     </tr>
      <tr>
-        <td>WAS</td>
+        <td>AWS</td>
         <td>
-            <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/>
-            <img src="https://img.shields.io/badge/KakaoMap-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Apache Tomcat 9.0-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/>
         </td>
     </tr>
      <tr>
-        <td>PYTON</td>
+        <td>PYTHON</td>
         <td>
-            <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/>
-            <img src="https://img.shields.io/badge/KakaoMap-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white"/>
+            <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+            <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=numpy&logoColor=white"/>
+            <img src="https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
         </td>
     </tr>
     <tr>
