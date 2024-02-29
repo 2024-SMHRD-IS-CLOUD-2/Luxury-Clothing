@@ -94,7 +94,7 @@ OCR 기반 영수증 활용 중고 명품 판매 플랫폼
 <table>
     <tr>
     <td align="center"><strong>전석균</strong></td>
-    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>PM,Front,Back-end</b></td>
         <td>교과서적인 코딩만 공부하다가 프로젝트를 진행하면서 배웠던 개념들을 왜 쓰는지 이해할 수 있었고,실전에 부딪치며 좋은 경험을 한 것 같습니다.</td>
     </tr>
 <tr>
