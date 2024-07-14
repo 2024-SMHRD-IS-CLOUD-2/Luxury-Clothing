@@ -74,7 +74,8 @@ OCR 기반 영수증 활용 중고 명품 판매 플랫폼
 
 
 ### ✔ 7.유스케이스
-![유스케이스](https://github.com/2024-SMHRD-IS-CLOUD-2/LuxuryClothing/assets/158141404/ed0d9f4e-a9e7-418b-863f-dacabc849bf4)
+![유스케이스](https://github.com/user-attachments/assets/872a887c-b10c-4304-884e-bb96558bd6bf)
+
 
 
 ### ✔ 8.서비스 흐름도
